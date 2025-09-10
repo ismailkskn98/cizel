@@ -99,7 +99,7 @@ export default function MainCarousel() {
                                                         transition={{ delay: 0.2, duration: 0.6 }}
                                                         className="inline-block"
                                                     >
-                                                        <span className="inline-flex items-center rounded-full bg-black/20 text-white px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30">
+                                                        <span className="hidden sm:inline-flex items-center rounded-full bg-black/20 text-white px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30">
                                                             {slide.subtitle}
                                                         </span>
                                                     </motion.div>
