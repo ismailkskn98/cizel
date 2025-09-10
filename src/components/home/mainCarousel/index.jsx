@@ -1,27 +1,46 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Image from 'next/image';
+import { IoIosArrowForward } from 'react-icons/io';
 
 const slides = [
-    { img: '/images/carousel/1.jpg', title: 'Soldaki Yazı', desc: 'Sağdaki Yazı (1 saniye sonra)' },
-    { img: '/images/carousel/2.jpg', title: 'Başlık 2', desc: 'Açıklama 2' },
-    { img: '/images/carousel/3.jpg', title: 'Başlık 3', desc: 'Açıklama 3' },
-];
+    {
+        id: 1,
+        image: "/images/carousel/1.jpg",
+        title: "Güvenle Yükseliyoruz",
+        subtitle: "İnşaat Sektöründe Lider",
+        description:
+            "Modern teknoloji ve deneyimli ekibimizle, her projede mükemmelliği hedefliyoruz. Güvenilir çözümler sunarak sektörde öncü olmaya devam ediyoruz.",
+        cta: "Projelerimizi Keşfedin",
+    },
+    {
+        id: 2,
+        image: "/images/carousel/2.jpg",
+        title: "Modern Yapılar",
+        subtitle: "Çağdaş Mimari Çözümler",
+        description:
+            "Sürdürülebilir ve estetik tasarımlarla, yaşam kalitesini artıran projeler geliştiriyoruz. Her detayda kalite ve yenilik anlayışımızı yansıtıyoruz.",
+        cta: "Tasarımları İnceleyin",
+    },
+    {
+        id: 3,
+        image: "/images/carousel/3.jpg",
+        title: "Geleceği İnşa Ediyoruz",
+        subtitle: "Yenilikçi Teknolojiler",
+        description:
+            "Akıllı bina sistemleri ve çevre dostu malzemelerle, gelecek nesillere yaşanabilir mekanlar bırakıyoruz. Teknoloji ve doğa uyumunu sağlıyoruz.",
+        cta: "Geleceği Görün",
+    },
+]
 
 export default function MainCarousel() {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [loaded, setLoaded] = useState({});
-
-    function handleImageLoaded(i) {
-        setLoaded(prev => ({ ...prev, [i]: true }));
-    }
 
     return (
         <section className="fluid relative -mt-24 h-screen w-full overflow-hidden bg-black">
@@ -42,65 +61,94 @@ export default function MainCarousel() {
             </button>
 
             <Swiper
-                modules={[Autoplay, Navigation, Pagination]}
+                modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 slidesPerView={1}
-                spaceBetween={0}
                 loop
-                autoplay={{ delay: 4000 }}
+                autoplay={{ delay: 4500 }}
                 onSlideChange={(sw) => setActiveIndex(sw.realIndex)}
                 navigation={{ prevEl: '#carousel-prev', nextEl: '#carousel-next' }}
                 pagination={{ el: '#carousel-pagination', clickable: true }}
                 className="h-full w-full"
             >
-                {slides.map((s, i) => {
-                    const isActive = activeIndex === i;
-                    const canPlay = isActive && loaded[i];
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={slide.id} className="relative">
+                        <div className="relative h-full w-full">
+                            <div
+                                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                                style={{ backgroundImage: `url(${slide.image})` }}
+                            />
 
-                    const baseDelay = 0.35 + i * 0.05;
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+                            <div className="absolute inset-0 bg-black/20" />
 
-                    return (
-                        <SwiperSlide key={i}>
-                            <article className="relative flex h-full items-center justify-center text-white">
-                                <Image
-                                    src={s.img}
-                                    alt="cizel carousel"
-                                    width={1800}
-                                    height={900}
-                                    priority={i === 0}
-                                    onLoadingComplete={() => handleImageLoaded(i)}
-                                    className="absolute inset-0 h-full w-full object-cover"
-                                />
+                            <div className="w-full max-w-5xl relative z-10 flex h-full items-center">
+                                <div className="mx-auto px-6 lg:px-8">
+                                    <div className="max-w-2xl">
+                                        <AnimatePresence mode="wait">
+                                            {activeIndex === index && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 30 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -30 }}
+                                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                                    className="space-y-6"
+                                                >
+                                                    <motion.div
+                                                        initial={{ opacity: 0, x: -20 }}
+                                                        animate={{ opacity: 1, x: 0 }}
+                                                        transition={{ delay: 0.2, duration: 0.6 }}
+                                                        className="inline-block"
+                                                    >
+                                                        <span className="inline-flex items-center rounded-full bg-black/20 text-white px-4 py-2 text-sm font-medium backdrop-blur-sm border border-primary/30">
+                                                            {slide.subtitle}
+                                                        </span>
+                                                    </motion.div>
 
-                                <div className="relative z-10 px-6 text-center">
-                                    <motion.h2
-                                        initial={{ opacity: 0, x: -40 }}
-                                        animate={canPlay ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                                        transition={{ delay: baseDelay, duration: 0.6 }}
-                                        className="text-4xl font-bold md:text-5xl"
-                                    >
-                                        {s.title}
-                                    </motion.h2>
+                                                    <motion.h1
+                                                        initial={{ opacity: 0, y: 20 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ delay: 0.4, duration: 0.8 }}
+                                                        className="text-5xl font-bold leading-tight text-white lg:text-7xl font-heading"
+                                                        style={{ fontFamily: "var(--font-space-grotesk)" }}
+                                                    >
+                                                        {slide.title}
+                                                    </motion.h1>
 
-                                    <motion.p
-                                        initial={{ opacity: 0, x: 40 }}
-                                        animate={canPlay ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-                                        transition={{ delay: baseDelay + 0.5, duration: 0.6 }}
-                                        className="mt-4 text-lg md:text-xl"
-                                    >
-                                        {s.desc}
-                                    </motion.p>
+                                                    <motion.p
+                                                        initial={{ opacity: 0, y: 20 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ delay: 0.6, duration: 0.8 }}
+                                                        className="text-lg leading-relaxed text-white/90 max-w-2xl font-body"
+                                                        style={{ fontFamily: "var(--font-dm-sans)" }}
+                                                    >
+                                                        {slide.description}
+                                                    </motion.p>
+
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 20 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ delay: 0.8, duration: 0.8 }}
+                                                    >
+                                                        <button
+                                                            className="group flex items-center gap-1 bg-black/20 text-white backdrop-blur-lg px-6 py-3 hover:bg-black/90 text-base font-light transition-all duration-300 cursor-pointer"
+                                                        >
+                                                            <span>{slide.cta}</span>
+                                                            <IoIosArrowForward className="transition-transform group-hover:translate-x-1" />
+                                                        </button>
+                                                    </motion.div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
                                 </div>
-
-                                <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/50 to-transparent" />
-                                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/50 to-transparent" />
-                            </article>
-                        </SwiperSlide>
-                    );
-                })}
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
             <div
                 id="carousel-pagination"
-                className="pointer-events-auto absolute !bottom-12 !left-1/2 z-20 -translate-x-1/2"
+                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-12 !right-4 z-20"
             />
         </section>
     );
