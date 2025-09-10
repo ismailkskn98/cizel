@@ -19,7 +19,7 @@ export default function Stats() {
                     className="relative group"
                 >
                     <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 text-center">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-100 " />
                         <div className="relative">
                             <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
                             <div className="text-3xl font-bold text-foreground mb-2 font-heading">

@@ -30,7 +30,7 @@ export default function Features() {
                     className="group"
                 >
                     <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-2xl p-8 text-center">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-100" />
                         <div className="relative">
                             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                                 <feature.icon className="h-8 w-8 text-primary" />

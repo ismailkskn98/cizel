@@ -90,7 +90,7 @@ export default function ProjectsCarousel() {
                         768: { slidesPerView: 2, spaceBetween: 24 },
                         1024: { slidesPerView: 3, spaceBetween: 32 },
                     }}
-                    className="!pb-20"
+                    className="!py-12"
                 >
                     {projects.map((project, index) => (
                         <SwiperSlide key={`${project.id}-${index}`}>

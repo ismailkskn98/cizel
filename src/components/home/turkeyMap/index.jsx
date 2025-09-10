@@ -20,7 +20,7 @@ export default function TurkeyMap({ hasProjects = [] }) {
             <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{ scale: 2000, center: [35, 39] }}
-                className="w-full h-auto -mt-60"
+                className="w-full h-auto -mt-72"
             >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>

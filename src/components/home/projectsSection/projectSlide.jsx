@@ -39,7 +39,7 @@ export default function ProjectSlide({ project, index, current, onClick }) {
     return (
         <motion.div
             ref={slideRef}
-            className="relative h-[500px] cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl group"
+            className="relative h-[500px] cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-sm group"
             onClick={() => onClick(index)}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -96,17 +96,17 @@ export default function ProjectSlide({ project, index, current, onClick }) {
                     <div className="flex items-center justify-between">
                         <div className="space-y-2">
                             <div className="flex items-center gap-2 text-sm">
-                                <MapPin className="h-4 w-4 text-primary" />
+                                <MapPin className="h-4 w-4 text-white" />
                                 <span>{project.location}</span>
                             </div>
                             <div className="flex items-center gap-2 text-sm">
-                                <Building className="h-4 w-4 text-primary" />
+                                <Building className="h-4 w-4 text-white" />
                                 <span>{project.units}</span>
                             </div>
                         </div>
 
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 transition-all duration-300 hover:bg-primary hover:scale-110">
-                            <ArrowRight className="h-5 w-5 text-primary group-hover:text-white transition-colors" />
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-primary/30 transition-all duration-300 hover:bg-primary hover:scale-110">
+                            <ArrowRight className="h-5 w-5 text-white group-hover:text-white transition-colors" />
                         </div>
                     </div>
                 </Opacity>

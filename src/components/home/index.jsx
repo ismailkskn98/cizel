@@ -3,6 +3,7 @@ import TurkeyMap from './turkeyMap'
 import MainCarousel from './mainCarousel';
 import HeroBottom from './heroBottom';
 import ProjectsSection from './projectsSection';
+import CizelMarquee from './cizelMarquee';
 
 export default function Home() {
     const iller = ["Konya", "Ankara", "Malatya", "Balıkesir", "Çanakkale"];
@@ -12,6 +13,7 @@ export default function Home() {
             <HeroBottom />
             <ProjectsSection />
             <TurkeyMap hasProjects={iller} />
+            <CizelMarquee />
         </main>
     )
 }
