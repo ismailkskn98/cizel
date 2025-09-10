@@ -43,7 +43,7 @@ export default function MainCarousel() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="fluid relative -mt-24 h-[60vh] xl:h-screen w-full overflow-hidden bg-black">
+        <section className="fluid relative z-40 -mt-24 h-[60vh] xl:h-screen w-full overflow-hidden bg-black">
             <button
                 id="carousel-prev"
                 aria-label="Önceki slayt"
