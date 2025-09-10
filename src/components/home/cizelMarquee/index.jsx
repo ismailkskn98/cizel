@@ -18,7 +18,9 @@ export default function CizelMarquee() {
                 title='Güvenilir İş Ortaklarımız'
                 description='Sektördeki önde gelen markalarla birlikte çalışarak, kaliteli hizmet anlayışımızı sürdürüyoruz. Müşteri memnuniyetini ön planda tutarak, güvenilir çözümler sunuyoruz.'
             />
-            <div className="mt-8">
+            <article className="relative mt-8 overflow-hidden">
+                <div className='w-24 absolute inset-y-0 left-0 bg-gradient-to-r from-white to-transparent z-10'></div>
+                <div className='w-24 absolute inset-y-0 right-0 bg-gradient-to-l from-white to-transparent z-10'></div>
                 <Marquee
                     speed={50}
                     gradient={true}
@@ -38,7 +40,7 @@ export default function CizelMarquee() {
                         </div>
                     ))}
                 </Marquee>
-            </div>
+            </article>
         </section>
     )
 }
