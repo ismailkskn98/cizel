@@ -43,11 +43,11 @@ export default function MainCarousel() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="fluid relative -mt-24 h-screen w-full overflow-hidden bg-black">
+        <section className="fluid relative -mt-24 h-[60vh] xl:h-screen w-full overflow-hidden bg-black">
             <button
                 id="carousel-prev"
                 aria-label="Önceki slayt"
-                className="group absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20 cursor-pointer"
+                className="hidden md:inline-block group absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20 cursor-pointer"
             >
                 <span className="block h-5 w-5 rotate-180 border-y-2 border-l-2 border-white/90 group-hover:!rotate-180 transition-all duration-200"></span>
             </button>
@@ -55,7 +55,7 @@ export default function MainCarousel() {
             <button
                 id="carousel-next"
                 aria-label="Sonraki slayt"
-                className="group absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20 cursor-pointer"
+                className="hidden md:inline-block group absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20 cursor-pointer"
             >
                 <span className="block h-5 w-5 rotate-180 border-y-2 border-l-2 border-white/90 group-hover:!rotate-180 transition-all duration-200"></span>
             </button>
@@ -91,7 +91,7 @@ export default function MainCarousel() {
                                                     animate={{ opacity: 1, y: 0 }}
                                                     exit={{ opacity: 0, y: -30 }}
                                                     transition={{ duration: 0.8, ease: "easeOut" }}
-                                                    className="space-y-6"
+                                                    className="space-y-3 md:space-y-6"
                                                 >
                                                     <motion.div
                                                         initial={{ opacity: 0, x: -20 }}
@@ -99,7 +99,7 @@ export default function MainCarousel() {
                                                         transition={{ delay: 0.2, duration: 0.6 }}
                                                         className="inline-block"
                                                     >
-                                                        <span className="inline-flex items-center rounded-full bg-black/20 text-white px-4 py-2 text-sm font-medium backdrop-blur-sm border border-primary/30">
+                                                        <span className="inline-flex items-center rounded-full bg-black/20 text-white px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30">
                                                             {slide.subtitle}
                                                         </span>
                                                     </motion.div>
@@ -108,7 +108,7 @@ export default function MainCarousel() {
                                                         initial={{ opacity: 0, y: 20 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.4, duration: 0.8 }}
-                                                        className="text-5xl font-bold leading-tight text-white lg:text-7xl font-heading"
+                                                        className="text-4xl md:text-5xl font-bold leading-tight text-white lg:text-7xl font-heading"
                                                         style={{ fontFamily: "var(--font-space-grotesk)" }}
                                                     >
                                                         {slide.title}
@@ -118,7 +118,7 @@ export default function MainCarousel() {
                                                         initial={{ opacity: 0, y: 20 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.6, duration: 0.8 }}
-                                                        className="text-lg leading-relaxed text-white/90 max-w-2xl font-body"
+                                                        className="text-sm md:text-lg leading-relaxed text-white/90 max-w-2xl font-body"
                                                         style={{ fontFamily: "var(--font-dm-sans)" }}
                                                     >
                                                         {slide.description}
@@ -130,7 +130,7 @@ export default function MainCarousel() {
                                                         transition={{ delay: 0.8, duration: 0.8 }}
                                                     >
                                                         <button
-                                                            className="group flex items-center gap-1 bg-black/20 text-white backdrop-blur-lg px-6 py-3 hover:bg-black/90 text-base font-light transition-all duration-300 cursor-pointer"
+                                                            className="group flex items-center gap-1 bg-black/20 text-white backdrop-blur-lg px-6 py-3 hover:bg-black/90 text-sm sm:text-base font-light transition-all duration-300 cursor-pointer"
                                                         >
                                                             <span>{slide.cta}</span>
                                                             <IoIosArrowForward className="transition-transform group-hover:translate-x-1" />
@@ -148,7 +148,7 @@ export default function MainCarousel() {
             </Swiper>
             <div
                 id="carousel-pagination"
-                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-12 !left-auto !right-4 z-20"
+                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-5 md:!bottom-12 !left-auto !right-4 z-20"
             />
         </section>
     );

@@ -13,7 +13,7 @@ export default function CizelMarquee() {
     ]
 
     return (
-        <section className='w-full mx-auto max-w-10/12 -mt-20 pb-32'>
+        <section className='w-full mx-auto max-w-10/12 -mt-2 sm:-mt-8 md:-mt-20 pb-24 lg:pb-32'>
             <SectionHeader
                 title='Güvenilir İş Ortaklarımız'
                 description='Sektördeki önde gelen markalarla birlikte çalışarak, kaliteli hizmet anlayışımızı sürdürüyoruz. Müşteri memnuniyetini ön planda tutarak, güvenilir çözümler sunuyoruz.'

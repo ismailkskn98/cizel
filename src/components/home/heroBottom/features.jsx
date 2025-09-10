@@ -11,7 +11,7 @@ const features = [
     {
         icon: Globe,
         title: "Uluslararası Deneyim",
-        description: "Karadağ, İngiltere ve Irak'ta aktif projeler",
+        description: "Uluslararası projelerde aktif faaliyet",
     },
     {
         icon: Zap,
