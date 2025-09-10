@@ -3,6 +3,7 @@ import { ComposableMap, Geographies, Geography, Annotation } from "react-simple-
 import { useRouter } from "next/navigation";
 import { Tooltip } from "react-tooltip"; // ek paket
 import "react-tooltip/dist/react-tooltip.css";
+import TurkeyMapHeader from "./header";
 
 const geoUrl = "/geo/turkiye-iller.json";
 
@@ -10,15 +11,16 @@ export default function TurkeyMap({ hasProjects = [] }) {
     const router = useRouter();
 
     const goProjects = (provinceName) => {
-        router.push(`/projeler?il=${encodeURIComponent(provinceName)}`);
+        router.push(`#`);
     };
 
     return (
         <section className="w-full relative">
+            <TurkeyMapHeader />
             <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{ scale: 2000, center: [35, 39] }}
-                className="w-full h-auto"
+                className="w-full h-auto -mt-60"
             >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
@@ -48,7 +50,7 @@ export default function TurkeyMap({ hasProjects = [] }) {
                                             vectorEffect: "non-scaling-stroke"
                                         },
                                         hover: {
-                                            fill: "#962332",
+                                            fill: "#ba2c3e",
                                             stroke: "#6e1a25",
                                             strokeWidth: 0.75,
                                             outline: "none",

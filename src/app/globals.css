@@ -141,7 +141,7 @@ body {
   }
 }
 
-.swiper-pagination-bullet {
+#carousel-pagination .swiper-pagination-bullet {
   cursor: pointer;
   width: 0;
   height: 0;
@@ -151,17 +151,13 @@ body {
   border-bottom: 10px solid rgba(255, 255, 255, 0.5);
   opacity: 1 !important;
   transition: all 0.3s ease-in;
-  margin: 1rem;
+  margin: 0.75rem;
 }
 
 #carousel-pagination .swiper-pagination-bullet-active {
   border-bottom-color: rgba(255, 255, 255, 0.95);
   transform: translateY(-2px) scale(1.2);
-}
-
-#carousel-pagination .swiper-pagination-bullet-active {
-  border-top-color: rgba(255, 255, 255, 0.95);
-  transform: translateY(-2px) scale(1.2);
+  filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.25));
 }
 
 #carousel-prev span,
@@ -185,4 +181,36 @@ body {
 #carousel-next:hover span {
   transform: rotate(-180deg);
   transition: all 0.2s ease-in;
+}
+
+#projects-prev span,
+#projects-next span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-right: 2px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+#projects-prev span {
+  transform: rotate(135deg);
+}
+
+#projects-next span {
+  transform: rotate(-45deg);
+}
+
+#projects-prev:hover span,
+#projects-next:hover span {
+  transform: rotate(-180deg);
+  transition: all 0.2s ease-in;
+}
+
+@media (max-width: 767px) {
+  #projects-pagination {
+    right: 50% !important;
+    bottom: 8px !important;
+    transform: translateX(50%);
+    flex-direction: row !important;
+  }
 }

@@ -17,7 +17,7 @@ export default function Navbar({ items = [] }) {
 
     return (
         <nav
-            className="relative z-20 h-full flex items-center gap-6 col-span-4 justify-self-center"
+            className="relative z-20 h-full hidden lg:flex items-center gap-6 col-span-4 justify-self-center"
             onMouseLeave={() => setOpen(null)}
         >
             {items.map((item, i) => {

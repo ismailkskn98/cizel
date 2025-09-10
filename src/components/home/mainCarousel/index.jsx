@@ -148,7 +148,7 @@ export default function MainCarousel() {
             </Swiper>
             <div
                 id="carousel-pagination"
-                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-12 !right-4 z-20"
+                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-12 !left-auto !right-4 z-20"
             />
         </section>
     );
