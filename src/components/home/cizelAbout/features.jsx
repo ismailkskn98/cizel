@@ -29,16 +29,16 @@ export default function Features() {
                     delay={index * 0.1}
                     className="group"
                 >
-                    <div className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-2xl p-8 text-center">
+                    <section className="bg-background/60 backdrop-blur-sm border border-border/30 rounded-2xl p-8 text-center">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-100" />
-                        <div className="relative">
+                        <article className="relative">
                             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                                 <feature.icon className="h-8 w-8 text-primary" />
                             </div>
                             <h3 className="text-xl font-semibold text-foreground mb-3 font-heading">{feature.title}</h3>
                             <p className="text-muted-foreground font-body">{feature.description}</p>
-                        </div>
-                    </div>
+                        </article>
+                    </section>
                 </Opacity>
             ))}
         </Stagger>

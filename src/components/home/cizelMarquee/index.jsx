@@ -17,6 +17,7 @@ export default function CizelMarquee() {
             <SectionHeader
                 title='Güvenilir İş Ortaklarımız'
                 description='Sektördeki önde gelen markalarla birlikte çalışarak, kaliteli hizmet anlayışımızı sürdürüyoruz. Müşteri memnuniyetini ön planda tutarak, güvenilir çözümler sunuyoruz.'
+                className='mb-8 lg:mb-20'
             />
             <article className="relative mt-8 overflow-hidden">
                 <div className='w-24 absolute inset-y-0 left-0 bg-gradient-to-r from-white to-transparent z-10'></div>

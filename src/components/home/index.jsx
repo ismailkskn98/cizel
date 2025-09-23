@@ -1,10 +1,10 @@
 import React from 'react'
 import TurkeyMap from './turkeyMap'
-import HeroBottom from './heroBottom';
 import ProjectsSection from './projectsSection';
 import CizelMarquee from './cizelMarquee';
 import GoTop from '../goTop';
 import Hero from './hero';
+import CizelAbout from './cizelAbout';
 
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <main className='relative w-full fluid gridContainer'>
             <Hero />
-            <HeroBottom />
+            <CizelAbout />
             <ProjectsSection />
             <TurkeyMap hasProjects={iller} />
             <CizelMarquee />
