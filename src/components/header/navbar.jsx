@@ -17,13 +17,13 @@ export default function Navbar({ items = [] }) {
 
     return (
         <nav
-            className="relative z-20 h-full hidden lg:flex items-center gap-6 col-span-4 justify-self-center"
+            className="relative col-span-3 hidden lg:flex items-center gap-6 justify-self-center px-5 py-4 rounded-2xl bg-black/20 backdrop-blur-lg z-20"
             onMouseLeave={() => setOpen(null)}
         >
             {items.map((item, i) => {
                 if (!item.dropdown) {
                     return (
-                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-white/80 text-sm hover:text-white transition-colors ${pathname === item.href ? "text-logo-red" : ""}`}>
+                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-white/80 text-xs 3xl:text-sm hover:text-white transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
                             {item.label}
                         </Link>
                     );
@@ -39,7 +39,7 @@ export default function Navbar({ items = [] }) {
                     >
                         <button
                             type="button"
-                            className="uppercase text-sm flex items-center gap-1 text-white/80 hover:text-white transition-colors"
+                            className="uppercase text-xs 3xl:text-sm flex items-center gap-1 text-white/80 hover:text-white transition-colors"
                             onClick={() => setOpen(isOpen ? null : i)}
                             aria-expanded={isOpen}
                             aria-haspopup="menu"
@@ -66,7 +66,7 @@ export default function Navbar({ items = [] }) {
                                         <motion.main
                                             layoutId="active"
                                             transition={spring}
-                                            className="bg-black/10 backdrop-blur-xl text-white rounded-md border border-black/10 overflow-hidden px-1 py-2.5"
+                                            className="bg-black/20 backdrop-blur-xl text-white rounded-md border border-black/30 overflow-hidden px-1 py-2.5"
                                         >
                                             <motion.div layout className="p-2 w-56">
                                                 {item.dropdownItems?.map((dropItem, idx) => (
@@ -74,7 +74,7 @@ export default function Navbar({ items = [] }) {
                                                         href={dropItem.href}
                                                         onClick={() => setOpen(null)}
                                                         key={idx}
-                                                        className="block px-3 py-2 text-xs uppercase tracking-wide rounded"
+                                                        className="block px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer"
                                                     >
                                                         {dropItem.label}
                                                     </Link>

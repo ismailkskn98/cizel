@@ -46,11 +46,11 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
     };
 
     return (
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="outline"
-                    className={`relative z-10 h-10 rounded-full border-none transition-colors !bg-black/10 ${className}`}
+                    className={`relative z-10 h-10 rounded-full border-none transition-colors !bg-black/20 border border-black/30 !cursor-pointer ${className}`}
                     aria-label="Dili değiştir"
                 >
                     <span className="mr-2 inline-flex items-center justify-center text-white">
