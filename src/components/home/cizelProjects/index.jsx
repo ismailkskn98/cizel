@@ -15,7 +15,7 @@ export default function CizelProjects() {
     const rightColumnRef = useRef(null);
     const containerRef = useRef(null);
 
-    useEffect(() => {
+    useGSAP(() => {
 
         const leftColumn = leftColumnRef.current;
         const rightColumn = rightColumnRef.current;
@@ -29,8 +29,8 @@ export default function CizelProjects() {
             scrollTrigger: {
                 trigger: container,
                 start: "top top",
-                end: () => `+=${images.length * 200}%`,
-                scrub: 2,
+                end: () => `+=${images.length * 100}%`,
+                scrub: 5,
                 invalidateOnRefresh: true,
             }
         })
@@ -39,12 +39,12 @@ export default function CizelProjects() {
             })
             .fromTo(rightColumn, {
                 y: () => verticalScroll.offsetHeight - rightColumn.scrollHeight
-            }, { y: 0 }, "<");
+            }, { y: 0 }, 0);
 
         ScrollTrigger.create({
             trigger: container,
             start: "top top",
-            end: () => `+=${images.length * 200}%`,
+            end: () => `+=${images.length * 100}%`,
             invalidateOnRefresh: true,
             pin: true,
         })
@@ -53,16 +53,15 @@ export default function CizelProjects() {
         <main id='smooth-wrapper' className='w-full'>
             <section id='smooth-content' className=''>
                 {/* sm altında -> flex, items-center, justify-center, h-screen */}
-                <main ref={containerRef} className='relative grid grid-cols-2'>
+                <main ref={containerRef} className='relative h-screen lg:h-auto flex lg:grid lg:grid-cols-2 items-center lg:items-center justify-center lg:justify-start overflow-hidden'>
                     {/* sm altında-> z-index-1, bg-gray-300, w-[80%], h-[60%], border-radius-20px, color-white */}
-                    <article id='context' className='sticky top-0 flex flex-col items-center justify-center text-center'>
+                    <article id='context' className='relative z-10 w-[80%] lg:w-auto h-[60%] lg:h-auto flex flex-col items-center justify-center text-center text-white lg:text-black bg-black/20 backdrop-blur-lg lg:backdrop-blur-none lg:bg-transparent overflow-hidden rounded-lg lg:rounded-none'>
                         {/* sm altında-> mb-30px */}
-                        <div id='title' className=''>
+                        <div id='title' className='flex items-center gap-1 mb-3'>
                             {/* sm altında-> color white */}
-                            <h2 className='text-[clamp(1.6rem,3vw,3rem)] font-normal'>Lorem, ipsum.</h2>
+                            <h2 className='text-3xl font-medium'>Lorem, ipsum.</h2>
                             <div id='word-underline' className='w-min flex flex-col items-center mx-auto'>
-                                <span>lorem</span>
-                                <h2>Lorem, ipsum.</h2>
+                                <span className='text-3xl font-medium'>lorem</span>
                                 {/* sm altında, fill->#ffdc50 */}
                                 <svg viewBox="0 0 1321 88" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -71,14 +70,19 @@ export default function CizelProjects() {
                                 </svg>
                             </div>
                         </div>
-                        <p className='text-[clamp(0.9rem,2.5vw,1.4rem)] font-light w-[80%] leading-relaxed'>Lorem ipsum dolor sit amet consectetur adipisicing elit. A temporibus quasi iure in. Laborum aliquid soluta maxime accusamus repellendus. Quidem aut accusamus fugiat ex unde doloremque autem pariatur quisquam distinctio ullam facilis expedita voluptate numquam commodi voluptates ut ratione, eius necessitatibus magni incidunt, nulla at. Saepe voluptates facilis neque reprehenderit?</p>
+                        <p className='2xl:text-lg font-light w-[80%] leading-relaxed'>Lorem ipsum dolor sit amet consectetur adipisicing elit. A temporibus quasi iure in. Laborum aliquid soluta maxime accusamus repellendus. Quidem aut accusamus fugiat ex unde doloremque autem pariatur quisquam distinctio ullam facilis expedita voluptate numquam commodi voluptates ut ratione, eius necessitatibus magni incidunt, nulla at. Saepe voluptates facilis neque reprehenderit?</p>
                     </article>
-                    {/* sm altında -> absolute, top-0, left-0 */}
-                    <article ref={verticalScrollRef} className='relative flex w-full h-screen overflow-hidden'>
+                    <article ref={verticalScrollRef} className='absolute top-0 left-0 lg:top-auto lg:left-auto lg:relative flex w-full h-screen overflow-hidden'>
                         <div className='z-10 absolute inset-x-0 top-[-1px] w-full h-16 bg-gradient-to-t from-transparent to-white'></div>
                         <div className='z-10 absolute inset-x-0 bottom-[-1px] w-full h-16 bg-gradient-to-b from-transparent to-white'></div>
                         <section id='column' className='w-1/2'>
-                            <div ref={leftColumnRef} className='img-wrapper will-change-transform'>
+                            <div ref={leftColumnRef} className='img-wrapper grid grid-cols-1 place-items-stretch will-change-transform'>
+                                <div id='frame' className='flex w-full p-2'>
+                                    <Image src="/images/carousel/1.jpg" alt="cizel project" width={500} height={700} className='block h-auto max-w-full rounded-xl' />
+                                </div>
+                                <div id='frame' className='flex w-full p-2'>
+                                    <Image src="/images/carousel/2.jpg" alt="cizel project" width={500} height={700} className='block h-auto max-w-full rounded-xl' />
+                                </div>
                                 <div id='frame' className='flex w-full p-2'>
                                     <Image src="/images/carousel/1.jpg" alt="cizel project" width={500} height={700} className='block h-auto max-w-full rounded-xl' />
                                 </div>
@@ -100,7 +104,13 @@ export default function CizelProjects() {
                             </div>
                         </section>
                         <section id='column' className='w-1/2'>
-                            <div ref={rightColumnRef} className='img-wrapper will-change-transform'>
+                            <div ref={rightColumnRef} className='img-wrapper grid grid-cols-1 place-items-stretch will-change-transform'>
+                                <div id='frame' className='flex w-full p-2'>
+                                    <Image src="/images/carousel/1.jpg" alt="cizel project" width={500} height={700} className='block h-auto max-w-full rounded-xl' />
+                                </div>
+                                <div id='frame' className='flex w-full p-2'>
+                                    <Image src="/images/carousel/2.jpg" alt="cizel project" width={500} height={700} className='block h-auto max-w-full rounded-xl' />
+                                </div>
                                 <div id='frame' className='flex w-full p-2'>
                                     <Image src="/images/carousel/1.jpg" alt="cizel project" width={500} height={700} className='block h-auto max-w-full rounded-xl' />
                                 </div>

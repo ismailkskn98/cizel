@@ -61,7 +61,7 @@ export default async function RootLayout({ children, params }) {
 
   return (
     <html lang="tr">
-      <ReactLenis root>
+      <ReactLenis root options={{ touchMultiplier: 0 }}>
         <body
           className={`${manropeFont.variable} ${strongFont.variable} w-full font-manrope antialiased`}
         >

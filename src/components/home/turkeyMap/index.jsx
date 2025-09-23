@@ -11,7 +11,10 @@ export default function TurkeyMap({ hasProjects = [] }) {
     const router = useRouter();
 
     const goProjects = (provinceName) => {
-        router.push(`#`);
+        const hasProject = hasProjects.some(item => item.toLowerCase() == provinceName.toLowerCase());
+        if (hasProject) {
+            router.push(`/projects/${provinceName.toLowerCase()}`);
+        }
     };
 
     return (
