@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import { IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
 import CarouselButtons from './carouselButtons';
+import CustomButton from '@/components/common/customButton';
 
 const slides = [
     {
@@ -51,7 +52,7 @@ export default function Hero() {
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 slidesPerView={1}
                 loop
-                autoplay={{ delay: 4500 }}
+                autoplay={{ delay: 45000000 }}
                 onSlideChange={(sw) => setActiveIndex(sw.realIndex)}
                 navigation={{ prevEl: '#carousel-prev', nextEl: '#carousel-next' }}
                 pagination={{ el: '#carousel-pagination', clickable: true }}
@@ -116,12 +117,7 @@ export default function Hero() {
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.8, duration: 0.8 }}
                                                     >
-                                                        <button
-                                                            className="group flex items-center gap-1 bg-black/20 text-white backdrop-blur-lg px-6 py-3 hover:bg-black/90 text-sm sm:text-base font-light transition-all duration-300 cursor-pointer"
-                                                        >
-                                                            <span>{slide.cta}</span>
-                                                            <IoIosArrowForward className="transition-transform group-hover:translate-x-1" />
-                                                        </button>
+                                                        <CustomButton href={slide.link} />
                                                     </motion.div>
                                                 </motion.div>
                                             )}
@@ -135,7 +131,7 @@ export default function Hero() {
             </Swiper>
             <div
                 id="carousel-pagination"
-                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-5 md:!bottom-12 !left-auto !right-4 z-20"
+                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-5 md:!bottom-12 !left-auto !right-9 z-20"
             />
         </section>
     );

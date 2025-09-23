@@ -1,0 +1,18 @@
+import { Link } from '@/i18n/navigation'
+import Image from 'next/image'
+import React from 'react'
+import { IoIosArrowForward } from 'react-icons/io'
+
+export default function CustomButton({ href, bgcolor = "bg-white", svgcolor = "fill-white", textcolor = "text-white" }) {
+    return (
+        <Link href={href} className={`relative w-fit flex items-center rounded-full border-2 border-white/50 p-0.5 pr-6 overflow-hidden !cursor-pointer`}>
+            <span className={`flex-1 px-4 py-2 bg-transparent ${textcolor} rounded-full text-sm`}>Contact us</span>
+            <span className={`absolute inset-y-0 right-0 flex items-center justify-center w-6 rounded-r-3xl ${bgcolor}`}>
+                <IoIosArrowForward className="relative z-20 text-black text-sm mr-1" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={`absolute -z-10 -left-13 scale-[200%] bottom-0 h-full w-auto rotate-[223deg] ${svgcolor}`} width="24" height="24">
+                    <path d="M0 24h24C5.745 24 0 13.255 0 0z'/%3E%3C/svg%3E" />
+                </svg>
+            </span>
+        </Link>
+    )
+}
