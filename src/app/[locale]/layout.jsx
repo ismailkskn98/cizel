@@ -43,6 +43,11 @@ const manropeFont = localFont({
   variable: "--font-manrope"
 })
 
+const strongFont = localFont({
+  src: "../../fonts/Strong.woff",
+  variable: "--font-strong",
+})
+
 export const metadata = {
   title: "Cizel",
   description: "Cizel",
@@ -58,7 +63,7 @@ export default async function RootLayout({ children, params }) {
     <html lang="tr">
       <ReactLenis root>
         <body
-          className={`${manropeFont.variable} w-full font-manrope antialiased`}
+          className={`${manropeFont.variable} ${strongFont.variable} w-full font-manrope antialiased`}
         >
           <Header />
           <NextIntlClientProvider>

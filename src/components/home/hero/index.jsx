@@ -7,8 +7,6 @@ import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { IoIosArrowForward } from 'react-icons/io';
-import Image from 'next/image';
 import CarouselButtons from './carouselButtons';
 import CustomButton from '@/components/common/customButton';
 
@@ -53,7 +51,7 @@ export default function Hero() {
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 slidesPerView={1}
                 loop
-                autoplay={{ delay: 45000000 }}
+                autoplay={{ delay: 4500 }}
                 onSlideChange={(sw) => {
                     setActiveIndex(sw.realIndex);
                     setSubtitle(slides[sw.realIndex].subtitle);
@@ -73,9 +71,9 @@ export default function Hero() {
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
                             <div className="absolute inset-0 -z-10 bg-black/20" />
 
-                            <div className="w-full max-w-5xl flex h-full items-center">
+                            <div className="w-full mx-auto max-w-5xl flex h-full items-center text-center">
                                 <div className="mx-auto px-6 lg:px-8">
-                                    <div className="max-w-2xl">
+                                    <div className="w-full">
                                         <AnimatePresence mode="wait">
                                             {activeIndex === index && (
                                                 <motion.div
@@ -89,7 +87,7 @@ export default function Hero() {
                                                         initial={{ opacity: 0, y: 20 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.4, duration: 0.8 }}
-                                                        className="text-4xl md:text-5xl font-bold leading-tight text-white lg:text-7xl font-heading"
+                                                        className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl leading-tight text-white font-medium"
                                                         style={{ fontFamily: "var(--font-space-grotesk)" }}
                                                     >
                                                         {slide.title}
@@ -99,7 +97,7 @@ export default function Hero() {
                                                         initial={{ opacity: 0, y: 20 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.6, duration: 0.8 }}
-                                                        className="text-sm md:text-lg leading-relaxed text-white/90 max-w-2xl font-body"
+                                                        className="text-sm md:text-lg leading-relaxed text-white/90 max-w-2xl text-center mx-auto"
                                                         style={{ fontFamily: "var(--font-dm-sans)" }}
                                                     >
                                                         {slide.description}
@@ -109,8 +107,9 @@ export default function Hero() {
                                                         initial={{ opacity: 0, y: 20 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.8, duration: 0.8 }}
+                                                        className='w-fit mx-auto'
                                                     >
-                                                        <CustomButton href={slide.link} />
+                                                        <CustomButton href={slide.link} bgcolor='bg-white' fillcolor='fill-white' iconcolor='text-black' />
                                                     </motion.div>
                                                 </motion.div>
                                             )}
@@ -127,7 +126,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="hero-slogan-clip z-20 absolute left-1/2 -translate-x-1/2 bottom-0 inline-flex items-center justify-center w-full max-w-sm bg-white text-black/90 px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30"
+                    className="hero-slogan-clip z-20 absolute left-1/2 -translate-x-1/2 bottom-0 inline-flex items-center justify-center w-full max-w-sm bg-white text-black px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30"
                 >
                     {subtitle}
                 </motion.span>

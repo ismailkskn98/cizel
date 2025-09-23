@@ -6,6 +6,7 @@
   --text-xsm: 0.8125rem; /* 13px */
   --text-xss: 0.5625rem; /* 9px */
   --font-manrope: var(--font-manrope);
+  --font-strong: var(--font-strong);
   /* renkler */
   --color-logo-red: #962332;
   --color-sidebar-ring: var(--sidebar-ring);
@@ -167,7 +168,7 @@ body {
 }
 
 #carousel-pagination .swiper-pagination-bullet-active {
-  border-bottom-color: rgba(255, 255, 255, 0.95);
+  border-bottom-color: #962332;
   transform: translateY(-2px) scale(1.2);
   filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.25));
 }

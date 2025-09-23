@@ -50,17 +50,17 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="outline"
-                    className={`relative z-10 h-10 rounded-full border-none transition-colors !bg-black/20 border border-black/30 !cursor-pointer ${className}`}
+                    className={`relative z-10 !w-fit h-10 rounded-full border-none transition-colors !bg-black/20 border border-black/30 !cursor-pointer ${className}`}
                     aria-label="Dili değiştir"
                 >
-                    <span className="mr-2 inline-flex items-center justify-center text-white">
-                        <Globe className="h-4 w-4" aria-hidden="true" />
+                    <span className="inline-flex items-center justify-center text-white">
+                        <Globe className="h-3 3xl:h-4 w-3 3xl:w-4" aria-hidden="true" />
                     </span>
                     {compact ? (
                         <span className="text-sm tabular-nums text-white">{currentLang.flag}</span>
                     ) : (
                         <span className="inline-flex items-center gap-2 text-white">
-                            <span className="text-sm font-medium">{currentLang.label}</span>
+                            <span className="text-xs 3xl:text-sm font-medium">{currentLang.label}</span>
                         </span>
                     )}
                 </Button>
