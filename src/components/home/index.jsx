@@ -5,6 +5,7 @@ import CizelMarquee from './cizelMarquee';
 import GoTop from '../goTop';
 import Hero from './hero';
 import CizelAbout from './cizelAbout';
+import CizelProjects from './cizelProjects';
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <main className='relative w-full fluid gridContainer'>
             <Hero />
             <CizelAbout />
+            <CizelProjects />
             <ProjectsSection />
             <TurkeyMap hasProjects={iller} />
             <CizelMarquee />

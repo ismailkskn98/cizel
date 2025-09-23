@@ -30,7 +30,7 @@ export default function Footer() {
     ]
 
     return (
-        <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+        <footer className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
             {/* Ana Footer İçeriği */}
             <div className="gridContainer py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
