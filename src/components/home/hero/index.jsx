@@ -44,6 +44,7 @@ const slides = [
 
 export default function Hero() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [subtitle, setSubtitle] = useState(slides[0].subtitle);
 
     return (
         <section className="fluid p-2 bg-white relative z-40 mt-[-6rem] h-[60vh] xl:h-screen w-full overflow-hidden">
@@ -53,7 +54,10 @@ export default function Hero() {
                 slidesPerView={1}
                 loop
                 autoplay={{ delay: 45000000 }}
-                onSlideChange={(sw) => setActiveIndex(sw.realIndex)}
+                onSlideChange={(sw) => {
+                    setActiveIndex(sw.realIndex);
+                    setSubtitle(slides[sw.realIndex].subtitle);
+                }}
                 navigation={{ prevEl: '#carousel-prev', nextEl: '#carousel-next' }}
                 pagination={{ el: '#carousel-pagination', clickable: true }}
                 className="h-full w-full rounded-3xl"
@@ -62,14 +66,14 @@ export default function Hero() {
                     <SwiperSlide key={slide.id} className="relative">
                         <div className="relative h-full w-full">
                             <div
-                                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                                className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
                                 style={{ backgroundImage: `url(${slide.image})` }}
                             />
 
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-                            <div className="absolute inset-0 bg-black/20" />
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+                            <div className="absolute inset-0 -z-10 bg-black/20" />
 
-                            <div className="w-full max-w-5xl relative z-10 flex h-full items-center">
+                            <div className="w-full max-w-5xl flex h-full items-center">
                                 <div className="mx-auto px-6 lg:px-8">
                                     <div className="max-w-2xl">
                                         <AnimatePresence mode="wait">
@@ -81,17 +85,6 @@ export default function Hero() {
                                                     transition={{ duration: 0.8, ease: "easeOut" }}
                                                     className="space-y-3 md:space-y-6"
                                                 >
-                                                    <motion.div
-                                                        initial={{ opacity: 0, x: -20 }}
-                                                        animate={{ opacity: 1, x: 0 }}
-                                                        transition={{ delay: 0.2, duration: 0.6 }}
-                                                        className="inline-block"
-                                                    >
-                                                        <span className="hidden sm:inline-flex items-center rounded-full bg-black/20 text-white px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30">
-                                                            {slide.subtitle}
-                                                        </span>
-                                                    </motion.div>
-
                                                     <motion.h1
                                                         initial={{ opacity: 0, y: 20 }}
                                                         animate={{ opacity: 1, y: 0 }}
@@ -127,7 +120,17 @@ export default function Hero() {
                             </div>
                         </div>
                     </SwiperSlide>
-                ))}
+                )
+                )}
+                <motion.span
+                    key={activeIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="hero-slogan-clip z-20 absolute left-1/2 -translate-x-1/2 bottom-0 inline-flex items-center justify-center w-full max-w-sm bg-white text-black/90 px-4 py-2 text-xs sm:text-sm font-medium backdrop-blur-sm border border-primary/30"
+                >
+                    {subtitle}
+                </motion.span>
             </Swiper>
             <div
                 id="carousel-pagination"

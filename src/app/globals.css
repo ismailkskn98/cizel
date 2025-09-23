@@ -71,6 +71,10 @@ body {
   grid-column: 1 / -1;
 }
 
+.hero-slogan-clip {
+  clip-path: polygon(0 0, 100% 0, 77% 100%, 19% 100%);
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
