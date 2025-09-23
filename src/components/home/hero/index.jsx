@@ -8,6 +8,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { IoIosArrowForward } from 'react-icons/io';
+import Image from 'next/image';
+import CarouselButtons from './carouselButtons';
 
 const slides = [
     {
@@ -39,27 +41,12 @@ const slides = [
     },
 ]
 
-export default function MainCarousel() {
+export default function Hero() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="fluid relative z-40 -mt-24 h-[60vh] xl:h-screen w-full overflow-hidden bg-black">
-            <button
-                id="carousel-prev"
-                aria-label="Önceki slayt"
-                className="hidden md:inline-block group absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20 cursor-pointer"
-            >
-                <span className="block h-5 w-5 rotate-180 border-y-2 border-l-2 border-white/90 group-hover:!rotate-180 transition-all duration-200"></span>
-            </button>
-
-            <button
-                id="carousel-next"
-                aria-label="Sonraki slayt"
-                className="hidden md:inline-block group absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/20 transition hover:bg-white/20 cursor-pointer"
-            >
-                <span className="block h-5 w-5 rotate-180 border-y-2 border-l-2 border-white/90 group-hover:!rotate-180 transition-all duration-200"></span>
-            </button>
-
+        <section className="fluid p-2 bg-white relative z-40 mt-[-6rem] h-[60vh] xl:h-screen w-full overflow-hidden">
+            <CarouselButtons />
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 slidesPerView={1}
@@ -68,7 +55,7 @@ export default function MainCarousel() {
                 onSlideChange={(sw) => setActiveIndex(sw.realIndex)}
                 navigation={{ prevEl: '#carousel-prev', nextEl: '#carousel-next' }}
                 pagination={{ el: '#carousel-pagination', clickable: true }}
-                className="h-full w-full"
+                className="h-full w-full rounded-3xl"
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="relative">

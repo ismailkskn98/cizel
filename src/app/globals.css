@@ -50,6 +50,14 @@ body {
   min-height: 100vh;
 }
 
+html,
+body {
+  cursor: url("/images/cursor-kepcee.png") 0 0, auto;
+}
+* {
+  cursor: inherit;
+}
+
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr min(92%, 1550px) 1fr;
@@ -170,11 +178,11 @@ body {
 }
 
 #carousel-prev span {
-  transform: rotate(135deg);
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
 }
 
 #carousel-next span {
-  transform: rotate(-45deg);
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
 }
 
 #carousel-prev:hover span,
