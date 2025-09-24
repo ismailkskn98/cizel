@@ -30,11 +30,9 @@ export default function Footer() {
     ]
 
     return (
-        <footer className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-            {/* Ana Footer İçeriği */}
-            <div className="gridContainer py-16">
+        <footer className="w-full fluid p-2">
+            <div className="gridContainer py-16 bg-gradient-to-br rounded-3xl from-gray-900 via-gray-800 to-gray-900 text-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                    {/* Logo ve Açıklama */}
                     <div className="lg:col-span-1 space-y-6">
                         <div className="flex items-center space-x-4">
                             <Image
@@ -54,7 +52,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Hızlı Linkler */}
                     <div className="space-y-6">
                         <h3 className="text-lg font-semibold text-white border-b border-logo-red pb-2 w-fit">
                             Hızlı Linkler
@@ -74,7 +71,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Hizmetler */}
                     <div className="space-y-6">
                         <h3 className="text-lg font-semibold text-white border-b border-logo-red pb-2 w-fit">
                             Hizmetlerimiz
@@ -94,7 +90,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* İletişim Bilgileri */}
                     <div className="space-y-6">
                         <h3 className="text-lg font-semibold text-white border-b border-logo-red pb-2 w-fit">
                             İletişim
@@ -123,7 +118,6 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Sosyal Medya */}
                 <div className="mt-12 pt-8 border-t border-gray-700">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex items-center space-x-6">

@@ -27,8 +27,8 @@ const ContactForm = () => {
 
     return (
         <main className="bg-white rounded-3xl shadow-lg p-8">
-            <header className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <header className="flex flex-col items-start gap-2 mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">
                     Get in Touch
                 </h2>
                 <p className="text-gray-600 text-sm">
@@ -36,7 +36,7 @@ const ContactForm = () => {
                 </p>
             </header>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-start gap-4" role="form" aria-label="Contact form">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-start gap-6" role="form" aria-label="Contact form">
                 <article className="w-full">
                     <CustomInput
                         placeholder="Ad Soyad"
@@ -56,14 +56,7 @@ const ContactForm = () => {
                     />
                 </article>
 
-                <article className="w-full flex gap-2">
-                    <select
-                        id="country-code"
-                        className="px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
-                        aria-label="Country code"
-                    >
-                        <option>+90</option>
-                    </select>
+                <article className="w-full">
                     <CustomInput
                         type="tel"
                         placeholder="Phone number"
@@ -96,7 +89,7 @@ const ContactForm = () => {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-fit self-center bg-logo-red hover:bg-[#701a25] disabled:bg-[#e53c51] text-white font-medium py-3 px-6 rounded-full transition-colors duration-200 !cursor-pointer"
+                    className="w-fit self-center bg-logo-red hover:bg-[#701a25] disabled:bg-[#e53c51] text-white font-medium py-3 px-6 rounded-full transition-colors duration-200 !cursor-pointer mt-2"
                     aria-describedby="submit-status"
                 >
                     {isSubmitting ? "Submitting..." : "Submit"}
