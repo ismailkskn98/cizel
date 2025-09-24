@@ -74,9 +74,10 @@ export default function Navbar({ items = [] }) {
                                                         href={dropItem.href}
                                                         onClick={() => setOpen(null)}
                                                         key={idx}
-                                                        className="block px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer"
+                                                        className="flex px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer hover:bg-gray-50 group items-center transition-all duration-200"
                                                     >
-                                                        {dropItem.label}
+                                                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-logo-red">{">"}</span>
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-200">{dropItem.label}</span>
                                                     </Link>
                                                 ))}
                                             </motion.div>

@@ -31,7 +31,7 @@ export default function Footer() {
 
     return (
         <footer className="w-full fluid p-2">
-            <div className="gridContainer py-16 bg-gradient-to-br rounded-3xl from-gray-900 via-gray-800 to-gray-900 text-white">
+            <div className="gridContainer py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl text-white">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     <div className="lg:col-span-1 space-y-6">
                         <div className="flex items-center space-x-4">

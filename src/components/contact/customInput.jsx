@@ -24,7 +24,7 @@ const CustomInput = React.forwardRef(({
                 type={isTextarea ? undefined : type}
                 placeholder={placeholder}
                 className={cn(
-                    "w-full px-2.5 py-2 placeholder:text-xs border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-900 placeholder-gray-400",
+                    "w-full px-2.5 py-2 text-xs placeholder:text-xs border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-900 placeholder-gray-400",
                     error && "border-red-500 focus:ring-red-500 focus:border-red-500",
                     isTextarea && "resize-vertical min-h-[100px]"
                 )}
