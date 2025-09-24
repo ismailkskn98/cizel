@@ -18,7 +18,7 @@ const projects = [
         location: "Karaman",
         units: "998 Konut",
         status: "Tamamlandı",
-        image: "/images/carousel/1.jpg",
+        image: "/images/carousel/1.webp",
         description:
             "Karaman ili merkezinde gerçekleştirilen büyük ölçekli konut projesi. Modern yaşam standartlarına uygun tasarım.",
     },
@@ -29,7 +29,7 @@ const projects = [
         location: "Malatya",
         units: "1048 Konut + 83 Dükkan + 4 Fırın",
         status: "Devam Ediyor",
-        image: "/images/carousel/2.jpg",
+        image: "/images/carousel/2.webp",
         description:
             "Malatya'da karma kullanımlı büyük ölçekli kentsel dönüşüm projesi. Konut ve ticari alanları bir arada sunan modern yaşam merkezi.",
     },
@@ -40,7 +40,7 @@ const projects = [
         location: "İstanbul",
         units: "946 Konut + 81 Ticaret",
         status: "Planlama",
-        image: "/images/carousel/3.jpg",
+        image: "/images/carousel/3.webp",
         description:
             "İstanbul Arnavutköy'de gerçekleştirilen prestijli konut ve ticaret merkezi projesi. Şehrin dinamik yaşamına uygun modern tasarım.",
     },
@@ -51,7 +51,7 @@ const projects = [
         location: "Malatya",
         units: "1048 Konut + 83 Dükkan + 4 Fırın",
         status: "Devam Ediyor",
-        image: "/images/carousel/2.jpg",
+        image: "/images/carousel/2.webp",
         description:
             "Malatya'da karma kullanımlı büyük ölçekli kentsel dönüşüm projesi. Konut ve ticari alanları bir arada sunan modern yaşam merkezi.",
     },
@@ -62,7 +62,7 @@ const projects = [
         location: "İstanbul",
         units: "946 Konut + 81 Ticaret",
         status: "Planlama",
-        image: "/images/carousel/3.jpg",
+        image: "/images/carousel/3.webp",
         description:
             "İstanbul Arnavutköy'de gerçekleştirilen prestijli konut ve ticaret merkezi projesi. Şehrin dinamik yaşamına uygun modern tasarım.",
     },

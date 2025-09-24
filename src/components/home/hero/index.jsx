@@ -13,7 +13,7 @@ import CustomButton from '@/components/common/customButton';
 const slides = [
     {
         id: 1,
-        image: "/images/carousel/1.jpg",
+        image: "/images/carousel/1.webp",
         title: "Güvenle Yükseliyoruz",
         subtitle: "İnşaat Sektöründe Lider",
         description:
@@ -22,7 +22,7 @@ const slides = [
     },
     {
         id: 2,
-        image: "/images/carousel/2.jpg",
+        image: "/images/carousel/2.webp",
         title: "Modern Yapılar",
         subtitle: "Çağdaş Mimari Çözümler",
         description:
@@ -31,7 +31,7 @@ const slides = [
     },
     {
         id: 3,
-        image: "/images/carousel/3.jpg",
+        image: "/images/carousel/3.webp",
         title: "Geleceği İnşa Ediyoruz",
         subtitle: "Yenilikçi Teknolojiler",
         description:
@@ -126,7 +126,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="hero-slogan-clip z-20 absolute left-1/2 -translate-x-1/2 bottom-0 inline-flex items-center justify-center w-full max-w-xs bg-white text-black px-4 py-2 text-xs font-light"
+                    className=" z-20 absolute left-1/2 -translate-x-1/2 bottom-0 inline-flex items-center justify-center w-full max-w-xs rounded-t-2xl bg-white text-black px-4 py-2 text-xs font-light"
                 >
                     {subtitle}
                 </motion.span>

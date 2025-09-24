@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/navigation';
 
 const spring = {
     type: 'spring',
@@ -17,13 +17,13 @@ export default function Navbar({ items = [] }) {
 
     return (
         <nav
-            className="relative col-span-3 hidden lg:flex items-center gap-6 justify-self-center px-5 py-4 rounded-2xl bg-black/20 backdrop-blur-lg z-20"
+            className="relative col-span-3 hidden lg:flex items-center gap-6 justify-self-center px-6 py-4 rounded-b-3xl bg-white backdrop-blur-lg z-20 -mt-8"
             onMouseLeave={() => setOpen(null)}
         >
             {items.map((item, i) => {
                 if (!item.dropdown) {
                     return (
-                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-white/80 text-xs 3xl:text-sm hover:text-white transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
+                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-black/90 text-xs 3xl:text-sm font-medium hover:text-black transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
                             {item.label}
                         </Link>
                     );
@@ -39,7 +39,7 @@ export default function Navbar({ items = [] }) {
                     >
                         <button
                             type="button"
-                            className="uppercase text-xs 3xl:text-sm flex items-center gap-1 text-white/80 hover:text-white transition-colors"
+                            className="uppercase text-xs 3xl:text-sm flex items-center gap-1 text-black/90 hover:text-black font-medium transition-colors"
                             onClick={() => setOpen(isOpen ? null : i)}
                             aria-expanded={isOpen}
                             aria-haspopup="menu"
@@ -66,7 +66,7 @@ export default function Navbar({ items = [] }) {
                                         <motion.main
                                             layoutId="active"
                                             transition={spring}
-                                            className="bg-black/20 backdrop-blur-xl text-white rounded-md border border-black/30 overflow-hidden px-1 py-2.5"
+                                            className="bg-white backdrop-blur-xl text-black rounded-md border border-gray/200 overflow-hidden px-1 py-2.5"
                                         >
                                             <motion.div layout className="p-2 w-56">
                                                 {item.dropdownItems?.map((dropItem, idx) => (

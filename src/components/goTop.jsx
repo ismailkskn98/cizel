@@ -49,13 +49,13 @@ export default function GoTop() {
                         }}
                     >
                         <Tooltip>
-                            <TooltipTrigger className="cursor-pointer">
+                            <TooltipTrigger className="!cursor-pointer">
                                 <Image
                                     src='/images/harput.png'
                                     alt='Harput'
                                     width={300}
                                     height={300}
-                                    className='object-contain h-24 sm:h-28 md:h-36 xl:h-48 2xl:h-52 w-fit -z-10 pointer-events-none mix-blend-difference cursor-pointer'
+                                    className='object-contain h-24 sm:h-28 md:h-36 w-fit -z-10 pointer-events-none select-none'
                                 />
                             </TooltipTrigger>
                             <TooltipContent>

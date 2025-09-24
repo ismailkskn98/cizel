@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
@@ -13,10 +12,13 @@ import {
     DropdownMenuGroup,
 } from "@/components/ui/dropdown-menu";
 import { Check, Globe } from "lucide-react";
+import Image from "next/image";
+import { usePathname } from "@/i18n/navigation";
+import { useRouter } from "next/navigation";
 
 const LANGUAGES = [
-    { code: "tr", label: "Türkçe", flag: "🇹🇷" },
-    { code: "en", label: "English", flag: "🇬🇧" },
+    { code: "tr", label: "Türkçe", flag: "https://flagcdn.com/16x12/tr.png" },
+    { code: "en", label: "English", flag: "https://flagcdn.com/16x12/us.png" },
 ];
 
 export default function LanguageSwitcher({ compact = false, className = "" }) {
@@ -38,11 +40,8 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
 
     const handleSelect = (lang) => {
         setCurrent(lang.code);
-
-        // ŞİMDİLİK: sadece UI güncelliyoruz.
-        // İLERİDE next-intl ile:
-        // const rest = pathname.split("/").filter(Boolean).slice(1).join("/") || "";
-        // router.push(`/${lang.code}/${rest}`);
+        const rest = pathname.split("/").filter(Boolean).slice(1).join("/") || "";
+        router.push(`/${lang.code}/${rest}`);
     };
 
     return (
@@ -50,19 +49,15 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="outline"
-                    className={`relative z-10 !w-fit h-10 rounded-full border-none transition-colors !bg-black/20 border border-black/30 !cursor-pointer ${className}`}
+                    className={`relative z-10 !w-fit h-10 rounded-full border-none transition-colors !bg-white border border-gray-200 !cursor-pointer ${className}`}
                     aria-label="Dili değiştir"
                 >
-                    <span className="inline-flex items-center justify-center text-white">
+                    <span className="inline-flex items-center justify-center text-black">
                         <Globe className="h-3 3xl:h-4 w-3 3xl:w-4" aria-hidden="true" />
                     </span>
-                    {compact ? (
-                        <span className="text-sm tabular-nums text-white">{currentLang.flag}</span>
-                    ) : (
-                        <span className="inline-flex items-center gap-2 text-white">
-                            <span className="text-xs 3xl:text-sm font-medium">{currentLang.label}</span>
-                        </span>
-                    )}
+                    <span className="inline-flex items-center gap-2 text-black">
+                        <span className="text-xs 3xl:text-sm font-medium">{currentLang.label}</span>
+                    </span>
                 </Button>
             </DropdownMenuTrigger>
 
@@ -86,9 +81,10 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
                                 className="cursor-pointer text-xs"
                             >
                                 <span
-                                    className={`flex-1 ${lang.rtl ? "font-medium" : ""}`}
+                                    className={`flex-1 flex items-center gap-1.5 !cursor-pointer ${lang.rtl ? "font-medium" : ""}`}
                                     dir={lang.rtl ? "rtl" : "ltr"}
                                 >
+                                    <Image src={lang.flag} alt={lang.code} width={16} height={12} className="ml-2" />
                                     {lang.label}
                                 </span>
                                 {active ? (

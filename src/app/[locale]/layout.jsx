@@ -6,6 +6,7 @@ import { ReactLenis } from "@/lib/lenis";
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { getMessages } from 'next-intl/server';
 
 const manropeFont = localFont({
   src: [
@@ -59,17 +60,19 @@ export default async function RootLayout({ children, params }) {
     notFound();
   }
 
+  const messages = await getMessages();
+
   return (
-    <html lang="tr">
+    <html lang={locale}>
       <ReactLenis root options={{ touchMultiplier: 0 }}>
         <body
           className={`${manropeFont.variable} ${strongFont.variable} w-full font-manrope antialiased`}
         >
-          <Header />
-          <NextIntlClientProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Header />
             {children}
+            <Footer />
           </NextIntlClientProvider>
-          <Footer />
         </body>
       </ReactLenis>
     </html>
