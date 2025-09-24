@@ -36,18 +36,17 @@ const ContactForm = () => {
                 </p>
             </header>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" role="form" aria-label="Contact form">
-                <fieldset>
-                    <legend className="sr-only">Personal Information</legend>
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-start gap-4" role="form" aria-label="Contact form">
+                <article className="w-full">
                     <CustomInput
                         placeholder="Ad Soyad"
                         error={errors.adSoyad?.message}
                         {...register("adSoyad")}
                         aria-label="Full name"
                     />
-                </fieldset>
+                </article>
 
-                <div>
+                <article className="w-full">
                     <CustomInput
                         type="email"
                         placeholder="Your email"
@@ -55,12 +54,9 @@ const ContactForm = () => {
                         {...register("email")}
                         aria-label="Email address"
                     />
-                </div>
+                </article>
 
-                {/* Phone number with country code */}
-                <fieldset className="flex gap-2">
-                    <legend className="sr-only">Phone Number</legend>
-                    <label className="sr-only" htmlFor="country-code">Country Code</label>
+                <article className="w-full flex gap-2">
                     <select
                         id="country-code"
                         className="px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
@@ -76,18 +72,18 @@ const ContactForm = () => {
                         className="flex-1"
                         aria-label="Phone number"
                     />
-                </fieldset>
+                </article>
 
-                <div>
+                <article className="w-full">
                     <CustomInput
                         placeholder="Konu"
                         error={errors.konu?.message}
                         {...register("konu")}
                         aria-label="Subject"
                     />
-                </div>
+                </article>
 
-                <div>
+                <article className="w-full">
                     <CustomInput
                         placeholder="How can we help?"
                         error={errors.mesaj?.message}
@@ -95,12 +91,12 @@ const ContactForm = () => {
                         {...register("mesaj")}
                         aria-label="Message"
                     />
-                </div>
+                </article>
 
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-fit bg-logo-red hover:bg-[#701a25] disabled:bg-[#e53c51] text-white font-medium py-3 px-6 rounded-full transition-colors duration-200 !cursor-pointer"
+                    className="w-fit self-center bg-logo-red hover:bg-[#701a25] disabled:bg-[#e53c51] text-white font-medium py-3 px-6 rounded-full transition-colors duration-200 !cursor-pointer"
                     aria-describedby="submit-status"
                 >
                     {isSubmitting ? "Submitting..." : "Submit"}

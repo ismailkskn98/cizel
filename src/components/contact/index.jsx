@@ -13,7 +13,7 @@ export default function Contact() {
     return (
         <main className="w-full fluid gridContainer">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer bg-gradient-to-br from-blue-50 to-indigo-100 pb-20 pt-64 -mt-52">
+            <section className="fluid gridContainer bg-gradient-to-tl from-logo-red/20 to-logo-red/5 pb-20 pt-64 -mt-52">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <ContactContent />

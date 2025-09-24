@@ -5,15 +5,15 @@ const ContactContent = () => {
     return (
         <section className="space-y-8">
             <header>
-                <h1 className="text-4xl lg:text-5xl 2xl:text-6xl font-bold text-gray-900 mb-4">
-                    Contact Us
-                </h1>
-                <div className="space-y-1">
+                <article className="flex flex-col gap-4">
+                    <h1 className="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900">
+                        Contact Us
+                    </h1>
                     <p className="text-gray-600 w-full max-w-xs">
                         Email, call, or complete the form to learn how
                         Cizel can solve your messaging problem.
                     </p>
-                </div>
+                </article>
 
                 <article className="flex flex-col items-start gap-2 mt-4">
                     <Link href="mailto:info@cizel.com.tr" className="text-gray-900 hover:text-gray-950 text-sm underline !cursor-pointer">
