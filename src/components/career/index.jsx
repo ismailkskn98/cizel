@@ -2,7 +2,6 @@ import React from 'react'
 import PageTopSection from '../common/pageTopSection';
 import CareerContent from './careerContent';
 import CareerForm from './careerForm';
-import FAQ from '../common/faq';
 
 export default function Career() {
     const breadcrumbs = [
