@@ -1,5 +1,22 @@
 {
   "HomePage": {
     "title": "Hello world!"
+  },
+  "AboutPage": {
+    "title": "About Us",
+    "mainTitle": "A Brief of Our 15 Years of Success",
+    "description": "We are a full-service creative digital agency that offers site design, internet marketing, SEO, social media, web and app ui, email marketing, content writing, and web hosting to businesses large and small looking to better communicate their messages.",
+    "missionDescription": "By generating the most creative, inventive, sustainable, and eco-friendly digital products, we hope to become one of the world's leading developers, publishers, and distributors of interactive entertainment and information services.",
+    "teamDescription": "Our high-level professionals are also heavily involved in the development and enhancement of the young generation's potential by providing specialized IT training.",
+    "stats": {
+      "foundedYear": "2010",
+      "foundedYearLabel": "Founded In",
+      "projects": "85+",
+      "projectsLabel": "Completed Projects",
+      "experience": "15",
+      "experienceLabel": "Years of Experience",
+      "cities": "8",
+      "citiesLabel": "Cities We Work In"
+    }
   }
 }

@@ -23,7 +23,7 @@ export default function Navbar({ items = [] }) {
             {items.map((item, i) => {
                 if (!item.dropdown) {
                     return (
-                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-black/90 text-xs 3xl:text-sm font-medium hover:text-black transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
+                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-black/90 text-xs 3xl:text-sm hover:text-black transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
                             {item.label}
                         </Link>
                     );
@@ -39,7 +39,7 @@ export default function Navbar({ items = [] }) {
                     >
                         <button
                             type="button"
-                            className="uppercase text-xs 3xl:text-sm flex items-center gap-1 text-black/90 hover:text-black font-medium transition-colors"
+                            className="uppercase text-xs 3xl:text-sm flex items-center gap-1 text-black/90 hover:text-black transition-colors"
                             onClick={() => setOpen(isOpen ? null : i)}
                             aria-expanded={isOpen}
                             aria-haspopup="menu"

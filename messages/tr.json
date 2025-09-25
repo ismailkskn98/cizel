@@ -1,5 +1,22 @@
 {
   "HomePage": {
     "title": "Merhaba dünya!"
+  },
+  "AboutPage": {
+    "title": "Hakkımızda",
+    "mainTitle": "15 Yıllık Başarımızın Kısa Öyküsü",
+    "description": "Site tasarımı, internet pazarlama, SEO, sosyal medya, web ve uygulama UI, e-posta pazarlama, içerik yazımı ve web barındırma hizmetleri sunan tam hizmetli yaratıcı dijital ajansız. Mesajlarını daha iyi iletmek isteyen büyük ve küçük işletmelere hizmet veriyoruz.",
+    "missionDescription": "En yaratıcı, yenilikçi, sürdürülebilir ve çevre dostu dijital ürünleri üreterek, dünyanın önde gelen geliştirici, yayımcı ve interaktif eğlence ve bilgi hizmetleri dağıtıcılarından biri olmayı umuyoruz.",
+    "teamDescription": "Üst düzey profesyonellerimiz, özel BT eğitimi sağlayarak genç neslin potansiyelinin geliştirilmesi ve artırılmasında da büyük rol oynamaktadır.",
+    "stats": {
+      "foundedYear": "2010",
+      "foundedYearLabel": "Kuruluş Yılı",
+      "projects": "85+",
+      "projectsLabel": "Tamamlanan Proje",
+      "experience": "15",
+      "experienceLabel": "Yıllık Deneyim",
+      "cities": "8",
+      "citiesLabel": "Farklı İlde Çalışma"
+    }
   }
 }
