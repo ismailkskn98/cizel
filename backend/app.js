@@ -3,9 +3,9 @@ const app = express();
 const PORT = 3000;
 const version = "v1";
 
-const userRouter = require(`./${version}/routes/userRoutes.js`);
+const authRoutes = require(`./${version}/routes/authRoutes.js`);
 
-app.use("/users", userRouter);
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("Merhaba Express.js 🚀");
