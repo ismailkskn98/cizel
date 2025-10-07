@@ -7,7 +7,7 @@ import Opacity from "../../common/opacity"
 import { useLocale } from "next-intl"
 import { Link } from "@/i18n/navigation"
 
-export default function ProjectSlide({ project, index, current, onClick }) {
+export default function ProjectSlide({ project, index, onClick }) {
     const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
     const locale = useLocale();
 
@@ -15,7 +15,7 @@ export default function ProjectSlide({ project, index, current, onClick }) {
     return (
         <motion.section
             className="relative h-[450px] overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-sm group !cursor-pointer" onClick={() => onClick(index)}>
-            <Link href={`/projects/${project.location.toLowerCase()}/${JSON.parse(project.title)["tr"]}`} className="absolute inset-0 z-10" />
+            <Link href={`/projects/${project.location.toLowerCase()}/${project.slug}`} className="absolute inset-0 z-10" />
 
             <article className="absolute inset-0">
                 <img
@@ -27,17 +27,8 @@ export default function ProjectSlide({ project, index, current, onClick }) {
             </article>
 
             <article className="absolute top-6 right-6 z-10">
-                <Badge
-                    variant={
-                        project.status === "Tamamlandı"
-                            ? "default"
-                            : project.status === "Devam Ediyor"
-                                ? "secondary"
-                                : "outline"
-                    }
-                    className="backdrop-blur-md bg-white/10 border-white/20 text-white font-medium"
-                >
-                    {project.status}
+                <Badge className="backdrop-blur-md bg-white/10 border-white/20 text-white font-medium">
+                    {JSON.parse(project.projectStatus)[locale]}
                 </Badge>
             </article>
 

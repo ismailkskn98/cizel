@@ -31,7 +31,7 @@ export default function GoTop() {
 
     return (
         <div
-            className='group w-fit flex flex-col items-center fixed bottom-4 right-4 cursor-pointer z-30'
+            className='group w-fit flex flex-col items-center fixed bottom-4 right-4 cursor-pointer z-50'
             onClick={goTop}
         >
             <AnimatePresence>
