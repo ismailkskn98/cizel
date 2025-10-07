@@ -8,15 +8,15 @@ import CizelAbout from './cizelAbout';
 import CizelProjects from './cizelProjects';
 
 
-export default function Home() {
-    const iller = ["Konya", "Ankara", "Malatya", "Balıkesir", "Çanakkale"];
+export default function Home({ projects }) {
+    const locations = projects.map(proje => JSON.parse(proje.json_template).location);
     return (
         <main className='relative w-full fluid gridContainer'>
             <Hero />
             <CizelAbout />
-            <CizelProjects />
-            <ProjectsSection />
-            <TurkeyMap hasProjects={iller} />
+            <CizelProjects projects={projects} />
+            <ProjectsSection projects={projects} />
+            <TurkeyMap hasProjects={locations} />
             <CizelMarquee />
             <GoTop />
         </main>

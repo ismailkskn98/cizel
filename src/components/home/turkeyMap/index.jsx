@@ -29,7 +29,6 @@ export default function TurkeyMap({ hasProjects = [] }) {
                     {({ geographies }) =>
                         geographies.map((geo) => {
                             const name = geo.properties?.name || geo.properties?.NAME_1 || geo.id;
-
                             const isProjectCity = hasProjects.some(item => item.toLowerCase() == name.toLowerCase());
 
                             return (

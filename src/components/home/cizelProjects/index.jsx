@@ -9,7 +9,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
-export default function CizelProjects() {
+export default function CizelProjects({ projects }) {
     const verticalScrollRef = useRef(null);
     const leftColumnRef = useRef(null);
     const rightColumnRef = useRef(null);

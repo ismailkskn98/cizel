@@ -11,64 +11,7 @@ import FadeIn from "../../common/fadeIn"
 import ProjectsNavigation from "./navigation"
 
 
-const projects = [
-    {
-        id: 1,
-        title: "KARAMAN İLİ MERKEZ İLÇESİ KIRBAĞ MAHALLESİ 998 ADET KONUT PROJESİ",
-        location: "Karaman",
-        units: "998 Konut",
-        status: "Tamamlandı",
-        image: "/images/carousel/1.webp",
-        description:
-            "Karaman ili merkezinde gerçekleştirilen büyük ölçekli konut projesi. Modern yaşam standartlarına uygun tasarım.",
-    },
-    {
-        id: 2,
-        title:
-            "MALATYA İLİ, MERKEZ YEŞİLYURT İLÇESİ 1048 ADET KONUT, 83 ADET DÜKKAN VE 4 ADET FIRIN PROJESİ",
-        location: "Malatya",
-        units: "1048 Konut + 83 Dükkan + 4 Fırın",
-        status: "Devam Ediyor",
-        image: "/images/carousel/2.webp",
-        description:
-            "Malatya'da karma kullanımlı büyük ölçekli kentsel dönüşüm projesi. Konut ve ticari alanları bir arada sunan modern yaşam merkezi.",
-    },
-    {
-        id: 3,
-        title:
-            "İSTANBUL ARNAVUTKÖY DURSUNKÖY 3. ETAP 4. KISIM 946 ADET KONUT VE 81 ADET TİCARET İNŞAATI PROJESİ",
-        location: "İstanbul",
-        units: "946 Konut + 81 Ticaret",
-        status: "Planlama",
-        image: "/images/carousel/3.webp",
-        description:
-            "İstanbul Arnavutköy'de gerçekleştirilen prestijli konut ve ticaret merkezi projesi. Şehrin dinamik yaşamına uygun modern tasarım.",
-    },
-    {
-        id: 4,
-        title:
-            "MALATYA İLİ, MERKEZ YEŞİLYURT İLÇESİ 1048 ADET KONUT, 83 ADET DÜKKAN VE 4 ADET FIRIN PROJESİ",
-        location: "Malatya",
-        units: "1048 Konut + 83 Dükkan + 4 Fırın",
-        status: "Devam Ediyor",
-        image: "/images/carousel/2.webp",
-        description:
-            "Malatya'da karma kullanımlı büyük ölçekli kentsel dönüşüm projesi. Konut ve ticari alanları bir arada sunan modern yaşam merkezi.",
-    },
-    {
-        id: 5,
-        title:
-            "İSTANBUL ARNAVUTKÖY DURSUNKÖY 3. ETAP 4. KISIM 946 ADET KONUT VE 81 ADET TİCARET İNŞAATI PROJESİ",
-        location: "İstanbul",
-        units: "946 Konut + 81 Ticaret",
-        status: "Planlama",
-        image: "/images/carousel/3.webp",
-        description:
-            "İstanbul Arnavutköy'de gerçekleştirilen prestijli konut ve ticaret merkezi projesi. Şehrin dinamik yaşamına uygun modern tasarım.",
-    },
-]
-
-export default function ProjectsCarousel() {
+export default function ProjectsCarousel({ projects }) {
     const [current, setCurrent] = useState(0)
     const swiperRef = useRef(null)
 
@@ -95,7 +38,7 @@ export default function ProjectsCarousel() {
                     {projects.map((project, index) => (
                         <SwiperSlide key={`${project.id}-${index}`}>
                             <ProjectSlide
-                                project={project}
+                                project={JSON.parse(project.json_template)}
                                 index={index}
                                 current={current}
                                 onClick={handleSlideClick}
