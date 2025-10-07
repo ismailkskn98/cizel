@@ -52,7 +52,6 @@ export default function Projects({ projects }) {
     return (
         <main className="w-full fluid gridContainer pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
-
             <section className="fluid gridContainer pb-20 pt-16 -mt-52">
                 <div className="relative z-20">
                     <div className="flex items-start flex-col mb-16 pt-52">

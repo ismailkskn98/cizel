@@ -6,8 +6,8 @@ import SectionHeader from '../../common/sectionHeader';
 export default function CizelMarquee() {
 
     const logos = [
-        "/images/cizel-logo.png",
-        "/images/cizel-logo-white.png",
+        "/images/cizel-logo/cizel-logo.png",
+        "/images/cizel-logo/cizel-logo-white.png",
         "/images/marka-force.png",
 
     ]
