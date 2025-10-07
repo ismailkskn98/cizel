@@ -6,6 +6,7 @@ import { MapPin, Building, ArrowRight } from "lucide-react"
 import Opacity from "../../common/opacity"
 import { useLocale } from "next-intl"
 import { Link } from "@/i18n/navigation"
+import Image from "next/image"
 
 export default function ProjectSlide({ project, index, onClick }) {
     const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -18,9 +19,10 @@ export default function ProjectSlide({ project, index, onClick }) {
             <Link href={`/projects/${project.location.toLowerCase()}/${project.slug}`} className="absolute inset-0 z-10" />
 
             <article className="absolute inset-0">
-                <img
+                <Image
                     src={`${base_url}${project.coverImage}`}
                     alt={JSON.parse(project.title)[locale]}
+                    fill
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />

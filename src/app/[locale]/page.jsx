@@ -4,11 +4,11 @@ import Home from "@/components/home";
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 const getProjects = async () => {
   try {
-    const res = await fetch(`${base_url}/api/site/projects`, { next: { revalidate: 10 } });
-    if (!res.ok) {
+    const response = await fetch(`${base_url}/api/site/projects`, { next: { revalidate: 10 } });
+    if (!response.ok) {
       throw new Error('Failed to fetch projects');
     }
-    const responseData = await res.json();
+    const responseData = await response.json();
     return responseData.data || [];
   } catch (error) {
     console.error(error);
