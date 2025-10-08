@@ -1,9 +1,10 @@
 "use client";
 import { ComposableMap, Geographies, Geography, Annotation } from "react-simple-maps";
 import { useRouter } from "next/navigation";
-import { Tooltip } from "react-tooltip"; // ek paket
+import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import TurkeyMapHeader from "./header";
+import Image from "next/image";
 
 const geoUrl = "/geo/turkiye-iller.json";
 
@@ -19,11 +20,12 @@ export default function TurkeyMap({ hasProjects = [] }) {
 
     return (
         <section className="w-full relative">
+            <Image src={"/images/cizel-logo/cizel-logo-white.png"} alt="Cizel Logo" width={100} height={100} className="absolute left-[39.5%] top-[65%] min-[380px]:top-[63%] min-[385px]:top-[62%] min-[410px]:top-[61%] min-[460px]:top-[60%] min-[547px]:top-[57%] sm:top-[54%] md:top-[45.5%] lg:top-[43.5%] xl:top-[42%] -translate-1/2 z-20 object-contain object-center w-fit h-4 min-[547px]:h-6 sm:h-8 md:h-12 lg:h-16 brightness-[8]" />
             <TurkeyMapHeader />
             <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{ scale: 2000, center: [35, 39] }}
-                className="w-full h-auto -mt-12 md:-mt-36 lg:-mt-60 xl:-mt-72"
+                className="relative w-full h-fit -mt-12 md:-mt-36 lg:-mt-60 xl:-mt-72"
             >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
@@ -71,7 +73,6 @@ export default function TurkeyMap({ hasProjects = [] }) {
                         })
                     }
                 </Geographies>
-
             </ComposableMap>
 
             <Tooltip
