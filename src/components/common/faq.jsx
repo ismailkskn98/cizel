@@ -6,35 +6,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqData = [
-    {
-        question: "Hangi alanlarda hizmet veriyorsunuz?",
-        answer: "Çizel İnşaat; inşaat taahhüt işleri, elektrik mühendisliği projeleri, ithalat–ihracat faaliyetleri ve endüstriyel çözümler sunmaktadır."
-    },
-    {
-        question: "Projelerinizde hangi standartlara uyuyorsunuz?",
-        answer: "Tüm projelerimizi ulusal ve uluslararası standartlara (TS, EN, ISO vb.) uygun şekilde yürütüyor, iş güvenliği ve kaliteyi ön planda tutuyoruz."
-    },
-    {
-        question: "Sadece Türkiye’de mi hizmet veriyorsunuz?",
-        answer: "Hayır. Yurt içi ve yurt dışındaki projelere hizmet vermekteyiz."
-    },
-    {
-        question: "Elektrik mühendisliği kapsamında hangi hizmetleri veriyorsunuz?",
-        answer: "Elektrik tesisatı projelendirme, güç dağıtımı, aydınlatma sistemleri, otomasyon ve bakım–onarım hizmetleri."
-    },
-    {
-        question: "İthalat ve ihracatını yaptığınız ürünler nelerdir?",
-        answer: "Elektrik–elektronik ekipmanlar, inşaat malzemeleri ve endüstriyel çözümler."
-    },
-    {
-        question: "Teklif almak için ne yapmalıyım?",
-        answer: "Web sitemizdeki iletişim formunu doldurabilir veya bize doğrudan telefon/e-posta yoluyla ulaşabilirsiniz."
-    },
-];
-
-
-export default function FAQ({ title = "Frequently Asked Questions", className = "" }) {
+export default function FAQ({ title = "Frequently Asked Questions", faqData, className = "" }) {
     return (
         <section className={`fluid p-2 relative w-full min-h-screen ${className}`}>
             <main className='relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-bl from-black to-[#333333] rounded-3xl overflow-hidden'>

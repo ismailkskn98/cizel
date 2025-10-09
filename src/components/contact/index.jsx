@@ -5,7 +5,7 @@ import MapSection from './mapSection';
 import PageTopSection from '@/components/common/pageTopSection';
 import FAQ from '../common/faq';
 
-export default function Contact({ contactData }) {
+export default function Contact({ contactData, faqData }) {
     const breadcrumbs = [
         { label: 'Home', href: '/' },
         { label: 'Contact', href: null }
@@ -25,7 +25,7 @@ export default function Contact({ contactData }) {
                 </div>
             </section>
             <MapSection contactData={contactData} />
-            <FAQ />
+            <FAQ faqData={faqData} />
         </main>
     );
 }
