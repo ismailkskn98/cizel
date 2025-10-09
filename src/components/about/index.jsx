@@ -17,7 +17,7 @@ export default function About() {
     return (
         <main className="w-full fluid gridContainer pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 pb-20 pt-72 -mt-52">
+            <section className="fluid gridContainer pb-20 pt-72 -mt-52">
                 <div className='mx-auto max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between gap-16 mb-20'>
                     <section className='flex flex-col gap-6'>
                         <article className="inline-flex w-fit items-center gap-2 bg-gradient-to-r from-logo-red/20 to-logo-red/5 text-logo-red px-4 py-2 rounded-full text-sm font-medium mb-4">

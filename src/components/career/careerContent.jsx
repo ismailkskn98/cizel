@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const CareerContent = () => {
-
+const CareerContent = ({ careerData, careerImage }) => {
     return (
         <main className="flex flex-col">
             <section className="text-center lg:text-left mb-8">
@@ -18,8 +17,7 @@ const CareerContent = () => {
                     {" "} Yapın
                 </h1>
                 <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
-                    Sektöründe lider bir şirket olarak, yetenekli ve motivasyonu yüksek profesyonelleri
-                    aramaktayız. Birlikte büyüyelim, birlikte başaralım.
+                    {careerData.description}
                 </p>
             </section>
 
@@ -39,7 +37,7 @@ const CareerContent = () => {
             </article>
 
             <article className='flex flex-col gap-3'>
-                <Image src={"/images/career.webp"} alt="Çizel İnşaat Ofis" width={800} height={600} className="" />
+                <Image src={careerImage} alt="Çizel İnşaat Ofis" width={800} height={600} className="" />
             </article>
         </main>
     );
