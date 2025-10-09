@@ -9,40 +9,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import CarouselButtons from './carouselButtons';
 import CustomButton from '@/components/common/customButton';
+import { useLocale } from 'next-intl';
 
-const slides = [
-    {
-        id: 1,
-        image: "/images/carousel/1.webp",
-        title: "Güvenle Yükseliyoruz",
-        subtitle: "İnşaat Sektöründe Lider",
-        description:
-            "Modern teknoloji ve deneyimli ekibimizle, her projede mükemmelliği hedefliyoruz. Güvenilir çözümler sunarak sektörde öncü olmaya devam ediyoruz.",
-        cta: "Projelerimizi Keşfedin",
-    },
-    {
-        id: 2,
-        image: "/images/carousel/2.webp",
-        title: "Modern Yapılar",
-        subtitle: "Çağdaş Mimari Çözümler",
-        description:
-            "Sürdürülebilir ve estetik tasarımlarla, yaşam kalitesini artıran projeler geliştiriyoruz. Her detayda kalite ve yenilik anlayışımızı yansıtıyoruz.",
-        cta: "Tasarımları İnceleyin",
-    },
-    {
-        id: 3,
-        image: "/images/carousel/3.webp",
-        title: "Geleceği İnşa Ediyoruz",
-        subtitle: "Yenilikçi Teknolojiler",
-        description:
-            "Akıllı bina sistemleri ve çevre dostu malzemelerle, gelecek nesillere yaşanabilir mekanlar bırakıyoruz. Teknoloji ve doğa uyumunu sağlıyoruz.",
-        cta: "Geleceği Görün",
-    },
-]
-
-export default function Hero() {
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
+export default function Hero({ carousels }) {
+    const locale = useLocale();
     const [activeIndex, setActiveIndex] = useState(0);
-    const [subtitle, setSubtitle] = useState(slides[0].subtitle);
+    const [subtitle, setSubtitle] = useState(JSON.parse(carousels[0].subtitle)[locale]);
 
     return (
         <section className="fluid p-2 bg-white relative z-40 mt-[-6rem] h-[60vh] xl:h-screen w-full overflow-hidden">
@@ -54,18 +27,18 @@ export default function Hero() {
                 autoplay={{ delay: 4500 }}
                 onSlideChange={(sw) => {
                     setActiveIndex(sw.realIndex);
-                    setSubtitle(slides[sw.realIndex].subtitle);
+                    setSubtitle(JSON.parse(carousels[sw.realIndex].subtitle)[locale]);
                 }}
                 navigation={{ prevEl: '#carousel-prev', nextEl: '#carousel-next' }}
                 pagination={{ el: '#carousel-pagination', clickable: true }}
                 className="h-full w-full rounded-3xl"
             >
-                {slides.map((slide, index) => (
+                {carousels.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="relative">
                         <div className="relative h-full w-full">
                             <div
                                 className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-                                style={{ backgroundImage: `url(${slide.image})` }}
+                                style={{ backgroundImage: `url(${base_url}${slide.image})` }}
                             />
 
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
@@ -90,7 +63,7 @@ export default function Hero() {
                                                         className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 3xl:text-8xl leading-tight text-white font-medium"
                                                         style={{ fontFamily: "var(--font-space-grotesk)" }}
                                                     >
-                                                        {slide.title}
+                                                        {JSON.parse(slide.title)[locale]}
                                                     </motion.h1>
 
                                                     <motion.p
@@ -100,7 +73,7 @@ export default function Hero() {
                                                         className="text-sm md:text-lg leading-relaxed text-white/90 max-w-2xl text-center mx-auto"
                                                         style={{ fontFamily: "var(--font-dm-sans)" }}
                                                     >
-                                                        {slide.description}
+                                                        {JSON.parse(slide.description)[locale]}
                                                     </motion.p>
 
                                                     <motion.div
@@ -109,7 +82,7 @@ export default function Hero() {
                                                         transition={{ delay: 0.8, duration: 0.8 }}
                                                         className='w-fit mx-auto'
                                                     >
-                                                        <CustomButton href={slide.link} bgcolor='bg-white' fillcolor='fill-white' iconcolor='text-black' />
+                                                        <CustomButton href={"/projects"} bgcolor='bg-white' fillcolor='fill-white' iconcolor='text-black' />
                                                     </motion.div>
                                                 </motion.div>
                                             )}

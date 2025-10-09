@@ -12,7 +12,6 @@ export default function ProjectSlide({ project, index, onClick }) {
     const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
     const locale = useLocale();
 
-    console.log(project);
     return (
         <motion.section
             className="relative h-[450px] overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-sm group !cursor-pointer" onClick={() => onClick(index)}>

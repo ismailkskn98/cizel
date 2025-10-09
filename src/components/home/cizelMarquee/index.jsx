@@ -3,20 +3,14 @@ import React from 'react'
 import Marquee from "react-fast-marquee";
 import SectionHeader from '../../common/sectionHeader';
 
-export default function CizelMarquee() {
-
-    const logos = [
-        "/images/cizel-logo/cizel-logo.png",
-        "/images/cizel-logo/cizel-logo-white.png",
-        "/images/marka-force.png",
-
-    ]
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
+export default function CizelMarquee({ homeData, partnerLogos }) {
 
     return (
         <section className='w-full mx-auto max-w-10/12 -mt-2 sm:-mt-8 md:-mt-20 pb-24 lg:pb-32'>
             <SectionHeader
-                title='Güvenilir İş Ortaklarımız'
-                description='Sektördeki önde gelen markalarla birlikte çalışarak, kaliteli hizmet anlayışımızı sürdürüyoruz. Müşteri memnuniyetini ön planda tutarak, güvenilir çözümler sunuyoruz.'
+                title={homeData.title}
+                description={homeData.subtitle}
                 className='mb-8 lg:mb-20'
             />
             <article className="relative mt-8 overflow-hidden">
@@ -29,10 +23,10 @@ export default function CizelMarquee() {
                     gradientColor={[255, 255, 255]}
                     className="overflow-hidden"
                 >
-                    {logos.map((logo, index) => (
+                    {partnerLogos.map((logo, index) => (
                         <div key={index} className="flex items-center justify-center mx-8">
                             <Image
-                                src={logo}
+                                src={`${base_url}${logo}`}
                                 alt='Cizel Logo'
                                 width={120}
                                 height={120}

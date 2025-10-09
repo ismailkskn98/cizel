@@ -8,16 +8,16 @@ import CizelAbout from './cizelAbout';
 import CizelProjects from './cizelProjects';
 
 
-export default function Home({ projects }) {
+export default function Home({ projects, carousels, homeData, partnerLogos }) {
     const locations = projects.map(proje => JSON.parse(proje.json_template).location);
     return (
         <main className='relative w-full fluid gridContainer'>
-            <Hero />
-            <CizelAbout />
-            <CizelProjects projects={projects} />
-            <ProjectsSection projects={projects} />
-            <TurkeyMap hasProjects={locations} />
-            <CizelMarquee />
+            <Hero carousels={carousels} />
+            <CizelAbout homeData={homeData.about} />
+            <CizelProjects projects={projects} homeData={homeData.cizelProjects} />
+            <ProjectsSection projects={projects} homeData={homeData.projectsBlock} />
+            <TurkeyMap hasProjects={locations} homeData={homeData.mapBlock} />
+            <CizelMarquee homeData={homeData.partnersBlock} partnerLogos={partnerLogos} />
             <GoTop />
         </main>
     )
