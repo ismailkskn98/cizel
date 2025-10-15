@@ -1,10 +1,9 @@
 "use client";
 import { ComposableMap, Geographies, Geography, Annotation } from "react-simple-maps";
-import { useRouter } from "next/navigation";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import TurkeyMapHeader from "./header";
-import Image from "next/image";
+import { useRouter } from "@/i18n/navigation";
 
 const geoUrl = "/geo/turkiye-iller.json";
 
@@ -20,7 +19,6 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
 
     return (
         <section className="w-full relative">
-            <Image src={"/images/cizel-logo/cizel-logo-white.png"} alt="Cizel Logo" width={100} height={100} className="absolute left-[39.5%] top-[65%] min-[380px]:top-[63%] min-[385px]:top-[62%] min-[410px]:top-[61%] min-[460px]:top-[60%] min-[547px]:top-[57%] sm:top-[54%] md:top-[45.5%] lg:top-[43.5%] xl:top-[42%] -translate-1/2 z-20 object-contain object-center w-fit h-4 min-[547px]:h-6 sm:h-8 md:h-12 lg:h-16 brightness-[8]" />
             <TurkeyMapHeader homeData={homeData} />
             <ComposableMap
                 projection="geoMercator"
@@ -51,7 +49,7 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
                                             cursor: "pointer",
                                             transition:
                                                 "fill 220ms ease, stroke 220ms ease, stroke-width 220ms ease, filter 220ms ease",
-                                            vectorEffect: "non-scaling-stroke"
+                                            vectorEffect: "non-scaling-stroke",
                                         },
                                         hover: {
                                             fill: "#ba2c3e",
@@ -73,6 +71,26 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
                         })
                     }
                 </Geographies>
+                <Annotation
+                    subject={[32.8597, 39.9334]}
+                    dx={-0}
+                    dy={-0}
+                    connectorProps={{
+                        stroke: "#ffff",
+                        strokeWidth: 0,
+                        strokeLinecap: "round"
+                    }}
+                >
+                    <image
+                        href="/images/cizel-logo/cizel-logo-white.png"
+                        x="-25"
+                        y="-13"
+                        width="32"
+                        height="32"
+                        opacity="1"
+                        className="brightness-[8] select-none pointer-events-none"
+                    />
+                </Annotation>
             </ComposableMap>
 
             <Tooltip

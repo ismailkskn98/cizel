@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import CarouselButtons from './carouselButtons';
 import CustomButton from '@/components/common/customButton';
 import { useLocale } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function Hero({ carousels }) {
@@ -82,7 +83,10 @@ export default function Hero({ carousels }) {
                                                         transition={{ delay: 0.8, duration: 0.8 }}
                                                         className='w-fit mx-auto'
                                                     >
-                                                        <CustomButton href={"/projects"} bgcolor='bg-white' fillcolor='fill-white' iconcolor='text-black' />
+                                                        <Link href={"/projects"} className="relative group flex items-center gap-4 px-6 py-3 rounded-full bg-logo-red hover:bg-[#7d1d2a] text-white xl:text-base !cursor-pointer transition-all duration-150">
+                                                            <span>Tüm Projeler</span>
+                                                            <span className="inline-block h-4 w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
+                                                        </Link>
                                                     </motion.div>
                                                 </motion.div>
                                             )}

@@ -49,11 +49,11 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="outline"
-                    className={`relative z-10 !w-fit h-10 rounded-full border-none transition-colors !bg-white border border-gray-200 !cursor-pointer ${className}`}
+                    className={`relative z-10 !w-fit h-10 rounded-full border-none transition-colors !bg-white border border-gray-200 !cursor-pointer gap-1 ${className}`}
                     aria-label="Dili değiştir"
                 >
                     <span className="inline-flex items-center justify-center text-black">
-                        <Globe className="h-3 3xl:h-4 w-3 3xl:w-4" aria-hidden="true" />
+                        <Globe className="h-3 3xl:h-4 w-3 3xl:w-4 stroke-[1px] text-black/80" aria-hidden="true" />
                     </span>
                     <span className="inline-flex items-center gap-2 text-black">
                         <span className="text-xs 3xl:text-sm font-medium">{currentLang.label}</span>
@@ -81,7 +81,7 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
                                 className="cursor-pointer text-xs"
                             >
                                 <span
-                                    className={`flex-1 flex items-center gap-1.5 !cursor-pointer ${lang.rtl ? "font-medium" : ""}`}
+                                    className={`flex-1 flex items-center gap-1.5 !cursor-pointer border-none ${lang.rtl ? "font-medium" : ""}`}
                                     dir={lang.rtl ? "rtl" : "ltr"}
                                 >
                                     <Image src={lang.flag} alt={lang.code} width={16} height={12} className="ml-2" />

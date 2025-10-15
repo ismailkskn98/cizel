@@ -1,8 +1,7 @@
 'use client';
-import Link from 'next/link';
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { usePathname } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 
 const spring = {
     type: 'spring',

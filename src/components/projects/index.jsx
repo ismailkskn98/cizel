@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useLocale } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import PageTopSection from '../common/pageTopSection'
 import { ArrowRight, Calendar, MapPin, User, Building2 } from 'lucide-react'
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
-export default function Projects({ projects }) {
+export default function Projects({ projects, city, projectStatusName }) {
     const locale = useLocale()
 
     const breadcrumbs = [
@@ -15,7 +15,7 @@ export default function Projects({ projects }) {
     ]
 
     const formatDate = (dateString) => {
-        const date = new Date(dateString)
+        const date = new Date(dateString);
         return date.toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', {
             year: 'numeric',
             month: 'short'
@@ -24,10 +24,10 @@ export default function Projects({ projects }) {
 
     const parseJsonField = (jsonString) => {
         try {
-            const parsed = JSON.parse(jsonString)
+            const parsed = JSON.parse(jsonString);
             return parsed[locale] || parsed.tr || parsed.en || jsonString
         } catch {
-            return jsonString
+            return jsonString;
         }
     }
 
@@ -49,6 +49,7 @@ export default function Projects({ projects }) {
             }
         }
     }
+
     return (
         <main className="w-full fluid gridContainer pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
@@ -56,7 +57,7 @@ export default function Projects({ projects }) {
                 <div className="relative z-20">
                     <div className="flex items-start flex-col mb-16 pt-52">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                            {projects[0]?.location} {locale === 'tr' ? 'Projeleri' : 'Projects'}
+                            {city ? `${projects[0]?.location} ${locale === 'tr' ? 'Projeleri' : 'Projects'}` : `${projectStatusName}`}
                         </h1>
                         <p className="text-lg text-gray-600 max-w-2xl">
                             {locale === 'tr' ? 'Kaliteli yapı çözümleri ile hayallerinizi gerçekleştiriyoruz.' : 'We bring your dreams to life with quality construction solutions.'}

@@ -44,13 +44,29 @@ const getHome = async () => {
   }
 }
 
+const getAbout = async () => {
+  try {
+    const response = await fetch(`${base_url}/api/site/about`, { next: { revalidate: 10 } });
+    if (!response.ok) {
+      throw new Error('Failed to fetch about');
+    }
+    const responseData = await response.json();
+    return responseData.data || [];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
 export default async function HomePage({ params }) {
   const { locale } = await params;
-  const [projects, carousels, homeData] = await Promise.all([getProjects(), getCarousels(), getHome()]);
+  const [projects, carousels, homeData, aboutData] = await Promise.all([getProjects(), getCarousels(), getHome(), getAbout()]);
   const homeDataLocalized = homeData[locale];
   const partnerLogos = homeData.partnerLogos;
-
+  const totalProjectCount = projects.length;
+  const foundingYear = aboutData.foundingYear;
+  const completedProjects = projects.filter(proje => proje.project_status === '"tamamlanan-projeler"').length;
   return (
-    <Home projects={projects} carousels={carousels} homeData={homeDataLocalized} partnerLogos={partnerLogos} />
+    <Home projects={projects} carousels={carousels} homeData={homeDataLocalized} partnerLogos={partnerLogos} totalProjectCount={totalProjectCount} foundingYear={foundingYear} completedProjects={completedProjects} />
   );
 }

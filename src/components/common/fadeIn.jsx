@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-export default function FadeIn({ children, delay = 0, duration = 0.8, className = "" }) {
+export default function FadeIn({ children, delay = 0, duration = 0.3, className = "" }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}

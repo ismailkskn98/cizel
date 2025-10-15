@@ -12,22 +12,16 @@ export default function Header() {
             label: "Kurumsal", dropdown: true,
             dropdownItems: [
                 { label: "Hakkımızda", href: "/about" },
-                { label: "Vizyon Misyon", href: "/about" },
-                { label: "Kalite Belgeleri", href: "/about" },
-                { label: "KVKK", href: "/about" },
-                { label: "Bilgi Toplama Merkezi", href: "/about" },
+                { label: "KVKK", href: "/kvkk" },
             ],
         },
         {
             label: "Projeler", dropdown: true, dropdownItems: [
-                { label: "Gayrimenkul Projeler", href: "/about" },
-                { label: "taahhüt Projeler", href: "/about" },
-                { label: "Tamamlanan Projeler", href: "/about" },
-                { label: "Devam Eden Projeler", href: "/about" },
+                { label: "Tamamlanan Projeler", href: "/projects/tamamlanan-projeler" },
+                { label: "Devam Eden Projeler", href: "/projects/devam-eden-projeler" },
             ],
         },
         { label: "Kariyer", href: "/career" },
-        { label: "Basında Biz", href: "/" },
         { label: "İletişim", href: "/contact" },
     ]
 
