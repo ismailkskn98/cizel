@@ -34,7 +34,7 @@ export default function CizelAbout({ homeData, totalProjectCount, foundingYear, 
 
     return (
         <section className="py-16 lg:py-24 relative">
-            <main className="container mx-auto px-6 lg:px-8 relative">
+            <main className="container mx-auto relative">
                 <div className="flex items-center justify-between gap-12 lg:gap-20 mb-20">
                     <FadeIn className="space-y-6">
                         <About data={homeData} />

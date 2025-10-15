@@ -12,7 +12,7 @@ import ProjectsNavigation from "./navigation"
 
 
 export default function ProjectsCarousel({ projects }) {
-    const [current, setCurrent] = useState(0)
+    const [current, setCurrent] = useState(projects.length - 1)
     const swiperRef = useRef(null)
 
     const handleSlideClick = (index) => {
@@ -20,18 +20,27 @@ export default function ProjectsCarousel({ projects }) {
     }
 
     return (
-        <FadeIn delay={0.2} className="relative">
+        <FadeIn delay={0.2} className="fluid -translate-x-[10%] w-[120%] relative">
             <ProjectsNavigation />
             <Swiper
+                ref={swiperRef}
                 modules={[Navigation, A11y, Autoplay]}
                 navigation={{ prevEl: '#projects-prev', nextEl: '#projects-next' }}
                 onSlideChange={(sw) => setCurrent(sw.activeIndex)}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
+                initialSlide={projects.length - 1}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    waitForTransition: false
+                }}
+                loop={true}
+                speed={500}
                 slidesPerView={1}
                 spaceBetween={24}
                 breakpoints={{
                     768: { slidesPerView: 2, spaceBetween: 24 },
                     1024: { slidesPerView: 3, spaceBetween: 32 },
+                    1300: { slidesPerView: 4, spaceBetween: 32 },
                 }}
                 className="!py-12"
             >

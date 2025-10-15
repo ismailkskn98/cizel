@@ -1,28 +1,32 @@
 import { Link } from "@/i18n/navigation"
 import CustomButton from "./customButton"
 import FadeIn from "./fadeIn"
+import { MoveRight } from "lucide-react"
 
 export default function SectionHeader({
     title,
     description,
     className = "",
-    titleClassName = "text-4xl md:text-5xl font-medium text-foreground mb-3 ",
-    descriptionClassName = "text-xs sm:text-sm lg:text-lg text-muted-foreground max-w-2xl leading-relaxed text-start",
-    showDivider = true,
-    dividerClassName = "w-32 h-1 bg-gradient-to-r from-logo-red to-secondary mb-3"
+    descriptionClassName = "text-xs sm:text-sm lg:text-base text-muted-foreground max-w-2xl leading-relaxed text-start",
 }) {
     return (
         <FadeIn className={`text-center mb-8 flex flex-col items-start ${className}`}>
             <article className="w-full flex items-center justify-between gap-4">
                 <div className="flex flex-col items-start">
                     <div className="flex flex-col items-start">
-                        <h2 className={titleClassName}>
-                            {title}
-                        </h2>
-                        {showDivider && <div className={`${dividerClassName}`} />}
+                        <div className="flex items-center gap-2">
+                            <div className="relative">
+                                <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
+                                    <div className="h-0.5 w-10 rounded-lg bg-white" />
+                                    <MoveRight className='-ml-2 w-20 h-20 stroke-[0.5px] text-white' />
+                                </div>
+                                <div className="w-10 h-10 bg-black rounded-full" />
+                            </div>
+                            <h2 className="inline-block text-4xl md:text-5xl font-medium text-black/80 ml-20">{title}</h2>
+                        </div>
                     </div>
                     {description && (
-                        <p className={descriptionClassName}>
+                        <p className={`mt-4 ${descriptionClassName}`}>
                             {description}
                         </p>
                     )}
