@@ -4,26 +4,28 @@ import Counter from "../common/counter"
 import Opacity from "../common/opacity"
 import { useTranslations } from "next-intl"
 
-export default function AboutStats() {
+export default function AboutStats({ totalProjectCount, foundingYear, completedProjects }) {
     const t = useTranslations('AboutPage.stats');
+    const date = new Date();
+    const currentYear = date.getFullYear();
 
     const stats = [
         {
-            number: t('foundedYear'),
+            number: foundingYear,
             label: t('foundedYearLabel'),
             icon: Calendar,
             bgColor: "bg-white",
             iconColor: "text-gray-600"
         },
         {
-            number: t('projects'),
+            number: totalProjectCount + "+",
             label: t('projectsLabel'),
             icon: Building2,
             bgColor: "bg-white",
             iconColor: "text-gray-600"
         },
         {
-            number: t('experience'),
+            number: `${currentYear - foundingYear}`,
             label: t('experienceLabel'),
             icon: Users,
             bgColor: "bg-white",
@@ -43,7 +45,7 @@ export default function AboutStats() {
             {stats.map((stat, index) => (
                 <Opacity
                     key={index}
-                    delay={index * 0.1}
+                    delay={index * 0.2}
                     className="relative group w-full h-full flex flex-col items-center text-center"
                 >
                     <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 text-white">
@@ -62,7 +64,7 @@ export default function AboutStats() {
                             />
                         )}
                     </div>
-                    <div className="text-sm lg:text-base text-white/60 font-medium">
+                    <div className="text-xs lg:text-sm text-white/60 font-medium">
                         {stat.label}
                     </div>
                 </Opacity>

@@ -1,11 +1,13 @@
-'use client';
 import React from 'react'
 import PageTopSection from '../common/pageTopSection';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import AboutStats from './stats';
+import { MoveRight } from 'lucide-react';
+import Opacity from '../common/opacity';
 
-export default function About() {
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
+export default function About({ locale, aboutData, totalProjectCount, foundingYear, completedProjects, cityCount }) {
     const t = useTranslations('AboutPage');
 
     const breadcrumbs = [
@@ -14,68 +16,155 @@ export default function About() {
         { label: t('title'), href: null }
     ];
 
+    const highlightKeywords = (text) => {
+        const keywords = ['İsmail GÜN', 'Çizel İnşaat', 'misyon', 'vision', 'future', 'Türkiye'];
+        let highlightedText = text;
+
+        keywords.forEach(keyword => {
+            const regex = new RegExp(`(${keyword})`, 'gi');
+            highlightedText = highlightedText.replace(regex, '<span class="highlight-keyword">$1</span>');
+        });
+
+        return highlightedText;
+    };
+
+    const paragraphs = aboutData[locale].description.split('. ');
+    const firstPart = highlightKeywords(paragraphs.slice(0, 2).join('. '));
+    const secondPart = highlightKeywords(paragraphs.slice(2).join('. '));
+
+    const highlightedVision = highlightKeywords(aboutData[locale].vision || '');
+    const highlightedSubDescription = highlightKeywords(aboutData[locale].subDescription || '');
+
     return (
-        <main className="w-full fluid gridContainer pb-24">
+        <main className="w-full fluid gridContainer pb-12">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer pb-20 pt-72 -mt-52">
-                <div className='mx-auto max-w-6xl w-full flex flex-col lg:flex-row items-center justify-between gap-16 mb-20'>
+            <section className="fluid gridContainer pt-72 -mt-52">
+                <Opacity className="w-full flex flex-col lg:flex-row items-center justify-between gap-16 mb-20">
                     <section className='flex flex-col gap-6'>
-                        <article className="inline-flex w-fit items-center gap-2 bg-gradient-to-r from-logo-red/20 to-logo-red/5 text-logo-red px-4 py-2 rounded-full text-sm font-medium mb-4">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6" />
-                            </svg>
-                            — {t('title')}
-                        </article>
-                        <div className='relative flex flex-col items-start gap-6 pl-9'>
-                            <div className='absolute left-0 inset-y-0 w-4 h-full bg-gradient-to-t from-transparent to-logo-red/80'></div>
-                            <h1 className="text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
-                                {t('mainTitle')}
-                            </h1>
-                            <div className='space-y-4 text-gray-600'>
-                                <p className='leading-relaxed'>
-                                    {t('missionDescription')}
-                                </p>
-                                <p className='leading-relaxed'>
-                                    {t('teamDescription')}
-                                </p>
+                        <article className="flex items-center gap-2">
+                            <div className="relative">
+                                <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
+                                    <div className="h-0.5 w-10 rounded-lg bg-white" />
+                                    <MoveRight className='-ml-2 w-20 h-20 stroke-[0.5px] text-white' />
+                                </div>
+                                <div className="w-10 h-10 bg-black rounded-full" />
+                                <Opacity delay={0.1}>
+                                    <div className='absolute left-1/2 -translate-x-1/2 top-2 h-screen w-0.5 bg-gradient-to-b from-white to-60% to-transparent mix-blend-difference'></div>
+                                </Opacity>
                             </div>
+                            <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">{t('title')}</span>
+                        </article>
+
+                        <div className='relative flex flex-col items-start gap-6 pl-12'>
+                            <Opacity delay={0.2}>
+                                <h1 className="text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
+                                    {aboutData[locale].title}
+                                </h1>
+                            </Opacity>
+                            <Opacity delay={0.4}>
+                                <div className='text-sm lg:text-base space-y-4 text-gray-600 max-w-4xl leading-relaxed'>
+                                    <p dangerouslySetInnerHTML={{ __html: firstPart }}>
+                                    </p>
+                                    <p dangerouslySetInnerHTML={{ __html: secondPart }}>
+                                    </p>
+                                </div>
+                            </Opacity>
                         </div>
                     </section>
-                    <article className='relative flex-shrink-0'>
-                        <div className='absolute inset-0 w-full h-full bg-[url("/images/about.jpg")] rounded-3xl z-10 translate-8 shadow-[4px_6px_4px_black] blur-xs'></div>
-                        <Image src={"/images/about.jpg"} alt='cizel about us' width={600} height={500} className='relative z-20 object-contain w-fit h-96 rounded-3xl shadow-[4px_6px_4px_black]' />
-                    </article>
-                </div>
+                    <Opacity delay={0.5} className='relative flex-shrink-0'>
+                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='absolute inset-0 w-full h-full rounded-3xl z-10 translate-8 blur-xs' />
+                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='relative z-20 object-contain w-fit h-96 2xl:h-[450px] rounded-3xl' />
+                    </Opacity>
+                </Opacity>
 
-                <main className='relative w-full fluid gridContainer bg-[#101010] mt-6 pb-16 md:pb-24 pt-12 sm:pt-16'>
-                    <section className='relative z-30 w-full mx-auto max-w-6xl flex flex-col items-start lg:items-center gap-6 mt-6 overflow-hidden'>
-                        <h2 className='lg:hidden block text-white font-light uppercase text-4xl min-[330px]:text-5xl mb-0 sm:mb-4'>About <span>CAST</span></h2>
-                        <div className='w-full max-w-md self-start text-white/70 text-xs py-0 lg:py-6'>
-                            <p className='leading-relaxed'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum omnis quos magnam deserunt suscipit nemo expedita maxime ea, quas rem asperiores, neque quasi reiciendis id, accusamus enim modi deleniti optio.</p>
-                        </div>
-                        <div className='lg:hidden block max-w-md self-start text-white/70 text-xs py-0 lg:py-6'>
-                            <p className='leading-relaxed'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo neque voluptates unde eveniet iusto possimus eos libero. Non, hic?</p>
-                        </div>
-                        <Image src={"/images/about-company.jpg"} alt='cizel about us' width={800} height={600} className='block lg:hidden object-cover md:object-contain object-top-left w-full max-w-3xl h-[250px] md:h-[400px]' />
-                        <main className='hidden lg:flex w-full h-[70vh] items-center justify-end'>
-                            <article className='z-10 relative bg-[url("/images/about-company.jpg")] bg-cover bg-center w-full max-w-[75%] h-full'>
-                                <div className='absolute left-0 bottom-0 bg-[#101010] w-96 h-72 p-6'>
-                                    <div className='absolute -left-28 xl:-left-40 2xl:-left-64 -top-6 xl:top-0 flex flex-col text-[9rem] xl:text-[10rem] 2xl:text-[12rem] leading-52 text-white font-light uppercase'>
-                                        <span>ABOUT</span>
-                                        <span className='relative ml-16 before:content-[""] before:absolute before:h-[1px] before:w-96 before:top-1/2 before:translate-y-1/2 before:right-[103%] before:bg-white'>CAST</span>
+                <main className='relative w-full fluid gridContainer bg-[#101010] mt-20 py-16'>
+                    <section className='relative z-30 w-full mx-auto max-w-6xl flex flex-col items-center gap-16 overflow-hidden'>
+                        <Opacity>
+                            {aboutData[locale].vision && (
+                                <div className="w-full px-4">
+                                    <div className="flex flex-col items-center justify-center mx-auto text-center">
+                                        <div className="flex flex-col items-center gap-2">
+                                            <article className="flex flex-col items-center gap-14">
+                                                <div className="relative">
+                                                    <div className="absolute left-1/2 -translate-x-1/2 top-2 flex flex-col items-center justify-center mix-blend-difference">
+                                                        <div className="h-8 w-0.5 rounded-lg bg-white" />
+                                                        <MoveRight className='-mt-2 w-10 h-10 stroke-[0.5px] rotate-90 text-white' />
+                                                    </div>
+                                                    <div className="w-10 h-10 bg-white rounded-full" />
+                                                </div>
+                                                <span className="inline-block text-sm 3xl:text-base font-medium text-white/80">
+                                                    <p className="text-gray-400 text-sm lg:text-base">
+                                                        {locale === 'en'
+                                                            ? 'Building tomorrow with sustainable and innovative solutions'
+                                                            : 'Sürdürülebilir ve yenilikçi çözümlerle geleceği inşa ediyoruz'}
+                                                    </p>
+                                                </span>
+                                            </article>
+                                            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
+                                                {locale === 'en' ? 'Vision for the Future' : 'Gelecek Vizyonu'}
+                                            </h2>
+                                        </div>
+                                        <div className="text-gray-300 text-sm xl:text-base leading-relaxed whitespace-pre-line mt-4 max-w-4xl">
+                                            <p dangerouslySetInnerHTML={{ __html: highlightedVision }}></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='absolute right-0 bottom-0 bg-[#101010] w-96 h-24 text-white/70 text-xs p-6'>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed illo neque voluptates unde eveniet iusto possimus eos libero. Non, hic?
-                                </div>
-                            </article>
-                        </main>
-                        <main className='w-full mt-10 lg:mt-40'>
-                            <AboutStats />
-                        </main>
+                            )}
+                        </Opacity>
+                        <div className="w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                        <div className='w-full mt-6'>
+                            <AboutStats
+                                totalProjectCount={totalProjectCount}
+                                foundingYear={foundingYear}
+                                completedProjects={completedProjects}
+                                cityCount={cityCount}
+                            />
+                        </div>
                     </section>
                 </main>
+
+                {aboutData[locale].subDescription && (
+                    <Opacity className='w-full max-w-7xl mx-auto mt-20 px-4'>
+                        <div className="relative">
+                            <div className="absolute inset-0 rounded-3xl" />
+                            <div className="relative z-10 p-8">
+                                <div className="max-w-4xl mx-auto text-center">
+                                    <div className="flex justify-center mb-8">
+                                        <div className="relative">
+                                            <svg className="w-16 h-16 text-logo-red/30" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <h2 className="text-2xl lg:text-3xl font-semibold text-black mb-8">
+                                        {locale === 'en' ? 'A Message of Gratitude' : 'Teşekkür Mesajımız'}
+                                    </h2>
+
+                                    <div className="flex items-center justify-center gap-4 mb-10">
+                                        <div className="w-16 h-px bg-gradient-to-r from-transparent to-black/30"></div>
+                                        <div className="w-2 h-2 bg-logo-red rounded-full"></div>
+                                        <div className="w-16 h-px bg-gradient-to-l from-transparent to-black/30"></div>
+                                    </div>
+
+                                    <div className="text-gray-700 text-sm lg:text-base leading-relaxed italic">
+                                        <p dangerouslySetInnerHTML={{ __html: highlightedSubDescription }}></p>
+                                    </div>
+
+                                    <div className="mt-12 pt-8 border-t border-black/10">
+                                        <p className="text-black font-semibold text-sm lg:text-base">
+                                            {locale === 'en' ? 'Çizel Construction' : 'Çizel İnşaat'}
+                                        </p>
+                                        <p className="text-gray-500 text-xs mt-1">
+                                            {locale === 'en' ? 'Building Trust, Creating Value' : 'Güven İnşa Ediyor, Değer Yaratıyoruz'}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Opacity>
+                )}
             </section>
-        </main>
+        </main >
     )
 }

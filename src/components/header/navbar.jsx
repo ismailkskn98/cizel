@@ -23,7 +23,7 @@ export default function Navbar({ items = [] }) {
             {items.map((item, i) => {
                 if (!item.dropdown) {
                     return (
-                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-black/90 text-xs 3xl:text-sm hover:text-black transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
+                        <Link key={i} href={item.href} onMouseEnter={() => setOpen(null)} className={`uppercase text-black/90 text-xs hover:text-black transition-colors !cursor-pointer ${pathname === item.href ? "text-logo-red" : ""}`}>
                             {item.label}
                         </Link>
                     );
@@ -39,7 +39,7 @@ export default function Navbar({ items = [] }) {
                     >
                         <button
                             type="button"
-                            className="uppercase text-xs 3xl:text-sm flex items-center gap-1 text-black/90 hover:text-black transition-colors"
+                            className="uppercase text-xs flex items-center gap-1 text-black/90 hover:text-black transition-colors"
                             onClick={() => setOpen(isOpen ? null : i)}
                             aria-expanded={isOpen}
                             aria-haspopup="menu"
@@ -66,9 +66,9 @@ export default function Navbar({ items = [] }) {
                                         <motion.main
                                             layoutId="active"
                                             transition={spring}
-                                            className="bg-white backdrop-blur-xl text-black rounded-md border border-gray/200 overflow-hidden px-1 py-2.5"
+                                            className="bg-white text-black rounded-md border border-gray/200 overflow-hidden px-1 py-2.5"
                                         >
-                                            <motion.div layout className="p-2 w-56">
+                                            <motion.div layout className="min-w-44 w-fit">
                                                 {item.dropdownItems?.map((dropItem, idx) => (
                                                     <Link
                                                         href={dropItem.href}
@@ -77,7 +77,7 @@ export default function Navbar({ items = [] }) {
                                                         className="flex px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer hover:bg-gray-50 group items-center transition-all duration-200"
                                                     >
                                                         <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-logo-red">{">"}</span>
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-200">{dropItem.label}</span>
+                                                        <span className="group-hover:translate-x-1 transition-transform duration-200 text-nowrap">{dropItem.label}</span>
                                                     </Link>
                                                 ))}
                                             </motion.div>

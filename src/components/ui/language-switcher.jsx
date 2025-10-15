@@ -56,7 +56,7 @@ export default function LanguageSwitcher({ compact = false, className = "" }) {
                         <Globe className="h-3 3xl:h-4 w-3 3xl:w-4 stroke-[1px] text-black/80" aria-hidden="true" />
                     </span>
                     <span className="inline-flex items-center gap-2 text-black">
-                        <span className="text-xs 3xl:text-sm font-medium">{currentLang.label}</span>
+                        <span className="text-xs 3xl:text-sm">{currentLang.label}</span>
                     </span>
                 </Button>
             </DropdownMenuTrigger>
