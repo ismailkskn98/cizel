@@ -8,38 +8,38 @@ const ACCEPTED_FILE_TYPES = [
 ];
 
 export const careerFormSchema = z.object({
-    adSoyad: z
+    fullName: z
         .string()
         .min(2, "Ad soyad en az 2 karakter olmalıdır")
         .max(50, "Ad soyad en fazla 50 karakter olmalıdır")
-        .regex(/^[a-zA-ZğüşıöçĞÜŞIÖÇ\s]+$/, "Geçerli bir ad soyad giriniz"),
+        .regex(/^[a-zA-ZğüşıöçĞÜŞİIÖÇ\s]+$/, "Geçerli bir ad soyad giriniz"),
 
     email: z
         .string()
         .min(1, "Email adresi gereklidir")
         .email("Geçerli bir email adresi giriniz"),
 
-    telefon: z
+    phone: z
         .string()
         .min(10, "Telefon numarası en az 10 karakter olmalıdır")
         .max(15, "Telefon numarası en fazla 15 karakter olmalıdır")
         .regex(/^[0-9+\s\-()]+$/, "Geçerli bir telefon numarası giriniz"),
 
-    pozisyon: z
+    position: z
         .string()
         .min(2, "Pozisyon en az 2 karakter olmalıdır")
         .max(100, "Pozisyon en fazla 100 karakter olmalıdır"),
 
-    deneyim: z
+    experience: z
         .string()
         .min(1, "Deneyim seviyesi seçiniz"),
 
-    mezuniyet: z
+    education: z
         .string()
         .min(2, "Mezuniyet bilgisi en az 2 karakter olmalıdır")
         .max(100, "Mezuniyet bilgisi en fazla 100 karakter olmalıdır"),
 
-    mesaj: z
+    message: z
         .string()
         .max(1000, "Mesaj en fazla 1000 karakter olmalıdır")
         .optional(),

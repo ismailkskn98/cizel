@@ -15,7 +15,17 @@ const ContactForm = () => {
         try {
             console.log("Form data:", data);
 
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            const response = await fetch("/api/contact", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
 
             alert("Mesajınız başarıyla gönderildi!");
             reset();
@@ -40,8 +50,8 @@ const ContactForm = () => {
                 <article className="w-full">
                     <CustomInput
                         placeholder="Ad Soyad"
-                        error={errors.adSoyad?.message}
-                        {...register("adSoyad")}
+                        error={errors.fullName?.message}
+                        {...register("fullName")}
                         aria-label="Full name"
                     />
                 </article>
@@ -60,8 +70,8 @@ const ContactForm = () => {
                     <CustomInput
                         type="tel"
                         placeholder="Phone number"
-                        error={errors.telefon?.message}
-                        {...register("telefon")}
+                        error={errors.phone?.message}
+                        {...register("phone")}
                         className="flex-1"
                         aria-label="Phone number"
                     />
@@ -70,8 +80,8 @@ const ContactForm = () => {
                 <article className="w-full">
                     <CustomInput
                         placeholder="Konu"
-                        error={errors.konu?.message}
-                        {...register("konu")}
+                        error={errors.subject?.message}
+                        {...register("subject")}
                         aria-label="Subject"
                     />
                 </article>
@@ -79,9 +89,9 @@ const ContactForm = () => {
                 <article className="w-full">
                     <CustomInput
                         placeholder="How can we help?"
-                        error={errors.mesaj?.message}
+                        error={errors.message?.message}
                         isTextarea
-                        {...register("mesaj")}
+                        {...register("message")}
                         aria-label="Message"
                     />
                 </article>

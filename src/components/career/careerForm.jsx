@@ -18,11 +18,21 @@ const CareerForm = () => {
 
     const onSubmit = async (data) => {
         try {
-            console.log("Form data:", data);
+            const formData = new FormData();
+            formData.append('fullName', data.fullName);
+            formData.append('email', data.email);
+            formData.append('phone', data.phone);
+            formData.append('position', data.position);
+            formData.append('experience', data.experience);
+            formData.append('education', data.education);
+            formData.append('message', data.message || '');
+            formData.append('cv', data.cv[0]);
 
-            // Burada form verilerini API'ye gönderebilirsiniz
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-
+            const response = await fetch('/api/career', {
+                method: 'POST',
+                body: formData,
+            });
+            const result = await response.json();
             alert("Başvurunuz başarıyla alındı! En kısa sürede size dönüş yapacağız.");
             reset();
             if (fileInputRef.current) {
@@ -55,8 +65,8 @@ const CareerForm = () => {
                 <article className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     <CustomInput
                         placeholder="Ad Soyad *"
-                        error={errors.adSoyad?.message}
-                        {...register("adSoyad")}
+                        error={errors.fullName?.message}
+                        {...register("fullName")}
                         aria-label="Full name"
                     />
 
@@ -73,15 +83,15 @@ const CareerForm = () => {
                     <CustomInput
                         type="tel"
                         placeholder="Telefon Numarası *"
-                        error={errors.telefon?.message}
-                        {...register("telefon")}
+                        error={errors.phone?.message}
+                        {...register("phone")}
                         aria-label="Phone number"
                     />
 
                     <CustomInput
                         placeholder="Başvurulan Pozisyon *"
-                        error={errors.pozisyon?.message}
-                        {...register("pozisyon")}
+                        error={errors.position?.message}
+                        {...register("position")}
                         aria-label="Position"
                     />
                 </article>
@@ -89,10 +99,10 @@ const CareerForm = () => {
                 <article className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative">
                         <select
-                            {...register("deneyim")}
+                            {...register("experience")}
                             className={cn(
                                 "w-full px-2.5 py-2 text-xs border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-900 bg-white",
-                                errors.deneyim && "border-red-500 focus:ring-red-500 focus:border-red-500"
+                                errors.experience && "border-red-500 focus:ring-red-500 focus:border-red-500"
                             )}
                             aria-label="Experience level"
                         >
@@ -103,17 +113,17 @@ const CareerForm = () => {
                             <option value="5-10">5-10 Yıl</option>
                             <option value="10+">10+ Yıl</option>
                         </select>
-                        {errors.deneyim && (
+                        {errors.experience && (
                             <p className="absolute left-1 bottom-0 translate-y-[120%] text-[8px] xl:text-[10px] text-red-600 mt-1">
-                                * {errors.deneyim.message}
+                                * {errors.experience.message}
                             </p>
                         )}
                     </div>
 
                     <CustomInput
                         placeholder="Mezuniyet (Üniversite/Bölüm) *"
-                        error={errors.mezuniyet?.message}
-                        {...register("mezuniyet")}
+                        error={errors.education?.message}
+                        {...register("education")}
                         aria-label="Education"
                     />
                 </article>
@@ -121,9 +131,9 @@ const CareerForm = () => {
                 <article className="w-full">
                     <CustomInput
                         placeholder="Mesaj (İsteğe bağlı)"
-                        error={errors.mesaj?.message}
+                        error={errors.message?.message}
                         isTextarea
-                        {...register("mesaj")}
+                        {...register("message")}
                         aria-label="Message"
                     />
                 </article>
