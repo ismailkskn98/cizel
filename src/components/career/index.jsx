@@ -9,11 +9,11 @@ export default function Career({ careerData, careerImage }) {
         { label: 'Career', href: null }
     ];
     return (
-        <main className="w-full fluid gridContainer pb-24">
+        <main className="w-full fluid gridContainer pb-6 lg:pb-10 xl:pb-16 2xl:pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer pb-20 pt-72 -mt-52">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <section className="fluid gridContainer pb-20 pt-64 lg:pt-72 -mt-52">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-9 lg:gap-12 items-start">
                         <CareerContent careerData={careerData} careerImage={careerImage} />
                         <div className="flex justify-center lg:justify-end">
                             <CareerForm />

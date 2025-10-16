@@ -6,11 +6,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { careerFormSchema } from "./careerFormSchema";
 import CustomInput from "../contact/customInput";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
+import { toast } from "sonner";
+import { Link } from "@/i18n/navigation";
 
 const CareerForm = () => {
+    const t = useTranslations("CareerPage");
     const fileInputRef = useRef(null);
+
     const { register, handleSubmit, formState: { errors, isSubmitting }, reset, watch } = useForm({
-        resolver: zodResolver(careerFormSchema),
+        resolver: zodResolver(careerFormSchema(t)),
     });
 
     const watchedCV = watch("cv");
@@ -33,38 +38,43 @@ const CareerForm = () => {
                 body: formData,
             });
             const result = await response.json();
-            alert("Başvurunuz başarıyla alındı! En kısa sürede size dönüş yapacağız.");
+
+            toast.success(t("toast.success"), {
+                description: t("toast.successDescription"),
+            });
             reset();
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
             }
         } catch (error) {
             console.error("Form submission error:", error);
-            alert("Bir hata oluştu. Lütfen tekrar deneyiniz.");
+            toast.error(t("toast.error"), {
+                description: t("toast.errorDescription"),
+            });
         }
     };
 
     return (
-        <main className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 lg:p-10 w-full max-w-2xl">
+        <main className="bg-white rounded-3xl shadow-xl border border-gray-100 p-5 xl:p-10 w-full max-w-2xl">
             <header className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                    İş Başvurusu
+                    {t("form.title")}
                 </h2>
                 <p className="text-gray-600">
-                    Çizel İnşaat ailesine katılmak için CV'nizi gönderin
+                    {t("form.subtitle")}
                 </p>
                 <div className="flex items-center justify-center gap-1 mt-3 text-sm text-logo-red">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span className="font-medium">kariyer@cizel.com.tr</span>
+                    <span className="font-medium">{t("form.email")}</span>
                 </div>
             </header>
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-6" role="form" aria-label="Career application form">
                 <article className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     <CustomInput
-                        placeholder="Ad Soyad *"
+                        placeholder={t("form.fullName")}
                         error={errors.fullName?.message}
                         {...register("fullName")}
                         aria-label="Full name"
@@ -72,7 +82,7 @@ const CareerForm = () => {
 
                     <CustomInput
                         type="email"
-                        placeholder="E-posta Adresi *"
+                        placeholder={t("form.emailField")}
                         error={errors.email?.message}
                         {...register("email")}
                         aria-label="Email address"
@@ -82,14 +92,14 @@ const CareerForm = () => {
                 <article className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     <CustomInput
                         type="tel"
-                        placeholder="Telefon Numarası *"
+                        placeholder={t("form.phone")}
                         error={errors.phone?.message}
                         {...register("phone")}
                         aria-label="Phone number"
                     />
 
                     <CustomInput
-                        placeholder="Başvurulan Pozisyon *"
+                        placeholder={t("form.position")}
                         error={errors.position?.message}
                         {...register("position")}
                         aria-label="Position"
@@ -106,12 +116,12 @@ const CareerForm = () => {
                             )}
                             aria-label="Experience level"
                         >
-                            <option value="">Deneyim Seviyesi *</option>
-                            <option value="0-1">0-1 Yıl</option>
-                            <option value="1-3">1-3 Yıl</option>
-                            <option value="3-5">3-5 Yıl</option>
-                            <option value="5-10">5-10 Yıl</option>
-                            <option value="10+">10+ Yıl</option>
+                            <option value="">{t("form.experienceOptions.placeholder")}</option>
+                            <option value="0-1">{t("form.experienceOptions.0-1")}</option>
+                            <option value="1-3">{t("form.experienceOptions.1-3")}</option>
+                            <option value="3-5">{t("form.experienceOptions.3-5")}</option>
+                            <option value="5-10">{t("form.experienceOptions.5-10")}</option>
+                            <option value="10+">{t("form.experienceOptions.10+")}</option>
                         </select>
                         {errors.experience && (
                             <p className="absolute left-1 bottom-0 translate-y-[120%] text-[8px] xl:text-[10px] text-red-600 mt-1">
@@ -121,7 +131,7 @@ const CareerForm = () => {
                     </div>
 
                     <CustomInput
-                        placeholder="Mezuniyet (Üniversite/Bölüm) *"
+                        placeholder={t("form.education")}
                         error={errors.education?.message}
                         {...register("education")}
                         aria-label="Education"
@@ -130,7 +140,7 @@ const CareerForm = () => {
 
                 <article className="w-full">
                     <CustomInput
-                        placeholder="Mesaj (İsteğe bağlı)"
+                        placeholder={t("form.message")}
                         error={errors.message?.message}
                         isTextarea
                         {...register("message")}
@@ -157,12 +167,12 @@ const CareerForm = () => {
                             {selectedFileName ? (
                                 <div>
                                     <p className="text-sm font-medium text-gray-900">{selectedFileName}</p>
-                                    <p className="text-xs text-gray-500">Dosya seçildi ✓</p>
+                                    <p className="text-xs text-gray-500">{t("form.cvSelected")}</p>
                                 </div>
                             ) : (
                                 <div>
-                                    <p className="text-sm font-medium text-gray-900">CV Dosyanızı Yükleyin *</p>
-                                    <p className="text-xs text-gray-500">PDF, DOC veya DOCX formatında (Maks. 5MB)</p>
+                                    <p className="text-sm font-medium text-gray-900">{t("form.cvUpload")}</p>
+                                    <p className="text-xs text-gray-500">{t("form.cvUploadDescription")}</p>
                                 </div>
                             )}
                         </div>
@@ -185,25 +195,25 @@ const CareerForm = () => {
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                 <path className="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
-                            Gönderiliyor...
+                            {t("form.submitting")}
                         </span>
                     ) : (
                         <span className="flex items-center justify-center gap-1.5">
                             <svg className="w-4 2xl:w-5 h-4 2xl:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
-                            Başvurumu Gönder
+                            {t("form.submit")}
                         </span>
                     )}
                 </button>
 
-                <footer className="text-center text-xs text-gray-500">
+                <footer className="text-center text-xs text-gray-500 mx-auto">
                     <p>
-                        Başvuru yaparak{" "}
-                        <a href="/privacy" className="text-logo-red hover:underline !cursor-pointer">
-                            Gizlilik Politikamızı
-                        </a>{" "}
-                        kabul etmiş olursunuz.
+                        {t("form.privacy")}{" "}
+                        <Link href="/kvkk" className="text-logo-red hover:underline !cursor-pointer">
+                            {t("form.privacyLink")}
+                        </Link>{" "}
+                        {t("form.privacyEnd")}
                     </p>
                 </footer>
             </form>

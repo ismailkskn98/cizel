@@ -3,6 +3,7 @@ import React from 'react'
 import Navbar from './navbar'
 import LanguageSwitcher from '../ui/language-switcher'
 import { Link } from '@/i18n/navigation'
+import Opacity from '../common/opacity'
 
 export default function Header() {
 
@@ -28,12 +29,16 @@ export default function Header() {
     return (
         <header className='relative z-50 w-full fluid gridContainer items-start h-24 pt-4'>
             <main className='w-full flex justify-between lg:grid lg:grid-cols-5 items-center'>
-                <Link href={"/"}>
-                    <Image src={"/images/cizel-logo/cizel-logo-white.png"} alt='cizel logo' width={100} height={100} className='relative z-20 justify-self-start object-contain object-center w-fit h-16 !cursor-pointer' />
-                </Link>
+                <Opacity delay={0.2}>
+                    <Link href={"/"}>
+                        <Image src={"/images/cizel-logo/cizel-logo-white.png"} alt='cizel logo' width={100} height={100} className='relative z-20 justify-self-start object-contain object-center w-fit h-16 !cursor-pointer' />
+                    </Link>
+                </Opacity>
                 <Navbar items={navbarItems} />
                 <div className='justify-self-end'>
-                    <LanguageSwitcher compact={false} />
+                    <Opacity delay={0.2}>
+                        <LanguageSwitcher compact={false} />
+                    </Opacity>
                 </div>
             </main>
         </header>

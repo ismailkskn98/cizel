@@ -18,5 +18,110 @@
       "cities": "8",
       "citiesLabel": "Cities We Work In"
     }
+  },
+  "ContactPage": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us for your projects",
+    "location": "Our Location",
+    "locationTitle": "We Connect Near and Far",
+    "headquarters": "Headquarters",
+    "turkey": "Turkey",
+    "phone": "Phone",
+    "emailLabel": "Email",
+    "form": {
+      "title": "Get in Touch",
+      "subtitle": "You can reach us anytime",
+      "fullName": "Full Name",
+      "email": "Your Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "How can we help?",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "terms": "By contacting us, you agree to our",
+      "termsLink": "Terms of Service",
+      "and": "and",
+      "privacyLink": "Privacy Policy",
+      "termsEnd": ""
+    },
+    "validation": {
+      "fullNameMin": "Full name must be at least 2 characters",
+      "fullNameMax": "Full name must be at most 50 characters",
+      "fullNameInvalid": "Please enter a valid full name",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "phoneMin": "Phone number must be at least 10 characters",
+      "phoneMax": "Phone number must be at most 15 characters",
+      "phoneInvalid": "Please enter a valid phone number",
+      "subjectMin": "Subject must be at least 3 characters",
+      "subjectMax": "Subject must be at most 100 characters",
+      "messageMin": "Message must be at least 10 characters",
+      "messageMax": "Message must be at most 500 characters"
+    },
+    "toast": {
+      "success": "Message sent successfully!",
+      "successDescription": "We'll get back to you as soon as possible.",
+      "error": "An error occurred!",
+      "errorDescription": "Your message could not be sent. Please try again."
+    }
+  },
+  "CareerPage": {
+    "badge": "Career Opportunities",
+    "title": "Build Your",
+    "titleHighlight": "Career",
+    "titleEnd": "at Cizel Construction",
+    "form": {
+      "title": "Job Application",
+      "subtitle": "Send your CV to join the Cizel Construction family",
+      "email": "career@cizel.com.tr",
+      "fullName": "Full Name *",
+      "emailField": "Email Address *",
+      "phone": "Phone Number *",
+      "position": "Position Applied For *",
+      "experience": "Experience Level *",
+      "experienceOptions": {
+        "placeholder": "Experience Level *",
+        "0-1": "0-1 Year",
+        "1-3": "1-3 Years",
+        "3-5": "3-5 Years",
+        "5-10": "5-10 Years",
+        "10+": "10+ Years"
+      },
+      "education": "Education (University/Department) *",
+      "message": "Message (Optional)",
+      "cvUpload": "Upload Your CV *",
+      "cvUploadDescription": "PDF, DOC or DOCX format (Max. 5MB)",
+      "cvSelected": "File selected ✓",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "privacy": "By applying, you agree to our",
+      "privacyLink": "Privacy Policy",
+      "privacyEnd": "."
+    },
+    "validation": {
+      "fullNameMin": "Full name must be at least 2 characters",
+      "fullNameMax": "Full name must be at most 50 characters",
+      "fullNameInvalid": "Please enter a valid full name",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "phoneMin": "Phone number must be at least 10 characters",
+      "phoneMax": "Phone number must be at most 15 characters",
+      "phoneInvalid": "Please enter a valid phone number",
+      "positionMin": "Position must be at least 2 characters",
+      "positionMax": "Position must be at most 100 characters",
+      "experienceRequired": "Please select experience level",
+      "educationMin": "Education must be at least 2 characters",
+      "educationMax": "Education must be at most 100 characters",
+      "messageMax": "Message must be at most 1000 characters",
+      "cvRequired": "CV file is required",
+      "cvSize": "File size must be at most 5MB",
+      "cvFormat": "Only PDF, DOC or DOCX formats are accepted"
+    },
+    "toast": {
+      "success": "Application received!",
+      "successDescription": "We'll get back to you as soon as possible.",
+      "error": "An error occurred!",
+      "errorDescription": "Your application could not be sent. Please try again."
+    }
   }
 }

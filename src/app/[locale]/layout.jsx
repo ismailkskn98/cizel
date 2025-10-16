@@ -7,6 +7,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { getMessages } from 'next-intl/server';
+import { Toaster } from '@/components/ui/sonner';
 
 const manropeFont = localFont({
   src: [
@@ -69,6 +70,7 @@ export default async function RootLayout({ children, params }) {
           className={`${manropeFont.variable} ${strongFont.variable} w-full font-manrope antialiased`}
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <Toaster position="top-right" expand={true} richColors />
             <Header />
             {children}
             <Footer />

@@ -1,9 +1,9 @@
 import React from 'react';
 import ContactContent from './contactContent';
 import ContactForm from './contactForm';
-import MapSection from './mapSection';
 import PageTopSection from '@/components/common/pageTopSection';
-import FAQ from '../common/faq';
+import MapSection from './mapSection';
+// import FAQ from '../common/faq';
 
 export default function Contact({ contactData, faqData }) {
     const breadcrumbs = [
@@ -14,8 +14,8 @@ export default function Contact({ contactData, faqData }) {
     return (
         <main className="w-full fluid gridContainer pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer bg-gradient-to-tl from-logo-red/20 to-logo-red/5 pb-20 pt-64 -mt-52">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="fluid gridContainer pb-20 pt-64 -mt-52">
+                <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <ContactContent contactData={contactData} />
                         <div className="flex justify-center lg:justify-end">
@@ -25,7 +25,7 @@ export default function Contact({ contactData, faqData }) {
                 </div>
             </section>
             <MapSection contactData={contactData} />
-            <FAQ faqData={faqData} />
+            {/* <FAQ faqData={faqData} /> */}
         </main>
     );
 }
