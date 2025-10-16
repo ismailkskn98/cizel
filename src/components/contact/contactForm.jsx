@@ -44,9 +44,9 @@ const ContactForm = () => {
     };
 
     return (
-        <Opacity>
-            <main className="bg-white rounded-3xl shadow-lg p-8">
-                <header className="flex flex-col items-start gap-2 mb-6">
+        <Opacity className="w-full max-w-lg">
+            <main className="w-full bg-white rounded-3xl shadow-lg p-8">
+                <header className="w-full flex flex-col items-start gap-2 mb-6">
                     <h2 className="text-2xl font-bold text-gray-900">
                         {t("form.title")}
                     </h2>

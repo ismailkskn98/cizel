@@ -55,8 +55,29 @@ export const metadata = {
   description: "Cizel",
 };
 
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
+const getContact = async () => {
+  try {
+    const response = await fetch(`${base_url}/api/site/contact`, { next: { revalidate: 10 } });
+    if (!response.ok) {
+      throw new Error('Failed to fetch contact');
+    }
+    const responseData = await response.json();
+    return responseData.data || [];
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
 export default async function RootLayout({ children, params }) {
   const { locale } = await params;
+  const contactData = await getContact();
+  const email = contactData.email;
+  const phone = contactData.phone;
+  const address = contactData.address;
+  const socialMedia = contactData.socialMedia;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -73,7 +94,7 @@ export default async function RootLayout({ children, params }) {
             <Toaster position="top-right" expand={true} richColors />
             <Header />
             {children}
-            <Footer />
+            <Footer contactData={{ email, phone, address, socialMedia }} />
           </NextIntlClientProvider>
         </body>
       </ReactLenis>

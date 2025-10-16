@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPhone, FaE
 import { Link } from '@/i18n/navigation'
 import LanguageChange from '@/components/ui/language-switcher'
 
-export default function Footer() {
+export default function Footer({ contactData }) {
     const currentYear = new Date().getFullYear()
 
     const quickLinks = [
@@ -23,11 +23,7 @@ export default function Footer() {
     ]
 
     const socialLinks = [
-        { icon: FaFacebook, href: "#", label: "Facebook" },
-        { icon: FaTwitter, href: "#", label: "Twitter" },
-        { icon: FaInstagram, href: "#", label: "Instagram" },
-        { icon: FaLinkedin, href: "#", label: "LinkedIn" },
-        { icon: FaYoutube, href: "#", label: "YouTube" },
+        { icon: FaLinkedin, href: "https://www.linkedin.com/company/%C3%A7izelin%C5%9Faat/?viewAsMember=true", label: "LinkedIn" },
     ]
 
     return (
@@ -46,8 +42,7 @@ export default function Footer() {
                             />
                         </div>
                         <p className="text-gray-300 text-sm leading-relaxed">
-                            Cizel, kaliteli gayrimenkul projeleri ve taahhüt hizmetleri ile
-                            müşteri memnuniyetini ön planda tutan güvenilir bir markadır.
+                            İnşaat sektörü, yalnızca fiziksel yapılar inşa etmekle kalmaz; aynı zamanda toplumların yaşam kalitesini yükselten, şehirleri dönüştüren ve geleceğe değer katan stratejik bir alandır.
                         </p>
                         <div className="flex items-center space-x-3">
                             <LanguageChange />
@@ -100,20 +95,19 @@ export default function Footer() {
                             <div className="flex items-start space-x-3">
                                 <FaMapMarkerAlt className="text-logo-red mt-1 flex-shrink-0" />
                                 <div className="text-gray-300 text-sm">
-                                    <p>Merkez Mahallesi</p>
-                                    <p>İstanbul, Türkiye</p>
+                                    {contactData.address}
                                 </div>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <FaPhone className="text-logo-red flex-shrink-0" />
-                                <Link href="tel:+902121234567" className="text-gray-300 hover:text-white transition-colors text-sm !cursor-pointer">
-                                    +90 212 123 45 67
+                                <Link href={`tel:${contactData.phone}`} className="text-gray-300 hover:text-white transition-colors text-sm !cursor-pointer">
+                                    {contactData.phone}
                                 </Link>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <FaEnvelope className="text-logo-red flex-shrink-0" />
-                                <Link href="mailto:info@cizel.com" className="text-gray-300 hover:text-white transition-colors text-sm !cursor-pointer">
-                                    info@cizel.com
+                                <Link href={`mailto:${contactData.email}`} className="text-gray-300 hover:text-white transition-colors text-sm !cursor-pointer">
+                                    {contactData.email}
                                 </Link>
                             </div>
                         </div>

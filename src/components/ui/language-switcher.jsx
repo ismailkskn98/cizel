@@ -19,7 +19,7 @@ export default function LanguageChange() {
     })
 
     return (
-        <article className='w-fit flex items-center pl-2'>
+        <article className='w-fit flex items-center'>
             <Select defaultValue={locale} onValueChange={(value) => {
                 startTransition(() => {
                     router.replace({ pathname, query: currentSearchParams }, { scroll: false, locale: value })
