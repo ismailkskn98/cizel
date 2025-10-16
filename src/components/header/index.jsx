@@ -14,7 +14,7 @@ export default function Header() {
             label: "Kurumsal", dropdown: true,
             dropdownItems: [
                 { label: "Hakkımızda", href: "/about" },
-                { label: "KVKK", href: "/kvkk" },
+                { label: "KVKK", href: "/kvkk.pdf" },
             ],
         },
         {
@@ -28,8 +28,8 @@ export default function Header() {
     ]
 
     return (
-        <header className='relative z-50 w-full fluid gridContainer items-start h-auto lg:h-24 pt-4 lg:pt-4'>
-            <main className='w-full lg:hidden grid grid-cols-5 gap-4'>
+        <header className='relative z-50 w-full fluid gridContainer items-start h-auto lg:h-24 pb-1 lg:pb-0 pt-4 lg:pt-4'>
+            <main className='bg-white w-full lg:hidden grid grid-cols-5 gap-4'>
                 <MobileNavbar items={navbarItems} />
                 <Link href={"/"} className='col-span-3 flex-1 flex justify-center'>
                     <Image

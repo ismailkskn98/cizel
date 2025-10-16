@@ -82,9 +82,9 @@ export default function Hero({ carousels }) {
                                                         transition={{ delay: 0.8, duration: 0.8 }}
                                                         className='w-fit mx-auto'
                                                     >
-                                                        <Link href={"/projects"} className="relative group flex items-center gap-4 px-6 py-3 rounded-full bg-logo-red hover:bg-[#7d1d2a] text-white xl:text-base !cursor-pointer transition-all duration-150">
-                                                            <span>Tüm Projeler</span>
-                                                            <span className="inline-block h-4 w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
+                                                        <Link href={"/projects"} className="relative group flex items-center gap-2 sm:gap-4 px-6 py-3 rounded-full bg-logo-red hover:bg-[#7d1d2a] text-white xl:text-base !cursor-pointer transition-all duration-150">
+                                                            <span className="text-xs sm:text-sm 2xl:text-base">Tüm Projeler</span>
+                                                            <span className="inline-block h-3 md:h-4 w-3 md:w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
                                                         </Link>
                                                     </motion.div>
                                                 </motion.div>
@@ -109,7 +109,7 @@ export default function Hero({ carousels }) {
             </Swiper>
             <div
                 id="carousel-pagination"
-                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-5 md:!bottom-12 !left-auto !right-9 z-20"
+                className="!w-fit flex flex-col items-center pointer-events-auto absolute !bottom-10 md:!bottom-5 lg:!bottom-12 !left-auto !right-6 md:!right-9 z-20"
             />
         </section>
     );

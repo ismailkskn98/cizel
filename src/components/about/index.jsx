@@ -40,21 +40,23 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
     return (
         <main className="w-full fluid gridContainer pb-6 sm:pb-8 lg:pb-12">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer pt-64 lg:pt-72 -mt-52">
+            <section className="fluid gridContainer pt-56 sm:pt-64 lg:pt-72 -mt-52">
                 <Opacity className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-7 md:gap-10 lg:gap-16 mb-3 sm:mb-10 lg:mb-16 2xl:mb-20">
                     <section className='flex flex-col gap-6'>
-                        <article className="flex items-center gap-2">
-                            <div className="relative">
-                                <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
-                                    <div className="h-0.5 w-10 rounded-lg bg-white" />
-                                    <MoveRight className='-ml-2 w-20 h-20 stroke-[0.5px] text-white' />
+                        <article className="flex flex-col gap-0">
+                            <article className="flex items-center gap-2 mb-6">
+                                <div className="relative">
+                                    <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
+                                        <div className="h-0.5 w-6 lg:w-10 rounded-lg bg-white" />
+                                        <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px] text-white' />
+                                    </div>
+                                    <div className="w-7 lg:w-10 h-7 lg:h-10 bg-black rounded-full" />
                                 </div>
-                                <div className="w-10 h-10 bg-black rounded-full" />
-                                <Opacity delay={0.1}>
-                                    <div className='absolute left-1/2 -translate-x-1/2 top-2 h-screen w-0.5 bg-gradient-to-b from-white to-60% to-transparent mix-blend-difference md:block hidden'></div>
-                                </Opacity>
-                            </div>
-                            <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">{t('title')}</span>
+                                <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t("title")}</span>
+                            </article>
+                            <h1 className="text-4xl md:text-5xl xl:text-6xl font-medium text-gray-900 leading-tight">
+                                {t("title")}
+                            </h1>
                         </article>
 
                         <div className='relative flex flex-col items-start gap-2 sm:gap-6 pl-0 md:pl-12'>
@@ -76,8 +78,8 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                         </div>
                     </section>
                     <Opacity delay={0.5} className='relative flex-shrink-0'>
-                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='hidden lg:block absolute inset-0 w-full h-full rounded-3xl z-10 translate-8 blur-xs' />
-                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='relative z-20 object-contain w-fit h-full max-h-72 lg:max-h-max lg:h-96 2xl:h-[450px] rounded-3xl' />
+                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={700} height={700} className='hidden lg:block absolute inset-0 w-full h-full rounded-3xl z-10 translate-8 blur-xs' />
+                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={700} height={700} className='relative z-20 object-contain w-fit h-72 lg:h-96 2xl:!h-[400px] rounded-3xl' />
                     </Opacity>
                 </Opacity>
 

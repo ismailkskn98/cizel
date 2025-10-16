@@ -6,12 +6,11 @@ import {
     SheetTrigger,
     SheetTitle,
 } from "@/components/ui/sheet"
-import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { IoIosMenu } from "react-icons/io";
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { IoChevronDown } from "react-icons/io5";
 import { useTranslations } from 'next-intl';
-import LanguageChange from '../ui/language-switcher';
 
 export default function MobileNavbar({ items }) {
     const [open, setOpen] = useState(false);
@@ -30,7 +29,7 @@ export default function MobileNavbar({ items }) {
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger className='focus:outline-none'>
-                <IoIosMenu className='text-4xl text-black' />
+                <IoIosMenu className='text-4xl text-white mix-blend-difference' />
             </SheetTrigger>
             <SheetContent
                 side="left"
@@ -72,16 +71,35 @@ export default function MobileNavbar({ items }) {
                                         className={`overflow-hidden transition-all duration-300 bg-[#1c1c1c] ${expandedItem === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                             }`}
                                     >
-                                        {item.dropdownItems?.map((dropdownItem, dropIndex) => (
-                                            <Link
-                                                key={dropIndex}
-                                                href={dropdownItem.href}
-                                                onClick={handleLinkClick}
-                                                className='block px-8 py-3 text-white/70 hover:text-white hover:bg-slate-700/50 transition-all duration-300 text-[14px] border-l-2 border-transparent hover:border-primary ml-6'
-                                            >
-                                                {dropdownItem.label}
-                                            </Link>
-                                        ))}
+                                        {item.dropdownItems?.map((dropdownItem, dropIndex) => {
+                                            const isPDF = dropdownItem.href?.endsWith('.pdf');
+
+                                            if (isPDF) {
+                                                return (
+                                                    <a
+                                                        key={dropIndex}
+                                                        href={dropdownItem.href}
+                                                        onClick={handleLinkClick}
+                                                        className='block px-8 py-3 text-white/70 hover:text-white hover:bg-slate-700/50 transition-all duration-300 text-[14px] border-l-2 border-transparent hover:border-primary ml-6'
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        {dropdownItem.label}
+                                                    </a>
+                                                );
+                                            }
+
+                                            return (
+                                                <Link
+                                                    key={dropIndex}
+                                                    href={dropdownItem.href}
+                                                    onClick={handleLinkClick}
+                                                    className='block px-8 py-3 text-white/70 hover:text-white hover:bg-slate-700/50 transition-all duration-300 text-[14px] border-l-2 border-transparent hover:border-primary ml-6'
+                                                >
+                                                    {dropdownItem.label}
+                                                </Link>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             ) : (

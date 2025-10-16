@@ -19,7 +19,7 @@ export default function Footer({ contactData }) {
         { label: "Gayrimenkul Projeler", href: "/projects/real-estate" },
         { label: "Taahhüt Projeler", href: "/projects/construction" },
         { label: "Kalite Belgeleri", href: "/about/certificates" },
-        { label: "KVKK", href: "/about/kvkk" },
+        { label: "KVKK", href: "/kvkk.pdf" },
     ]
 
     const socialLinks = [

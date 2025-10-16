@@ -67,17 +67,37 @@ export default function Navbar({ items = [] }) {
                                             className="bg-white text-black rounded-md border border-gray/200 overflow-hidden px-1 py-2.5"
                                         >
                                             <motion.div layout className="min-w-44 w-fit">
-                                                {item.dropdownItems?.map((dropItem, idx) => (
-                                                    <Link
-                                                        href={dropItem.href}
-                                                        onClick={() => setOpen(null)}
-                                                        key={idx}
-                                                        className="flex px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer hover:bg-gray-50 group items-center transition-all duration-200"
-                                                    >
-                                                        <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-logo-red">{">"}</span>
-                                                        <span className="group-hover:translate-x-1 transition-transform duration-200 text-nowrap">{dropItem.label}</span>
-                                                    </Link>
-                                                ))}
+                                                {item.dropdownItems?.map((dropItem, idx) => {
+                                                    const isPDF = dropItem.href?.endsWith('.pdf');
+
+                                                    if (isPDF) {
+                                                        return (
+                                                            <a
+                                                                href={dropItem.href}
+                                                                onClick={() => setOpen(null)}
+                                                                key={idx}
+                                                                className="flex px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer hover:bg-gray-50 group items-center transition-all duration-200"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                                <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-logo-red">{">"}</span>
+                                                                <span className="group-hover:translate-x-1 transition-transform duration-200 text-nowrap">{dropItem.label}</span>
+                                                            </a>
+                                                        );
+                                                    }
+
+                                                    return (
+                                                        <Link
+                                                            href={dropItem.href}
+                                                            onClick={() => setOpen(null)}
+                                                            key={idx}
+                                                            className="flex px-3 py-2 text-xs uppercase tracking-wide rounded !cursor-pointer hover:bg-gray-50 group items-center transition-all duration-200"
+                                                        >
+                                                            <span className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-logo-red">{">"}</span>
+                                                            <span className="group-hover:translate-x-1 transition-transform duration-200 text-nowrap">{dropItem.label}</span>
+                                                        </Link>
+                                                    );
+                                                })}
                                             </motion.div>
                                         </motion.main>
                                     </section>

@@ -117,7 +117,7 @@ const ContactForm = () => {
                     <footer className="text-center text-xs text-gray-500 mt-4">
                         <p>
                             {t("form.terms")}{" "}
-                            <Link href="/kvkk" className="text-logo-red hover:underline !cursor-pointer">{t("form.termsLink")}</Link>
+                            <Link href="/kvkk.pdf" className="text-logo-red hover:underline !cursor-pointer">{t("form.termsLink")}</Link>
                             {" "}
                             {t("form.termsEnd")}
                         </p>

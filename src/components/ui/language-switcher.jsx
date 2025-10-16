@@ -25,7 +25,7 @@ export default function LanguageChange({ footer = false }) {
                     router.replace({ pathname, query: currentSearchParams }, { scroll: false, locale: value })
                 })
             }}>
-                <SelectTrigger className={`font-light min-w-[120px] backdrop-blur-none border-none !cursor-pointer !text-xs sm:!text-sm !shadow-none ${footer ? "bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent text-white dark:text-white" : "bg-white dark:bg-white hover:bg-white dark:hover:bg-white text-black/80 dark:text-black/80"}`}>
+                <SelectTrigger className={`font-light min-w-[80px] md:min-w-min backdrop-blur-none border-none !cursor-pointer !text-xs sm:!text-sm !shadow-none bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent `}>
                     <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

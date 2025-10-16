@@ -39,7 +39,7 @@ export default function ProjectsCarousel({ projects }) {
                 spaceBetween={24}
                 breakpoints={{
                     768: { slidesPerView: 2, spaceBetween: 24 },
-                    1024: { slidesPerView: 3, spaceBetween: 32 },
+                    1100: { slidesPerView: 3, spaceBetween: 32 },
                 }}
                 className="!py-4"
             >

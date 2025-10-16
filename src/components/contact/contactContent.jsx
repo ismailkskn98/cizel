@@ -16,12 +16,12 @@ const ContactContent = ({ contactData }) => {
                         <article className="flex items-center gap-2 mb-6">
                             <div className="relative">
                                 <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
-                                    <div className="h-0.5 w-10 rounded-lg bg-white" />
-                                    <MoveRight className='-ml-2 w-20 h-20 stroke-[0.5px] text-white' />
+                                    <div className="h-0.5 w-6 lg:w-10 rounded-lg bg-white" />
+                                    <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px] text-white' />
                                 </div>
-                                <div className="w-10 h-10 bg-black rounded-full" />
+                                <div className="w-7 lg:w-10 h-7 lg:h-10 bg-black rounded-full" />
                             </div>
-                            <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">{t("title")}</span>
+                            <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t("title")}</span>
                         </article>
                         <h1 className="text-4xl md:text-5xl xl:text-6xl font-medium text-gray-900 leading-tight">
                             {t("title")}
