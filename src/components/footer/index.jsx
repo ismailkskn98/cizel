@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
-import LanguageSwitcher from '@/components/ui/language-switcher'
 import { Link } from '@/i18n/navigation'
+import LanguageChange from '@/components/ui/language-switcher'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
@@ -50,7 +50,7 @@ export default function Footer() {
                             müşteri memnuniyetini ön planda tutan güvenilir bir markadır.
                         </p>
                         <div className="flex items-center space-x-3">
-                            <LanguageSwitcher compact={false} />
+                            <LanguageChange />
                         </div>
                     </div>
 

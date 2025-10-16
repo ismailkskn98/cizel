@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
 import Navbar from './navbar'
-import LanguageSwitcher from '../ui/language-switcher'
 import { Link } from '@/i18n/navigation'
 import Opacity from '../common/opacity'
+import LanguageChange from '../ui/language-switcher'
 
 export default function Header() {
 
@@ -37,7 +37,7 @@ export default function Header() {
                 <Navbar items={navbarItems} />
                 <div className='justify-self-end'>
                     <Opacity delay={0.2}>
-                        <LanguageSwitcher compact={false} />
+                        <LanguageChange />
                     </Opacity>
                 </div>
             </main>

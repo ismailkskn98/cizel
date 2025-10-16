@@ -29,17 +29,19 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
     };
 
     const paragraphs = aboutData[locale].description.split('. ');
-    const firstPart = highlightKeywords(paragraphs.slice(0, 2).join('. '));
-    const secondPart = highlightKeywords(paragraphs.slice(2).join('. '));
+    const paragraphsPerSection = Math.ceil(paragraphs.length / 3);
+    const firstPart = highlightKeywords(paragraphs.slice(0, paragraphsPerSection).join('. '));
+    const secondPart = highlightKeywords(paragraphs.slice(paragraphsPerSection, paragraphsPerSection * 2).join('. '));
+    const thirdPart = highlightKeywords(paragraphs.slice(paragraphsPerSection * 2).join('. '));
 
     const highlightedVision = highlightKeywords(aboutData[locale].vision || '');
     const highlightedSubDescription = highlightKeywords(aboutData[locale].subDescription || '');
 
     return (
-        <main className="w-full fluid gridContainer pb-12">
+        <main className="w-full fluid gridContainer pb-6 sm:pb-8 lg:pb-12">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer pt-72 -mt-52">
-                <Opacity className="w-full flex flex-col lg:flex-row items-center justify-between gap-16 mb-20">
+            <section className="fluid gridContainer pt-64 lg:pt-72 -mt-52">
+                <Opacity className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-7 md:gap-10 lg:gap-16 mb-3 sm:mb-10 lg:mb-16 2xl:mb-20">
                     <section className='flex flex-col gap-6'>
                         <article className="flex items-center gap-2">
                             <div className="relative">
@@ -49,31 +51,33 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                                 </div>
                                 <div className="w-10 h-10 bg-black rounded-full" />
                                 <Opacity delay={0.1}>
-                                    <div className='absolute left-1/2 -translate-x-1/2 top-2 h-screen w-0.5 bg-gradient-to-b from-white to-60% to-transparent mix-blend-difference'></div>
+                                    <div className='absolute left-1/2 -translate-x-1/2 top-2 h-screen w-0.5 bg-gradient-to-b from-white to-60% to-transparent mix-blend-difference md:block hidden'></div>
                                 </Opacity>
                             </div>
                             <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">{t('title')}</span>
                         </article>
 
-                        <div className='relative flex flex-col items-start gap-6 pl-12'>
+                        <div className='relative flex flex-col items-start gap-2 sm:gap-6 pl-0 md:pl-12'>
                             <Opacity delay={0.2}>
-                                <h1 className="text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
+                                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
                                     {aboutData[locale].title}
                                 </h1>
                             </Opacity>
                             <Opacity delay={0.4}>
-                                <div className='text-sm lg:text-base space-y-4 text-gray-600 max-w-4xl leading-relaxed'>
+                                <div className='text-xs sm:text-sm lg:text-base space-y-4 text-gray-600 max-w-4xl leading-relaxed'>
                                     <p dangerouslySetInnerHTML={{ __html: firstPart }}>
                                     </p>
                                     <p dangerouslySetInnerHTML={{ __html: secondPart }}>
+                                    </p>
+                                    <p dangerouslySetInnerHTML={{ __html: thirdPart }}>
                                     </p>
                                 </div>
                             </Opacity>
                         </div>
                     </section>
                     <Opacity delay={0.5} className='relative flex-shrink-0'>
-                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='absolute inset-0 w-full h-full rounded-3xl z-10 translate-8 blur-xs' />
-                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='relative z-20 object-contain w-fit h-96 2xl:h-[450px] rounded-3xl' />
+                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='hidden lg:block absolute inset-0 w-full h-full rounded-3xl z-10 translate-8 blur-xs' />
+                        <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={600} height={500} className='relative z-20 object-contain w-fit h-full max-h-72 lg:max-h-max lg:h-96 2xl:h-[450px] rounded-3xl' />
                     </Opacity>
                 </Opacity>
 
@@ -124,12 +128,12 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                 </main>
 
                 {aboutData[locale].subDescription && (
-                    <Opacity className='w-full max-w-7xl mx-auto mt-20 px-4'>
+                    <Opacity className='w-full max-w-7xl mx-auto mt-6 lg:mt-12 xl:mt-16 2xl:mt-20 px-4'>
                         <div className="relative">
                             <div className="absolute inset-0 rounded-3xl" />
                             <div className="relative z-10 p-8">
                                 <div className="max-w-4xl mx-auto text-center">
-                                    <div className="flex justify-center mb-8">
+                                    <div className="flex justify-center mb-2 sm:mb-4 lg:mb-6 2xl:mb-8">
                                         <div className="relative">
                                             <svg className="w-16 h-16 text-logo-red/30" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
@@ -141,7 +145,7 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                                         {locale === 'en' ? 'A Message of Gratitude' : 'Teşekkür Mesajımız'}
                                     </h2>
 
-                                    <div className="flex items-center justify-center gap-4 mb-10">
+                                    <div className="flex items-center justify-center gap-4 mb-6 2xl:mb-10">
                                         <div className="w-16 h-px bg-gradient-to-r from-transparent to-black/30"></div>
                                         <div className="w-2 h-2 bg-logo-red rounded-full"></div>
                                         <div className="w-16 h-px bg-gradient-to-l from-transparent to-black/30"></div>
@@ -151,7 +155,7 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                                         <p dangerouslySetInnerHTML={{ __html: highlightedSubDescription }}></p>
                                     </div>
 
-                                    <div className="mt-12 pt-8 border-t border-black/10">
+                                    <div className="mt-6 2xl:mt-12 pt-6 2xl:pt-8 border-t border-black/10">
                                         <p className="text-black font-semibold text-sm lg:text-base">
                                             {locale === 'en' ? 'Çizel Construction' : 'Çizel İnşaat'}
                                         </p>
