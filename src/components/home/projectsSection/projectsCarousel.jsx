@@ -20,7 +20,7 @@ export default function ProjectsCarousel({ projects }) {
     }
 
     return (
-        <FadeIn delay={0.2} className="fluid -translate-x-[10%] w-[120%] relative">
+        <section className="w-full relative">
             <ProjectsNavigation />
             <Swiper
                 ref={swiperRef}
@@ -40,9 +40,8 @@ export default function ProjectsCarousel({ projects }) {
                 breakpoints={{
                     768: { slidesPerView: 2, spaceBetween: 24 },
                     1024: { slidesPerView: 3, spaceBetween: 32 },
-                    1300: { slidesPerView: 4, spaceBetween: 32 },
                 }}
-                className="!py-12"
+                className="!py-4"
             >
                 {projects.map((project, index) => (
                     <SwiperSlide key={`${project.id}-${index}`}>
@@ -58,6 +57,6 @@ export default function ProjectsCarousel({ projects }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </FadeIn>
+        </section>
     )
 }

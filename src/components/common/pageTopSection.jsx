@@ -5,7 +5,7 @@ import Opacity from './opacity';
 
 export default function PageTopSection({ breadcrumbs }) {
     return (
-        <Opacity className='fluid p-2 relative z-40 mt-[-6rem] h-64 w-full overflow-hidden'>
+        <Opacity className='fluid p-1 sm:p-2 relative z-40 mt-[-6rem] h-64 w-full overflow-hidden'>
             <div className="relative flex items-center justify-center bg-gradient-to-b from-black to-[#2b2b2b] w-full h-full rounded-3xl overflow-hidden">
                 <div className="bg-[url('/images/page-top-bg.svg')] absolute z-10 inset-0 w-full h-full bg-cover bg-center" />
                 <Image

@@ -123,5 +123,11 @@
       "error": "Bir hata oluştu!",
       "errorDescription": "Başvurunuz gönderilemedi. Lütfen tekrar deneyiniz."
     }
-  }
+  },
+  "cizel-logo": "cizel logo",
+  "devam-eden-projeler": "Devam Eden Projeler",
+  "tamamlanan-projeler": "Tamamlanan Projeler",
+  "projeler": "Projeler",
+  "kurumsal": "Kurumsal",
+  "anasayfa": "Anasayfa"
 }

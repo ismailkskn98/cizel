@@ -35,12 +35,12 @@ export default function CizelAbout({ homeData, totalProjectCount, foundingYear, 
     return (
         <section className="py-16 lg:py-24 relative">
             <main className="container mx-auto relative">
-                <div className="flex items-center justify-between gap-12 lg:gap-20 mb-20">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-12 xl:gap-16 2xl:gap-20 mb-20">
                     <FadeIn className="space-y-6">
                         <About data={homeData} />
                     </FadeIn>
                     <div className="w-fit h-fit">
-                        <Image src={"/images/cizel-anasayfa.webp"} alt="Cizel Anasayfa" width={600} height={600} className="object-contain object-center w-fit h-[500px] rounded-xl shadow-[20px_30px_22px_rgba(0,0,0,1)]" />
+                        <Image src={"/images/cizel-anasayfa.webp"} alt="Cizel Anasayfa" width={600} height={600} className="object-cover lg:object-contain object-center w-fit h-[320px] sm:h-[350px] lg:h-[500px] rounded-xl drop-shadow-2xl lg:drop-shadow-[20px_30px_22px_rgba(0,0,0,1)]" />
                     </div>
                 </div>
                 <FadeIn delay={0.3} className="w-full">

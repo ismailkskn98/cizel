@@ -6,7 +6,7 @@ import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useSearchParams } from 'next/navigation';
 
-export default function LanguageChange() {
+export default function LanguageChange({ footer = false }) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -25,7 +25,7 @@ export default function LanguageChange() {
                     router.replace({ pathname, query: currentSearchParams }, { scroll: false, locale: value })
                 })
             }}>
-                <SelectTrigger className={"backdrop-blur-none bg-white dark:bg-white hover:bg-white dark:hover:bg-white font-light text-black/80 dark:text-black/80 border-none !cursor-pointer"}>
+                <SelectTrigger className={`font-light min-w-[120px] backdrop-blur-none border-none !cursor-pointer !text-xs sm:!text-sm !shadow-none ${footer ? "bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent text-white dark:text-white" : "bg-white dark:bg-white hover:bg-white dark:hover:bg-white text-black/80 dark:text-black/80"}`}>
                     <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

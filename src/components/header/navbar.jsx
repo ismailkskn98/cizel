@@ -16,7 +16,7 @@ export default function Navbar({ items = [] }) {
     const pathname = usePathname();
 
     return (
-        <Opacity delay={0.2} className='relative col-span-3 hidden lg:flex items-center gap-6 justify-self-center px-6 py-4 rounded-b-3xl bg-white z-20 -mt-8' onMouseLeave={() => setOpen(null)}>
+        <Opacity delay={0.2} className='relative col-span-3 flex items-center gap-6 justify-self-center px-6 py-4 rounded-b-3xl bg-white z-20 -mt-8' onMouseLeave={() => setOpen(null)}>
             <div className='absolute bg-white -top-2 inset-x-0 w-full h-2 z-30' />
             {items.map((item, i) => {
                 if (!item.dropdown) {

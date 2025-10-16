@@ -15,7 +15,7 @@ export default function Stats({ stats = defaultStats }) {
         <section className="w-full">
             <h2 id="stats-title" className="sr-only">Şirket İstatistikleri</h2>
 
-            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-40">
+            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-16 lg:mt-24 xl:mt-32 2xl:mt-40">
                 {stats.map((stat, index) => (
                     <li key={index} className="h-full">
                         <Opacity delay={index * 0.08} className="h-full">

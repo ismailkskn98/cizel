@@ -8,7 +8,7 @@ export default function About({ data }) {
     const secondPart = paragraphs.slice(2).join('. ');
     return (
         <section className="space-y-8">
-            <article className="space-y-6">
+            <article className="space-y-4 lg:space-y-6">
                 <div className="flex items-center gap-2">
                     <div className="relative">
                         <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
@@ -28,9 +28,9 @@ export default function About({ data }) {
                 <p className="text-sm xl:text-base text-black/70 leading-relaxed font-body max-w-2xl">
                     {secondPart}
                 </p>
-                <Link href={"/about"} className="relative w-fit group flex items-center gap-4 px-6 py-3 rounded-full bg-black text-white xl:text-base !cursor-pointer transition-all duration-150">
-                    <span>Devamını Oku</span>
-                    <span className="inline-block h-4 w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
+                <Link href={"/about"} className="relative w-fit group flex items-center gap-2.5 sm:gap-4 px-4 sm:px-5 2xl:px-6 py-2.5 sm:py-3 rounded-full bg-black text-white xl:text-base !cursor-pointer transition-all duration-150">
+                    <span className="text-xs sm:text-sm 2xl:text-base">Devamını Oku</span>
+                    <span className="inline-block h-3 md:h-4 w-3 md:w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
                 </Link>
             </article>
         </section>

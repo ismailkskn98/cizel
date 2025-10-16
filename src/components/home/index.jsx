@@ -17,7 +17,7 @@ export default function Home({ projects, carousels, homeData, partnerLogos, tota
             {/* <CizelProjects projects={projects} homeData={homeData.cizelProjects} /> */}
             <ProjectsSection projects={projects} homeData={homeData.projectsBlock} />
             <TurkeyMap hasProjects={locations} homeData={homeData.mapBlock} />
-            <CizelMarquee homeData={homeData.partnersBlock} partnerLogos={partnerLogos} />
+            {/* <CizelMarquee homeData={homeData.partnersBlock} partnerLogos={partnerLogos} /> */}
             <GoTop />
         </main>
     )

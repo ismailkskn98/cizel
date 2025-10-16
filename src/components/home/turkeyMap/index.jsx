@@ -4,11 +4,27 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import TurkeyMapHeader from "./header";
 import { useRouter } from "@/i18n/navigation";
+import { useState, useEffect } from "react";
 
 const geoUrl = "/geo/turkiye-iller.json";
 
 export default function TurkeyMap({ hasProjects = [], homeData }) {
     const router = useRouter();
+    const [mapScale, setMapScale] = useState(2000);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) {
+                setMapScale(2100);
+            } else {
+                setMapScale(2000);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const goProjects = (provinceName) => {
         const hasProject = hasProjects.some(item => item.toLowerCase() == provinceName.toLowerCase());
@@ -18,12 +34,16 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
     };
 
     return (
-        <section className="w-full relative">
+        <section className="w-full relative mt-4 sm:mt-8">
             <TurkeyMapHeader homeData={homeData} />
+            <div className="py-0 lg:py-4 2xl:py-6" />
             <ComposableMap
                 projection="geoMercator"
-                projectionConfig={{ scale: 2000, center: [35, 39] }}
-                className="relative w-full h-fit -mt-12 md:-mt-36 lg:-mt-60 xl:-mt-72"
+                projectionConfig={{
+                    scale: mapScale,
+                    center: [35, 39]
+                }}
+                className="relative w-full h-fit -mt-16 md:-mt-36 lg:-mt-60 xl:-mt-72"
             >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
