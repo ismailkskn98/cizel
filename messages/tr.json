@@ -124,6 +124,14 @@
       "errorDescription": "Başvurunuz gönderilemedi. Lütfen tekrar deneyiniz."
     }
   },
+  "ProjectsPage": {
+    "badge": "PROJELERİMİZ",
+    "cityProjects": "Projeleri",
+    "description": "Yılların deneyimi ve profesyonel ekibimizle, farklı ölçeklerde gerçekleştirdiğimiz projelerimizle sektördeki güvenilir yerimizi koruyoruz.",
+    "viewDetails": "Detayları Görüntüle",
+    "noProjects": "Henüz proje bulunmamaktadır",
+    "noProjectsDescription": "Bu lokasyon için henüz bir proje eklenmemiştir."
+  },
   "cizel-logo": "cizel logo",
   "devam-eden-projeler": "Devam Eden Projeler",
   "tamamlanan-projeler": "Tamamlanan Projeler",

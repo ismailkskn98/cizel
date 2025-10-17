@@ -1,4 +1,3 @@
-import PageTopSection from '@/components/common/pageTopSection';
 import ProjectSlug from '@/components/projects/slug';
 import React from 'react'
 
@@ -20,7 +19,7 @@ const getProjectsBySlug = async (city, slug) => {
 export default async function ProjectCitySlugPage({ params }) {
     const { city, slug, locale } = await params;
     const project = await getProjectsBySlug(city, slug);
-
+    console.log(project);
     return (
         <>
             <ProjectSlug project={project} locale={locale} />

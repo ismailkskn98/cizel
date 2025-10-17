@@ -123,5 +123,13 @@
       "error": "An error occurred!",
       "errorDescription": "Your application could not be sent. Please try again."
     }
+  },
+  "ProjectsPage": {
+    "badge": "OUR PROJECTS",
+    "cityProjects": "Projects",
+    "description": "With years of experience and our professional team, we maintain our trusted position in the industry through projects of various scales.",
+    "viewDetails": "View Details",
+    "noProjects": "No projects found",
+    "noProjectsDescription": "No projects have been added for this location yet."
   }
 }
