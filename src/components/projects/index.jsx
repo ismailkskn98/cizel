@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import PageTopSection from '../common/pageTopSection'
-import { ArrowRight, Calendar, MapPin, Building2 } from 'lucide-react'
+import { ArrowRight, Calendar, MapPin, Building2, MoveRight } from 'lucide-react'
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -63,14 +63,18 @@ export default function Projects({ projects, city, projectStatusName }) {
                     <div className="relative overflow-hidden mb-12 pt-52">
 
                         <div className="relative z-10 max-w-4xl">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-logo-red/20">
-                                <div className="w-2 h-2 bg-logo-red rounded-full animate-pulse" />
-                                <span className="text-sm font-semibold text-logo-red tracking-wide">
-                                    {t('ProjectsPage.badge')}
-                                </span>
-                            </div>
+                            <article className="flex items-center gap-2 mb-6 bg-white">
+                                <div className="relative">
+                                    <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
+                                        <div className="h-0.5 w-6 lg:w-10 rounded-lg bg-white" />
+                                        <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px] text-white' />
+                                    </div>
+                                    <div className="w-7 lg:w-10 h-7 lg:h-10 bg-black rounded-full" />
+                                </div>
+                                <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t('ProjectsPage.badge')}</span>
+                            </article>
 
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                            <h1 className="text-5xl md:text-6xl font-medium mb-3 leading-tight">
                                 <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                                     {city ? `${projects[0].location}` : `${projectStatusName}`}
                                 </span>
@@ -80,7 +84,7 @@ export default function Projects({ projects, city, projectStatusName }) {
                                 </span>
                             </h1>
 
-                            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mb-8">
+                            <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
                                 {t('ProjectsPage.description')}
                             </p>
                         </div>
