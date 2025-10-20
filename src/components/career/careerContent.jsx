@@ -1,8 +1,7 @@
-import { Briefcase, MoveRight } from 'lucide-react';
+import { MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import Opacity from '../common/opacity';
 import MotionScrollInViewVariant from '../common/motionScrollInViewVariant';
 
 const CareerContent = ({ careerData, careerImage }) => {

@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import CarouselButtons from './carouselButtons';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function Hero({ carousels }) {
@@ -37,14 +38,13 @@ export default function Hero({ carousels }) {
                 {carousels.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="relative">
                         <div className="relative h-full w-full">
-                            <motion.div
-                                key={`${slide.id}-${activeIndex}`}
-                                className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-                                style={{ backgroundImage: `url(${base_url}${slide.image})` }}
+                            <Image key={`${slide.id}-${activeIndex}`}
                                 initial={{ scale: 1 }}
                                 animate={{ scale: activeIndex === index ? 1.12 : 1 }}
                                 transition={{ duration: 7, ease: "easeOut" }}
-                            />
+                                src={`${base_url}${slide.image}`}
+                                alt='cizel carousel item' layout='fill' objectFit='cover'
+                                className='absolute inset-0 -z-20 w-full h-full object-cover' />
 
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
                             <div className="absolute inset-0 -z-10 bg-black/20" />

@@ -49,7 +49,7 @@ const ContactContent = ({ contactData }) => {
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                                    <a href={`mailto:${contactData.email}`} className="text-sm hover:text-logo-red transition-colors">
+                                    <a href={`mailto:${contactData.email}`} className="text-sm hover:text-logo-red transition-colors !cursor-pointer">
                                         {contactData.email}
                                     </a>
                                 </div>
