@@ -206,9 +206,9 @@
     "contact": "İletişim"
   },
   "Services": {
-    "realEstate": "Gayrimenkul Projeler",
-    "construction": "Taahhüt Projeler",
-    "qualityCertificates": "Kalite Belgeleri"
+    "realEstate": "Tamamlanan Projeler",
+    "construction": "Devam Eden Projeler",
+    "qualityCertificates": "Tüm Projeler"
   },
   "ProjectDetail": {
     "title": "Proje Detayları",

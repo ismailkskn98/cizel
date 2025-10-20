@@ -206,9 +206,9 @@
     "contact": "Contact"
   },
   "Services": {
-    "realEstate": "Real Estate Projects",
-    "construction": "Construction Projects",
-    "qualityCertificates": "Quality Certificates"
+    "realEstate": "Completed Projects",
+    "construction": "Ongoing Projects",
+    "qualityCertificates": "All Projects"
   },
   "ProjectDetail": {
     "title": "Project Details",
