@@ -1,7 +1,11 @@
+'use client'
+
 import { Link } from "@/i18n/navigation"
 import { MoveRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function About({ data }) {
+    const t = useTranslations('AboutPage');
 
     const paragraphs = data.description.split('. ');
     const firstPart = paragraphs.slice(0, 2).join('. ');
@@ -17,7 +21,7 @@ export default function About({ data }) {
                         </div>
                         <div className="w-10 h-10 bg-black rounded-full" />
                     </div>
-                    <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">Cizel Hakkında</span>
+                    <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">{t('badge')}</span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl xl:text-6xl font-medium text-black/90 leading-tight">
                     {data.title}
@@ -29,7 +33,7 @@ export default function About({ data }) {
                     {secondPart}
                 </p>
                 <Link href={"/about"} className="relative w-fit group flex items-center gap-2.5 sm:gap-4 px-4 sm:px-5 2xl:px-6 py-2.5 sm:py-3 rounded-full bg-black text-white xl:text-base !cursor-pointer transition-all duration-150">
-                    <span className="text-xs sm:text-sm 2xl:text-base">Devamını Oku</span>
+                    <span className="text-xs sm:text-sm 2xl:text-base">{t('readMore')}</span>
                     <span className="inline-block h-3 md:h-4 w-3 md:w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
                 </Link>
             </article>

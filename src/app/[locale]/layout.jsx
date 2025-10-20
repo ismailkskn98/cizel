@@ -6,7 +6,7 @@ import { ReactLenis } from "@/lib/lenis";
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { Toaster } from '@/components/ui/sonner';
 
 const manropeFont = localFont({
@@ -50,10 +50,67 @@ const strongFont = localFont({
   variable: "--font-strong",
 })
 
-export const metadata = {
-  title: "Cizel",
-  description: "Cizel",
-};
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.home' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords'),
+    authors: [{ name: "Çizel İnşaat" }],
+    creator: "Çizel İnşaat",
+    publisher: "Çizel İnşaat",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    openGraph: {
+      type: "website",
+      locale: locale === "tr" ? "tr_TR" : "en_US",
+      title: t('title'),
+      description: t('description'),
+      siteName: "Çizel İnşaat",
+      images: [
+        {
+          url: "/images/cizel-logo-yazisiz.png",
+          width: 1200,
+          height: 630,
+          alt: "Çizel İnşaat",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t('title'),
+      description: t('description'),
+      images: ["/images/cizel-logo-yazisiz.png"],
+    },
+    icons: {
+      icon: [{ url: "/images/cizel-logo/cizel-logo-yazisiz.png", type: "image/png", sizes: "512x512" }],
+      apple: [{ url: "/images/cizel-logo/cizel-logo-yazisiz.png", type: "image/png", sizes: "512x512" }],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        tr: "/tr",
+        en: "/en",
+      },
+    },
+  };
+}
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 const getContact = async () => {

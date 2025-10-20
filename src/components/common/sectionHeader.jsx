@@ -1,7 +1,10 @@
+'use client'
+
 import { Link } from "@/i18n/navigation"
 import CustomButton from "./customButton"
 import FadeIn from "./fadeIn"
 import { MoveRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function SectionHeader({
     title,
@@ -9,6 +12,8 @@ export default function SectionHeader({
     className = "",
     descriptionClassName = "text-xs sm:text-sm lg:text-base text-muted-foreground max-w-2xl leading-relaxed text-start",
 }) {
+    const t = useTranslations('Common')
+
     return (
         <FadeIn className={`w-full text-center mb-8 flex flex-col items-start ${className}`}>
             <article className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-4">
@@ -32,7 +37,7 @@ export default function SectionHeader({
                     )}
                 </div>
                 <Link href={"/projects"} className="relative group flex items-center gap-2.5 sm:gap-4 px-6 py-3 rounded-full bg-black text-white xl:text-base !cursor-pointer">
-                    <span className="text-xs sm:text-sm 2xl:text-base text-nowrap">Tüm Projeler</span>
+                    <span className="text-xs sm:text-sm 2xl:text-base text-nowrap">{t('allProjects')}</span>
                     <span className="inline-block h-3 md:h-4 w-3 md:w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
                 </Link>
             </article>

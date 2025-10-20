@@ -1,17 +1,21 @@
+'use client'
+
 import React from 'react';
 import Gallery from './Gallery';
 import Image from 'next/image';
 import { Building2, Calendar, Briefcase, CheckCircle2, Clock } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function ProjectSlug({ project, locale = 'tr' }) {
+    const t = useTranslations('ProjectDetail');
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 
     const item = Array.isArray(project) ? project?.[0] : project;
     if (!item) {
         return (
             <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-3xl mx-auto text-center">
-                <h1 className="text-xl font-semibold">Proje bulunamadı</h1>
-                <p className="text-neutral-500 mt-2">Lütfen daha sonra tekrar deneyin.</p>
+                <h1 className="text-xl font-semibold">{t('notFound')}</h1>
+                <p className="text-neutral-500 mt-2">{t('notFoundDescription')}</p>
             </section>
         )
     }
@@ -57,7 +61,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
                             <h2 className="relative text-sm font-bold text-white tracking-wide flex items-center gap-2">
                                 <Briefcase className="w-4 h-4" />
-                                Proje Detayları
+                                {t('title')}
                             </h2>
                         </div>
 
@@ -65,7 +69,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                                     <Building2 className="w-3.5 h-3.5" />
-                                    İşveren
+                                    {t('employer')}
                                 </div>
                                 <p className="text-sm font-medium text-neutral-900 leading-relaxed pl-5">
                                     {template.administration || '-'}
@@ -77,7 +81,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                                     <Briefcase className="w-3.5 h-3.5" />
-                                    Proje Türü
+                                    {t('projectType')}
                                 </div>
                                 <div className="flex flex-wrap gap-2 pl-5">
                                     {JSON.parse(template.jobType)[locale]?.map((type, idx) => (
@@ -99,7 +103,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                                         ? <CheckCircle2 className="w-3.5 h-3.5" />
                                         : <Clock className="w-3.5 h-3.5" />
                                     }
-                                    Durum
+                                    {t('status')}
                                 </div>
                                 <div className="pl-5">
                                     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold shadow-sm ${/\btamam|compl|bitti|done/.test((JSON.parse(template.projectStatus)[locale] || '').toLowerCase())
@@ -122,7 +126,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                                     <Calendar className="w-3.5 h-3.5" />
-                                    Tamamlanma Yılı
+                                    {t('completionYear')}
                                 </div>
                                 <p className="text-base font-bold text-neutral-900 pl-5">
                                     {formatDate(template.year)}
@@ -139,7 +143,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
                             <h2 className="relative text-base font-bold text-white tracking-wide flex items-center gap-2">
                                 <Briefcase className="w-5 h-5" />
-                                Proje Detayları
+                                {t('title')}
                             </h2>
                         </div>
 
@@ -147,7 +151,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                                     <Building2 className="w-4 h-4" />
-                                    İşveren
+                                    {t('employer')}
                                 </div>
                                 <p className="text-sm font-medium text-neutral-900 leading-relaxed pl-6">
                                     {template.administration || '-'}
@@ -159,7 +163,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                                     <Briefcase className="w-4 h-4" />
-                                    Proje Türü
+                                    {t('projectType')}
                                 </div>
                                 <div className="flex flex-wrap gap-2 pl-6">
                                     {JSON.parse(template.jobType)[locale]?.map((type, idx) => (
@@ -181,7 +185,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                                         ? <CheckCircle2 className="w-4 h-4" />
                                         : <Clock className="w-4 h-4" />
                                     }
-                                    Durum
+                                    {t('status')}
                                 </div>
                                 <div className="pl-6">
                                     <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm ${/\btamam|compl|bitti|done/.test((JSON.parse(template.projectStatus)[locale] || '').toLowerCase())
@@ -204,7 +208,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
                                     <Calendar className="w-4 h-4" />
-                                    Tamamlanma Yılı
+                                    {t('completionYear')}
                                 </div>
                                 <p className="text-lg font-bold text-neutral-900 pl-6">
                                     {formatDate(template.year)}

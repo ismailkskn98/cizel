@@ -8,12 +8,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import CarouselButtons from './carouselButtons';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function Hero({ carousels }) {
     const locale = useLocale();
+    const t = useTranslations('Common');
     const [activeIndex, setActiveIndex] = useState(0);
     const [subtitle, setSubtitle] = useState(JSON.parse(carousels[0].subtitle)[locale]);
 
@@ -87,7 +88,7 @@ export default function Hero({ carousels }) {
                                                         className='w-fit mx-auto'
                                                     >
                                                         <Link href={"/projects"} className="relative group flex items-center gap-2 sm:gap-4 px-6 py-3 rounded-full bg-logo-red hover:bg-[#7d1d2a] text-white xl:text-base !cursor-pointer transition-all duration-150">
-                                                            <span className="text-xs sm:text-sm 2xl:text-base">Tüm Projeler</span>
+                                                            <span className="text-xs sm:text-sm 2xl:text-base">{t('allProjects')}</span>
                                                             <span className="inline-block h-3 md:h-4 w-3 md:w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
                                                         </Link>
                                                     </motion.div>

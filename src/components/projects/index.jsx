@@ -76,7 +76,7 @@ export default function Projects({ projects }) {
                             </article>
 
                             <h1 className="text-5xl md:text-6xl font-medium mb-3 leading-tight">
-                                Tüm Projelerimiz
+                                {t('Common.allProjects')}
                             </h1>
 
                             <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">

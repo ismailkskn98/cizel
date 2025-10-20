@@ -1,33 +1,37 @@
+'use client'
+
 import About from "./about"
 import Stats from "./stats"
 import Footer from "./footer"
 import FadeIn from "../../common/fadeIn"
 import Image from "next/image"
 import { Calendar, Building2, Award, Trophy } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function CizelAbout({ homeData, totalProjectCount, foundingYear, completedProjects }) {
+    const t = useTranslations('AboutPage.homeStats')
     const date = new Date();
     const currentYear = date.getFullYear();
 
     const stats = [
         {
             number: `${currentYear - foundingYear}`,
-            label: "Tasarımda Kusursuzluğa Adanmış Yıllar",
+            label: t('experienceYears'),
             icon: Calendar,
         },
         {
             number: `${totalProjectCount}+`,
-            label: "Hayata Geçirilmiş Eşsiz Proje",
+            label: t('totalProjects'),
             icon: Building2,
         },
         {
             number: foundingYear,
-            label: "Köklü Geçmişimizle Gurur Duyuyoruz",
+            label: t('foundingYear'),
             icon: Award,
         },
         {
             number: `${completedProjects}+`,
-            label: "Tamamlanan Prestijli Proje",
+            label: t('completedProjects'),
             icon: Trophy,
         },
     ]

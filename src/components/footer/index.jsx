@@ -1,25 +1,32 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import { FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { Link } from '@/i18n/navigation'
 import LanguageChange from '@/components/ui/language-switcher'
+import { useTranslations } from 'next-intl'
 
 export default function Footer({ contactData }) {
+    const t = useTranslations('Navigation')
+    const tCommon = useTranslations('Common')
+    const tFooter = useTranslations('Footer')
+    const tServices = useTranslations('Services')
     const currentYear = new Date().getFullYear()
 
     const quickLinks = [
-        { label: "Anasayfa", href: "/" },
-        { label: "Hakkımızda", href: "/about" },
-        { label: "Projeler", href: "/projects" },
-        { label: "Kariyer", href: "/career" },
-        { label: "İletişim", href: "/contact" },
+        { label: t('home'), href: "/" },
+        { label: t('about'), href: "/about" },
+        { label: t('projects'), href: "/projects" },
+        { label: t('career'), href: "/career" },
+        { label: t('contact'), href: "/contact" },
     ]
 
     const services = [
-        { label: "Gayrimenkul Projeler", href: "/projects/real-estate" },
-        { label: "Taahhüt Projeler", href: "/projects/construction" },
-        { label: "Kalite Belgeleri", href: "/about/certificates" },
-        { label: "KVKK", href: "/kvkk.pdf" },
+        { label: tServices('realEstate'), href: "/projects/real-estate" },
+        { label: tServices('construction'), href: "/projects/construction" },
+        { label: tServices('qualityCertificates'), href: "/about/certificates" },
+        { label: t('kvkk'), href: "/kvkk.pdf" },
     ]
 
     const socialLinks = [
@@ -41,13 +48,13 @@ export default function Footer({ contactData }) {
                             />
                         </div>
                         <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                            İnşaat sektörü, yalnızca fiziksel yapılar inşa etmekle kalmaz; aynı zamanda toplumların yaşam kalitesini yükselten, şehirleri dönüştüren ve geleceğe değer katan stratejik bir alandır.
+                            {tFooter('companyDescription')}
                         </p>
                     </article>
 
                     <article className="space-y-6">
                         <h3 className="text-base sm:text-lg font-semibold text-white border-b border-logo-red pb-2 w-fit">
-                            Hızlı Linkler
+                            {tCommon('quickLinks')}
                         </h3>
                         <ul className="space-y-3">
                             {quickLinks.map((link, index) => (
@@ -66,7 +73,7 @@ export default function Footer({ contactData }) {
 
                     <article className="space-y-6">
                         <h3 className="text-base sm:text-lg font-semibold text-white border-b border-logo-red pb-2 w-fit">
-                            Hizmetlerimiz
+                            {tCommon('ourServices')}
                         </h3>
                         <ul className="space-y-3">
                             {services.map((service, index) => (
@@ -85,7 +92,7 @@ export default function Footer({ contactData }) {
 
                     <article className="col-span-2 lg:col-span-1 space-y-6">
                         <h3 className="text-base sm:text-lg font-semibold text-white border-b border-logo-red pb-2 w-fit">
-                            İletişim
+                            {tCommon('contactInfo')}
                         </h3>
                         <div className="space-y-4">
                             <div className="flex items-start space-x-3">
@@ -117,12 +124,13 @@ export default function Footer({ contactData }) {
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex items-center space-x-3">
                             <LanguageChange footer={true} />
-                            <span className="text-gray-300 text-xs sm:text-sm">Bizi takip edin:</span>
+                            <span className="text-gray-300 text-xs sm:text-sm">{tCommon('followUs')}</span>
                             <div className="flex space-x-4">
                                 {socialLinks.map((social, index) => (
                                     <Link
                                         key={index}
                                         href={social.href}
+                                        target='_blank'
                                         className="w-8 sm:w-10 h-8 sm:h-10 bg-gray-700 hover:bg-logo-red rounded-full flex items-center justify-center transition-all duration-200 group !cursor-pointer"
                                         aria-label={social.label}
                                     >
@@ -132,7 +140,7 @@ export default function Footer({ contactData }) {
                             </div>
                         </div>
                         <div className="text-gray-400 text-xs sm:text-sm">
-                            © {currentYear} Cizel. Tüm hakları saklıdır.
+                            © {currentYear} Cizel. {tCommon('allRightsReserved')}
                         </div>
                     </div>
                 </div>

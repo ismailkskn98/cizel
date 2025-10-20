@@ -1,10 +1,15 @@
+'use client'
+
 import SectionHeader from "../../common/sectionHeader"
+import { useTranslations } from "next-intl"
 
 export default function Header() {
+    const t = useTranslations('AboutPage')
+
     return (
         <SectionHeader
-            title="Hakkımızda"
-            description="2005'ten beri Türkiye ve dünyada kaliteli projeler inşa ediyoruz"
+            title={t('title')}
+            description={t('homeDescription')}
         />
     )
 }

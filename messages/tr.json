@@ -4,10 +4,19 @@
   },
   "AboutPage": {
     "title": "Hakkımızda",
+    "homeDescription": "2005'ten beri Türkiye ve dünyada kaliteli projeler inşa ediyoruz",
+    "badge": "Cizel Hakkında",
+    "readMore": "Devamını Oku",
     "mainTitle": "15 Yıllık Başarımızın Kısa Öyküsü",
-    "description": "Site tasarımı, internet pazarlama, SEO, sosyal medya, web ve uygulama UI, e-posta pazarlama, içerik yazımı ve web barındırma hizmetleri sunan tam hizmetli yaratıcı dijital ajansız. Mesajlarını daha iyi iletmek isteyen büyük ve küçük işletmelere hizmet veriyoruz.",
+    "description": "Site tasarımı, internet pazarlama, SEO, sosyal medya, web ve uygulama UI, e-posta pazarlama, içerik yazımı ve web barındırma hizmetleri sunan tam hizmetli yaratıcı dijital ajansız. Mesajlarımızı daha iyi iletmek isteyen büyük ve küçük işletmelere hizmet veriyoruz.",
     "missionDescription": "En yaratıcı, yenilikçi, sürdürülebilir ve çevre dostu dijital ürünleri üreterek, dünyanın önde gelen geliştirici, yayımcı ve interaktif eğlence ve bilgi hizmetleri dağıtıcılarından biri olmayı umuyoruz.",
     "teamDescription": "Üst düzey profesyonellerimiz, özel BT eğitimi sağlayarak genç neslin potansiyelinin geliştirilmesi ve artırılmasında da büyük rol oynamaktadır.",
+    "homeStats": {
+      "experienceYears": "Tasarımda Kusursuzluğa Adanmış Yıllar",
+      "totalProjects": "Hayata Geçirilmiş Eşsiz Proje",
+      "foundingYear": "Köklü Geçmişimizle Gurur Duyuyoruz",
+      "completedProjects": "Tamamlanan Prestijli Proje"
+    },
     "stats": {
       "foundedYear": "2010",
       "foundedYearLabel": "Kuruluş Yılı",
@@ -153,6 +162,67 @@
         "description": "Modern ve konforlu yaşam alanları"
       }
     }
+  },
+  "Metadata": {
+    "home": {
+      "title": "Çizel İnşaat | Kaliteli ve Güvenilir İnşaat Hizmetleri",
+      "description": "Çizel İnşaat olarak, yılların deneyimi ile Türkiye genelinde kamu projeleri, millet bahçeleri ve konut projelerinde güvenilir çözümler sunuyoruz. Kalite, güvenilirlik ve yenilikçilik önceliğimizdir.",
+      "keywords": "çizel inşaat, inşaat firması, kamu projeleri, millet bahçeleri, konut projeleri, inşaat hizmetleri, türkiye inşaat, kaliteli inşaat"
+    },
+    "about": {
+      "title": "Hakkımızda | Çizel İnşaat - 15 Yıllık Deneyim",
+      "description": "Çizel İnşaat olarak 2010 yılından bu yana inşaat sektöründe güvenilir ve kaliteli hizmet sunuyoruz. Türkiye genelinde 85+ tamamlanmış proje ile sektörde öncü konumdayız."
+    },
+    "projects": {
+      "title": "Projelerimiz | Çizel İnşaat - Tamamlanan ve Devam Eden Projeler",
+      "description": "Türkiye genelinde gerçekleştirdiğimiz kamu projeleri, millet bahçeleri ve konut projelerimizi keşfedin. 85+ tamamlanmış proje ile kalite ve güvenin adresi."
+    },
+    "contact": {
+      "title": "İletişim | Çizel İnşaat - Bize Ulaşın",
+      "description": "Çizel İnşaat ile iletişime geçin. Projeleriniz için profesyonel danışmanlık ve kaliteli inşaat hizmetleri için bizimle iletişime geçebilirsiniz."
+    },
+    "career": {
+      "title": "Kariyer | Çizel İnşaat - İş Fırsatları",
+      "description": "Çizel İnşaat ailesine katılın. Dinamik ekibimizde kariyer fırsatları için başvurunuzu yapın ve sektörün lider firmasında çalışma şansını yakalayın."
+    }
+  },
+  "Common": {
+    "allProjects": "Tüm Projeler",
+    "followUs": "Bizi takip edin:",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "contactInfo": "İletişim",
+    "quickLinks": "Hızlı Linkler",
+    "ourServices": "Hizmetlerimiz"
+  },
+  "Navigation": {
+    "home": "Anasayfa",
+    "corporate": "Kurumsal",
+    "about": "Hakkımızda",
+    "kvkk": "KVKK",
+    "projects": "Projeler",
+    "completedProjects": "Tamamlanan Projeler",
+    "ongoingProjects": "Devam Eden Projeler",
+    "career": "Kariyer",
+    "contact": "İletişim"
+  },
+  "Services": {
+    "realEstate": "Gayrimenkul Projeler",
+    "construction": "Taahhüt Projeler",
+    "qualityCertificates": "Kalite Belgeleri"
+  },
+  "ProjectDetail": {
+    "title": "Proje Detayları",
+    "employer": "İşveren",
+    "projectType": "Proje Türü",
+    "status": "Durum",
+    "completionYear": "Tamamlanma Yılı",
+    "statusCompleted": "Tamamlandı",
+    "statusOngoing": "Devam Ediyor",
+    "notFound": "Proje bulunamadı",
+    "notFoundDescription": "Lütfen daha sonra tekrar deneyin."
+  },
+  "Footer": {
+    "companyDescription": "İnşaat sektörü, yalnızca fiziksel yapılar inşa etmekle kalmaz; aynı zamanda toplumların yaşam kalitesini yükselten, şehirleri dönüştüren ve geleceğe değer katan stratejik bir alandır."
   },
   "cizel-logo": "cizel logo",
   "devam-eden-projeler": "Devam Eden Projeler",

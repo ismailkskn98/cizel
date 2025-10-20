@@ -1,5 +1,20 @@
 import About from '@/components/about'
 import React from 'react'
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params }) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'Metadata.about' });
+
+    return {
+        title: t('title'),
+        description: t('description'),
+        openGraph: {
+            title: t('title'),
+            description: t('description'),
+        },
+    };
+}
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 

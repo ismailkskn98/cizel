@@ -4,10 +4,19 @@
   },
   "AboutPage": {
     "title": "About Us",
+    "homeDescription": "Building quality projects in Turkey and around the world since 2005",
+    "badge": "About Cizel",
+    "readMore": "Read More",
     "mainTitle": "A Brief of Our 15 Years of Success",
     "description": "We are a full-service creative digital agency that offers site design, internet marketing, SEO, social media, web and app ui, email marketing, content writing, and web hosting to businesses large and small looking to better communicate their messages.",
     "missionDescription": "By generating the most creative, inventive, sustainable, and eco-friendly digital products, we hope to become one of the world's leading developers, publishers, and distributors of interactive entertainment and information services.",
     "teamDescription": "Our high-level professionals are also heavily involved in the development and enhancement of the young generation's potential by providing specialized IT training.",
+    "homeStats": {
+      "experienceYears": "Years Dedicated to Design Excellence",
+      "totalProjects": "Unique Projects Brought to Life",
+      "foundingYear": "Proud of Our Established Heritage",
+      "completedProjects": "Prestigious Projects Completed"
+    },
     "stats": {
       "foundedYear": "2010",
       "foundedYearLabel": "Founded In",
@@ -153,5 +162,66 @@
         "description": "Modern and comfortable living spaces"
       }
     }
+  },
+  "Metadata": {
+    "home": {
+      "title": "Cizel Construction | Quality and Reliable Construction Services",
+      "description": "As Cizel Construction, we provide reliable solutions in public projects, national gardens and housing projects throughout Turkey with years of experience. Quality, reliability and innovation are our priorities.",
+      "keywords": "cizel construction, construction company, public projects, national gardens, housing projects, construction services, turkey construction, quality construction"
+    },
+    "about": {
+      "title": "About Us | Cizel Construction - 15 Years of Experience",
+      "description": "As Cizel Construction, we have been providing reliable and quality service in the construction industry since 2010. We are a leader in the sector with 85+ completed projects throughout Turkey."
+    },
+    "projects": {
+      "title": "Our Projects | Cizel Construction - Completed and Ongoing Projects",
+      "description": "Discover our public projects, national gardens and housing projects throughout Turkey. The address of quality and trust with 85+ completed projects."
+    },
+    "contact": {
+      "title": "Contact | Cizel Construction - Get in Touch",
+      "description": "Contact Cizel Construction. You can contact us for professional consultancy and quality construction services for your projects."
+    },
+    "career": {
+      "title": "Career | Cizel Construction - Job Opportunities",
+      "description": "Join the Cizel Construction family. Apply for career opportunities in our dynamic team and get the chance to work at the leading company in the sector."
+    }
+  },
+  "Common": {
+    "allProjects": "All Projects",
+    "followUs": "Follow us:",
+    "allRightsReserved": "All rights reserved.",
+    "contactInfo": "Contact",
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services"
+  },
+  "Navigation": {
+    "home": "Home",
+    "corporate": "Corporate",
+    "about": "About Us",
+    "kvkk": "GDPR",
+    "projects": "Projects",
+    "completedProjects": "Completed Projects",
+    "ongoingProjects": "Ongoing Projects",
+    "career": "Career",
+    "contact": "Contact"
+  },
+  "Services": {
+    "realEstate": "Real Estate Projects",
+    "construction": "Construction Projects",
+    "qualityCertificates": "Quality Certificates"
+  },
+  "ProjectDetail": {
+    "title": "Project Details",
+    "employer": "Employer",
+    "projectType": "Project Type",
+    "status": "Status",
+    "completionYear": "Completion Year",
+    "statusCompleted": "Completed",
+    "statusOngoing": "Ongoing",
+    "notFound": "Project not found",
+    "notFoundDescription": "Please try again later."
+  },
+  "Footer": {
+    "companyDescription": "The construction industry not only builds physical structures but also elevates the quality of life for communities, transforms cities, and is a strategic field that adds value to the future."
   }
 }

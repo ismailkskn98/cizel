@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
 import Navbar from './navbar'
@@ -5,26 +7,28 @@ import { Link } from '@/i18n/navigation'
 import Opacity from '../common/opacity'
 import LanguageChange from '../ui/language-switcher'
 import MobileNavbar from './mobileNavbar'
+import { useTranslations } from 'next-intl'
 
 export default function Header() {
+    const t = useTranslations('Navigation')
 
     const navbarItems = [
-        { label: "Anasayfa", href: "/" },
+        { label: t('home'), href: "/" },
         {
-            label: "Kurumsal", dropdown: true,
+            label: t('corporate'), dropdown: true,
             dropdownItems: [
-                { label: "Hakkımızda", href: "/about" },
-                { label: "KVKK", href: "/kvkk.pdf" },
+                { label: t('about'), href: "/about" },
+                { label: t('kvkk'), href: "/kvkk.pdf" },
             ],
         },
         {
-            label: "Projeler", dropdown: true, dropdownItems: [
-                { label: "Tamamlanan Projeler", href: "/projects/tamamlanan-projeler" },
-                { label: "Devam Eden Projeler", href: "/projects/devam-eden-projeler" },
+            label: t('projects'), dropdown: true, dropdownItems: [
+                { label: t('completedProjects'), href: "/projects/tamamlanan-projeler" },
+                { label: t('ongoingProjects'), href: "/projects/devam-eden-projeler" },
             ],
         },
-        { label: "Kariyer", href: "/career" },
-        { label: "İletişim", href: "/contact" },
+        { label: t('career'), href: "/career" },
+        { label: t('contact'), href: "/contact" },
     ]
 
     return (
