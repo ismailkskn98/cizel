@@ -65,7 +65,7 @@ export default async function HomePage({ params }) {
   const partnerLogos = homeData.partnerLogos;
   const totalProjectCount = projects.length;
   const foundingYear = aboutData.foundingYear;
-  const completedProjects = projects.filter(proje => proje.project_status === '"tamamlanan-projeler"').length;
+  const completedProjects = projects.filter(proje => proje.project_status === 'tamamlanan-projeler').length;
   return (
     <Home projects={projects} carousels={carousels} homeData={homeDataLocalized} partnerLogos={partnerLogos} totalProjectCount={totalProjectCount} foundingYear={foundingYear} completedProjects={completedProjects} />
   );

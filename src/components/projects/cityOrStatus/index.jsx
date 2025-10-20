@@ -1,21 +1,20 @@
 import React from 'react'
-import PageTopSection from '../common/pageTopSection';
-import { ArrowRight, Building2, Calendar, MapPin, MoveRight } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
-import Image from 'next/image';
+import Image from 'next/image'
+import { useLocale, useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
+import PageTopSection from '../../common/pageTopSection'
+import { ArrowRight, Calendar, MapPin, Building2, MoveRight } from 'lucide-react'
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
-export default function Projects({ projects }) {
+
+export default function Projects({ projects, city, projectStatusName }) {
     const locale = useLocale();
     const t = useTranslations();
-
 
     const breadcrumbs = [
         { label: 'Home', href: '/' },
         { label: 'Projects', href: null }
     ]
-
 
     const parseJsonField = (jsonString) => {
         try {
@@ -76,7 +75,12 @@ export default function Projects({ projects }) {
                             </article>
 
                             <h1 className="text-5xl md:text-6xl font-medium mb-3 leading-tight">
-                                Tüm Projelerimiz
+                                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                                    {city ? `${projects[0].location}` : `${projectStatusName}`}
+                                </span> {" "}
+                                <span className="text-logo-red">
+                                    {city ? t('ProjectsPage.cityProjects') : ''}
+                                </span>
                             </h1>
 
                             <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">

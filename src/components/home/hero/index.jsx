@@ -36,9 +36,13 @@ export default function Hero({ carousels }) {
                 {carousels.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="relative">
                         <div className="relative h-full w-full">
-                            <div
+                            <motion.div
+                                key={`${slide.id}-${activeIndex}`}
                                 className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
                                 style={{ backgroundImage: `url(${base_url}${slide.image})` }}
+                                initial={{ scale: 1 }}
+                                animate={{ scale: activeIndex === index ? 1.12 : 1 }}
+                                transition={{ duration: 7, ease: "easeOut" }}
                             />
 
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />

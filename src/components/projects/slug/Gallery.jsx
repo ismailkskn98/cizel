@@ -5,19 +5,20 @@ import React, { useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 export default function Gallery({ images = [], className = '' }) {
     const [open, setOpen] = useState(false)
     const [photoIndex, setPhotoIndex] = useState(0)
 
-    const slides = (images || [])
-        .map((img) => {
-            if (typeof img === 'string') return { src: img }
-            if (img && typeof img === 'object' && img.src) return { src: img.src }
-            return null
-        })
-        .filter(Boolean)
+    const slides = (images || []).map((img) => {
+        console.log(`${baseUrl}${img}`);
+        if (typeof img === 'string') return { src: `${baseUrl}${img}` }
+        if (img && typeof img === 'object' && img.src) return { src: `${baseUrl}${img.src}` }
+        return null
+    })
+        .filter(Boolean);
 
-    if (!slides.length) return null
+    if (!slides.length) return null;
 
     return (
         <div className={`pt-5 ${className}`}>
@@ -33,7 +34,7 @@ export default function Gallery({ images = [], className = '' }) {
                         className="relative group rounded-lg overflow-hidden ring-1 ring-black/5 hover:ring-black/10 focus:outline-none !cursor-pointer"
                     >
                         <Image
-                            src={s.src}
+                            src={`${s.src}`}
                             alt={`Photo ${idx + 1}`}
                             width={300}
                             height={300}

@@ -14,7 +14,7 @@ export default function Home({ projects, carousels, homeData, partnerLogos, tota
         <main className='relative w-full fluid gridContainer'>
             <Hero carousels={carousels} />
             <CizelAbout homeData={homeData.about} totalProjectCount={totalProjectCount} foundingYear={foundingYear} completedProjects={completedProjects} />
-            {/* <CizelProjects projects={projects} homeData={homeData.cizelProjects} /> */}
+            <CizelProjects projects={projects} homeData={homeData.cizelProjects} />
             <ProjectsSection projects={projects} homeData={homeData.projectsBlock} />
             <TurkeyMap hasProjects={locations} homeData={homeData.mapBlock} />
             {/* <CizelMarquee homeData={homeData.partnersBlock} partnerLogos={partnerLogos} /> */}

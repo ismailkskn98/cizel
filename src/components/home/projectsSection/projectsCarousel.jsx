@@ -7,7 +7,6 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/autoplay"
 import ProjectSlide from "./projectSlide"
-import FadeIn from "../../common/fadeIn"
 import ProjectsNavigation from "./navigation"
 
 

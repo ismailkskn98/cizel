@@ -8,10 +8,10 @@ import { useLocale } from "next-intl"
 import { Link } from "@/i18n/navigation"
 import Image from "next/image"
 
-export default function ProjectSlide({ project, index, onClick, location, slug, projectStatus }) {
-    const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const locale = useLocale();
+const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
+export default function ProjectSlide({ project, index, onClick, location, slug, projectStatus }) {
+    const locale = useLocale();
 
     return (
         <motion.section
