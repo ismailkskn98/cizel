@@ -4,6 +4,7 @@ import ContactForm from './contactForm';
 import PageTopSection from '@/components/common/pageTopSection';
 import MapSection from './mapSection';
 import { useTranslations } from 'next-intl';
+import MotionScrollInView from '../common/motionScrollInView';
 // import FAQ from '../common/faq';
 
 export default function Contact({ contactData, faqData }) {
@@ -21,9 +22,9 @@ export default function Contact({ contactData, faqData }) {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <ContactContent contactData={contactData} />
-                        <div className="flex justify-center lg:justify-end">
+                        <MotionScrollInView className="flex justify-center lg:justify-end">
                             <ContactForm />
-                        </div>
+                        </MotionScrollInView>
                     </div>
                 </div>
             </section>

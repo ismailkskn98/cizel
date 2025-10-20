@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, Building2, Globe, Phone, Mail } from "lucide-react";
 import Opacity from '../common/opacity';
 import { useTranslations } from 'next-intl';
+import MotionScrollInView from '../common/motionScrollInView';
 
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 const MapSection = ({ contactData }) => {
@@ -18,7 +19,7 @@ const MapSection = ({ contactData }) => {
     const mapUrl = generateMapEmbedUrl(contactData?.address);
 
     return (
-        <section className="" aria-label="Location and map information">
+        <MotionScrollInView className="" aria-label="Location and map information">
             <div className="max-w-7xl mx-auto">
                 <div className="grid gap-12 items-start">
                     <Opacity delay={0.1}>
@@ -39,7 +40,7 @@ const MapSection = ({ contactData }) => {
                     </Opacity>
                 </div>
             </div>
-        </section>
+        </MotionScrollInView>
     );
 };
 

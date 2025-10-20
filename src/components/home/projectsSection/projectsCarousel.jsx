@@ -8,6 +8,7 @@ import "swiper/css/pagination"
 import "swiper/css/autoplay"
 import ProjectSlide from "./projectSlide"
 import ProjectsNavigation from "./navigation"
+import MotionScrollInView from "@/components/common/motionScrollInView"
 
 
 export default function ProjectsCarousel({ projects }) {
@@ -19,7 +20,7 @@ export default function ProjectsCarousel({ projects }) {
     }
 
     return (
-        <section className="w-full relative">
+        <MotionScrollInView className="w-full relative">
             <ProjectsNavigation />
             <Swiper
                 onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -42,6 +43,7 @@ export default function ProjectsCarousel({ projects }) {
                 }}
                 className="!py-4"
             >
+
                 {projects.map((project, index) => (
                     <SwiperSlide key={`${project.id}-${index}`}>
                         <ProjectSlide
@@ -56,6 +58,6 @@ export default function ProjectsCarousel({ projects }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </section>
+        </MotionScrollInView>
     )
 }

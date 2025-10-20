@@ -3,6 +3,7 @@ import PageTopSection from '../common/pageTopSection';
 import CareerContent from './careerContent';
 import CareerForm from './careerForm';
 import { useTranslations } from 'next-intl';
+import MotionScrollInView from '../common/motionScrollInView';
 
 export default function Career({ careerData, careerImage }) {
     const nav = useTranslations('Navigation');
@@ -18,9 +19,9 @@ export default function Career({ careerData, careerImage }) {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-9 lg:gap-12 items-start">
                         <CareerContent careerData={careerData} careerImage={careerImage} />
-                        <div className="flex justify-center lg:justify-end">
+                        <MotionScrollInView className="flex justify-center lg:justify-end">
                             <CareerForm />
-                        </div>
+                        </MotionScrollInView>
                     </div>
                 </div>
             </section>

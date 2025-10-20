@@ -4,6 +4,8 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import PageTopSection from '../../common/pageTopSection'
 import { ArrowRight, Calendar, MapPin, Building2, MoveRight } from 'lucide-react'
+import MotionScrollInViewVariant from '@/components/common/motionScrollInViewVariant'
+import MotionScrollInView from '@/components/common/motionScrollInView'
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -63,35 +65,37 @@ export default function Projects({ projects, city, projectStatusName }) {
                     <div className="relative overflow-hidden mb-6 lg:mb-12 pt-44 lg:pt-52">
 
                         <div className="relative z-10 max-w-4xl">
-                            <article className="flex items-center gap-2 mb-6 bg-white">
-                                <div className="relative">
-                                    <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
-                                        <div className="h-0.5 w-6 lg:w-10 rounded-lg bg-white" />
-                                        <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px] text-white' />
+                            <MotionScrollInView className={"w-full"}>
+                                <article className="flex items-center gap-2 mb-6 bg-white">
+                                    <div className="relative">
+                                        <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
+                                            <div className="h-0.5 w-6 lg:w-10 rounded-lg bg-white" />
+                                            <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px] text-white' />
+                                        </div>
+                                        <div className="w-7 lg:w-10 h-7 lg:h-10 bg-black rounded-full" />
                                     </div>
-                                    <div className="w-7 lg:w-10 h-7 lg:h-10 bg-black rounded-full" />
-                                </div>
-                                <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t('ProjectsPage.badge')}</span>
-                            </article>
+                                    <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t('ProjectsPage.badge')}</span>
+                                </article>
 
-                            {projects.length > 0 && (
-                                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 mb-3 leading-tight">
-                                    <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                                        {city ? `${projects[0].location}` : `${projectStatusName}`}
-                                    </span> {" "}
-                                    <span className="text-logo-red">
-                                        {city ? t('ProjectsPage.cityProjects') : ''}
-                                    </span>
-                                </h1>
-                            )}
+                                {projects.length > 0 && (
+                                    <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 mb-3 leading-tight">
+                                        <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                                            {city ? `${projects[0].location}` : `${projectStatusName}`}
+                                        </span> {" "}
+                                        <span className="text-logo-red">
+                                            {city ? t('ProjectsPage.cityProjects') : ''}
+                                        </span>
+                                    </h1>
+                                )}
 
-                            <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
-                                {t('ProjectsPage.description')}
-                            </p>
+                                <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
+                                    {t('ProjectsPage.description')}
+                                </p>
+                            </MotionScrollInView>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                    <MotionScrollInViewVariant className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"}>
                         {projects.map((projectItem, i) => {
                             const project = getProjectData(projectItem);
                             const jobTypes = Array.isArray(project.jobType) ? project.jobType : [];
@@ -179,7 +183,7 @@ export default function Projects({ projects, city, projectStatusName }) {
                                 </Link>
                             )
                         })}
-                    </div>
+                    </MotionScrollInViewVariant>
 
                     {projects.length === 0 && (
                         <div className="text-center py-20">

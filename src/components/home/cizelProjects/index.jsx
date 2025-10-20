@@ -3,6 +3,8 @@
 import React from 'react'
 import ProjectsCarousel from './projectsCarousel';
 import { useTranslations } from 'next-intl';
+import MotionScrollInViewVariant from '@/components/common/motionScrollInViewVariant';
+import MotionScrollInView from '@/components/common/motionScrollInView';
 
 
 export default function CizelProjects({ projects, homeData }) {
@@ -11,7 +13,7 @@ export default function CizelProjects({ projects, homeData }) {
     return (
         <main className='relative w-full fluid gridContainer bg-[#101010] py-16 lg:py-24'>
             <section className='relative z-30 w-full mx-auto max-w-7xl px-4'>
-                <article className='w-full text-center space-y-4 mb-12 lg:mb-16'>
+                <MotionScrollInView className='w-full text-center space-y-4 mb-12 lg:mb-16'>
                     <div className='flex items-center justify-center gap-2 mb-3'>
                         <div className='w-12 h-px bg-white/30'></div>
                         <span className='text-sm text-white/60 uppercase tracking-wider'>{t('badge')}</span>
@@ -23,9 +25,9 @@ export default function CizelProjects({ projects, homeData }) {
                     <p className='text-base lg:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed'>
                         {homeData.description}
                     </p>
-                </article>
+                </MotionScrollInView>
 
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center'>
+                <MotionScrollInViewVariant className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center'>
                     <div className='w-full order-2 lg:order-1 space-y-6'>
                         <div className='space-y-4'>
                             <h3 className='text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight'>
@@ -76,7 +78,7 @@ export default function CizelProjects({ projects, homeData }) {
                     <div className='w-full order-1 lg:order-2'>
                         <ProjectsCarousel projects={projects} />
                     </div>
-                </div>
+                </MotionScrollInViewVariant>
             </section>
         </main>
     )

@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 import AboutStats from './stats';
 import { MoveRight } from 'lucide-react';
 import Opacity from '../common/opacity';
+import MotionScrollInViewVariant from '../common/motionScrollInViewVariant';
+import MotionScrollInView from '../common/motionScrollInView';
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function About({ locale, aboutData, totalProjectCount, foundingYear, completedProjects, cityCount }) {
@@ -42,14 +44,14 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
         <main className="w-full fluid gridContainer pb-6 sm:pb-8 lg:pb-12">
             <PageTopSection breadcrumbs={breadcrumbs} />
             <section className="fluid gridContainer pt-56 sm:pt-64 lg:pt-72 -mt-48 lg:-mt-52">
-                <Opacity className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-7 md:gap-10 lg:gap-16 mb-3 sm:mb-10 lg:mb-16 2xl:mb-20">
+                <MotionScrollInViewVariant className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-7 md:gap-10 lg:gap-16 mb-3 sm:mb-10 lg:mb-16 2xl:mb-20">
                     <section className='flex flex-col gap-6'>
                         <article className="flex flex-col gap-0">
                             <article className="flex items-center gap-2 mb-6">
-                                <div className="relative">
+                                <div className="relative bg-white">
                                     <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
                                         <div className="h-0.5 w-6 lg:w-10 rounded-lg bg-white" />
-                                        <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px] text-white' />
+                                        <MoveRight className='-ml-2 w-12 lg:w-16 2xl:w-20 h-12 lg:h-16 2xl:h-20 stroke-[0.5px]' />
                                     </div>
                                     <div className="w-7 lg:w-10 h-7 lg:h-10 bg-black rounded-full" />
                                 </div>
@@ -61,12 +63,12 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                         </article>
 
                         <div className='relative flex flex-col items-start gap-2 sm:gap-6 pl-0 md:pl-12'>
-                            <Opacity delay={0.2}>
+                            <div>
                                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-4">
                                     {aboutData[locale].title}
                                 </h1>
-                            </Opacity>
-                            <Opacity delay={0.4}>
+                            </div>
+                            <div>
                                 <div className='text-xs sm:text-sm lg:text-base space-y-4 text-gray-600 max-w-4xl leading-relaxed'>
                                     <p dangerouslySetInnerHTML={{ __html: firstPart }}>
                                     </p>
@@ -75,18 +77,18 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                                     <p dangerouslySetInnerHTML={{ __html: thirdPart }}>
                                     </p>
                                 </div>
-                            </Opacity>
+                            </div>
                         </div>
                     </section>
-                    <Opacity delay={0.5} className='relative flex-shrink-0'>
+                    <div className='relative flex-shrink-0'>
                         <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={700} height={700} className='hidden lg:block absolute inset-0 w-full h-full rounded-3xl z-10 translate-8 blur-xs' />
                         <Image src={`${base_url}${aboutData.aboutImage}`} alt='cizel about us' width={700} height={700} className='relative z-20 object-contain w-fit h-72 lg:h-96 2xl:!h-[400px] rounded-3xl' />
-                    </Opacity>
-                </Opacity>
+                    </div>
+                </MotionScrollInViewVariant>
 
                 <main className='relative w-full fluid gridContainer bg-[#101010] mt-20 py-16'>
                     <section className='relative z-30 w-full mx-auto max-w-6xl flex flex-col items-center gap-16 overflow-hidden'>
-                        <Opacity>
+                        <MotionScrollInView>
                             {aboutData[locale].vision && (
                                 <div className="w-full px-4">
                                     <div className="flex flex-col items-center justify-center mx-auto text-center">
@@ -117,7 +119,7 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                                     </div>
                                 </div>
                             )}
-                        </Opacity>
+                        </MotionScrollInView>
                         <div className="w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                         <div className='w-full mt-6'>
                             <AboutStats
@@ -131,7 +133,7 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                 </main>
 
                 {aboutData[locale].subDescription && (
-                    <Opacity className='w-full max-w-7xl mx-auto mt-6 lg:mt-12 xl:mt-16 2xl:mt-20 px-4'>
+                    <MotionScrollInView className='w-full max-w-7xl mx-auto mt-6 lg:mt-12 xl:mt-16 2xl:mt-20 px-4'>
                         <div className="relative">
                             <div className="absolute inset-0 rounded-3xl" />
                             <div className="relative z-10 p-8">
@@ -169,7 +171,7 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
                                 </div>
                             </div>
                         </div>
-                    </Opacity>
+                    </MotionScrollInView>
                 )}
             </section>
         </main >

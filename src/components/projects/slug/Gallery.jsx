@@ -6,6 +6,7 @@ import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import { ShieldCheck } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import MotionScrollInViewVariant from '@/components/common/motionScrollInViewVariant'
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 export default function Gallery({ images = [], className = '' }) {
@@ -52,9 +53,9 @@ export default function Gallery({ images = [], className = '' }) {
 
     return (
         <div className={`pt-5 ${className}`}>
-            <div className="grid grid-cols-2 gap-3">
+            <MotionScrollInViewVariant className={"grid grid-cols-2 gap-3"}>
                 {slides.map((s, idx) => (
-                    <button
+                    <div
                         key={idx}
                         type="button"
                         onClick={() => {
@@ -72,10 +73,9 @@ export default function Gallery({ images = [], className = '' }) {
                             loading="lazy"
                         />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </button>
+                    </div>
                 ))}
-            </div>
-
+            </MotionScrollInViewVariant>
             <Lightbox
                 open={open}
                 close={() => setOpen(false)}

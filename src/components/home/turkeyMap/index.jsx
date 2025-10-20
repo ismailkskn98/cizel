@@ -5,6 +5,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import TurkeyMapHeader from "./header";
 import { useRouter } from "@/i18n/navigation";
 import { useState, useEffect } from "react";
+import MotionScrollInViewVariant from "@/components/common/motionScrollInViewVariant";
 
 const geoUrl = "/geo/turkiye-iller.json";
 
@@ -34,7 +35,7 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
     };
 
     return (
-        <section className="w-full relative mt-4 sm:mt-8">
+        <MotionScrollInViewVariant className="w-full relative mt-4 sm:mt-8">
             <TurkeyMapHeader homeData={homeData} />
             <div className="py-0 lg:py-4 2xl:py-6" />
             <ComposableMap
@@ -127,6 +128,6 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
                 }}
                 arrowColor="rgba(17, 24, 39, 0.85)"
             />
-        </section>
+        </MotionScrollInViewVariant>
     );
 }

@@ -5,6 +5,7 @@ import CustomButton from "./customButton"
 import FadeIn from "./fadeIn"
 import { MoveRight } from "lucide-react"
 import { useTranslations } from "next-intl"
+import MotionScrollInView from "./motionScrollInView"
 
 export default function SectionHeader({
     title,
@@ -15,7 +16,7 @@ export default function SectionHeader({
     const t = useTranslations('Common')
 
     return (
-        <FadeIn className={`w-full text-center mb-8 flex flex-col items-start ${className}`}>
+        <MotionScrollInView className={`w-full text-center mb-8 flex flex-col items-start ${className}`}>
             <article className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-4">
                 <div className="flex flex-col items-start">
                     <div className="flex flex-col items-start">
@@ -41,6 +42,6 @@ export default function SectionHeader({
                     <span className="inline-block h-3 md:h-4 w-3 md:w-4 rotate-45 border border-white/90 group-hover:rotate-210 transition-all duration-200" />
                 </Link>
             </article>
-        </FadeIn>
+        </MotionScrollInView>
     )
 }

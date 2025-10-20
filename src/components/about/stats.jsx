@@ -3,6 +3,7 @@ import { Calendar, Building2, MapPin, Users } from "lucide-react"
 import Counter from "../common/counter"
 import Opacity from "../common/opacity"
 import { useTranslations } from "next-intl"
+import MotionScrollInViewVariant from "../common/motionScrollInViewVariant";
 
 export default function AboutStats({ totalProjectCount, foundingYear, completedProjects }) {
     const t = useTranslations('AboutPage.stats');
@@ -41,7 +42,7 @@ export default function AboutStats({ totalProjectCount, foundingYear, completedP
     ]
 
     return (
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 lg:gap-12 place-items-center w-full">
+        <MotionScrollInViewVariant className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 lg:gap-12 place-items-center w-full">
             {stats.map((stat, index) => (
                 <Opacity
                     key={index}
@@ -69,6 +70,6 @@ export default function AboutStats({ totalProjectCount, foundingYear, completedP
                     </div>
                 </Opacity>
             ))}
-        </section>
+        </MotionScrollInViewVariant>
     )
 }

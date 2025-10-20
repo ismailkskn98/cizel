@@ -1,6 +1,7 @@
 import { Calendar, Building2, Award, Trophy } from "lucide-react"
 import Counter from "../../common/counter"
 import Opacity from "../../common/opacity"
+import MotionScrollInViewVariant from "@/components/common/motionScrollInViewVariant"
 
 const defaultStats = [
     { number: "24", label: "İç mimarlıkta deneyim yılı", icon: Calendar },
@@ -15,9 +16,9 @@ export default function Stats({ stats = defaultStats }) {
         <section className="w-full">
             <h2 id="stats-title" className="sr-only">Şirket İstatistikleri</h2>
 
-            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-16 lg:mt-24 xl:mt-32 2xl:mt-40">
+            <MotionScrollInViewVariant className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-16 lg:mt-24 xl:mt-32 2xl:mt-40">
                 {stats.map((stat, index) => (
-                    <li key={index} className="h-full">
+                    <div key={index} className="h-full">
                         <Opacity delay={index * 0.08} className="h-full">
                             <article
                                 className={["h-full w-full rounded-lg", "border border-neutral-200/80 ", "bg-white", "shadow-sm hover:shadow-md transition-shadow", "focus-within:ring-1 focus-within:ring-neutral-300 ",].join(" ")}
@@ -42,9 +43,9 @@ export default function Stats({ stats = defaultStats }) {
                                 </div>
                             </article>
                         </Opacity>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </MotionScrollInViewVariant>
         </section>
     )
 }

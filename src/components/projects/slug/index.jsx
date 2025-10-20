@@ -5,6 +5,7 @@ import Gallery from './Gallery';
 import Image from 'next/image';
 import { Building2, Calendar, Briefcase, CheckCircle2, Clock } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import MotionScrollInView from '@/components/common/motionScrollInView';
 
 export default function ProjectSlug({ project, locale = 'tr' }) {
     const t = useTranslations('ProjectDetail');
@@ -42,25 +43,27 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
             </div>
 
             <article className="relative z-50 mb-6 max-w-4xl pt-8">
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-semibold 2xl:leading-14 text-white">
-                    {JSON.parse(template.title)[locale] || 'Proje'}
-                </h1>
-                <p className="relative pl-4 py-1 text-sm text-white/80 mt-1">
-                    <span className='absolute inset-y-0 left-0 h-full w-1/7 bg-gradient-to-r from-logo-red/20 to-transparent' />
-                    <span className='absolute inset-y-0 left-0 h-full w-1 bg-logo-red' />
-                    <span className='relative z-20'>{template.location}</span>
-                </p>
-                <p className="text-white/90 leading-relaxed whitespace-preline mt-3">
-                    {JSON.parse(template.projectName)[locale] || ''}
-                </p>
+                <MotionScrollInView>
+                    <h1 className="text-2xl sm:text-3xl lg:text-5xl font-semibold 2xl:leading-14 text-white">
+                        {JSON.parse(template.title)[locale] || 'Proje'}
+                    </h1>
+                    <p className="relative pl-4 py-1 text-sm text-white/80 mt-1">
+                        <span className='absolute inset-y-0 left-0 h-full w-1/7 bg-gradient-to-r from-logo-red/20 to-transparent' />
+                        <span className='absolute inset-y-0 left-0 h-full w-1 bg-logo-red' />
+                        <span className='relative z-20'>{template.location}</span>
+                    </p>
+                    <p className="text-white/90 leading-relaxed whitespace-preline mt-3">
+                        {JSON.parse(template.projectName)[locale] || ''}
+                    </p>
+                </MotionScrollInView>
             </article>
             <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <article className="order-2 md:order-1 lg:col-span-2 w-full flex flex-col">
                     <Gallery images={template.images} />
                 </article>
 
-                <aside className="order-1 md:order-2 relative z-40 block lg:col-span-1">
-                    <div className="sticky top-12 rounded-2xl bg-gradient-to-br from-white to-neutral-50 shadow-xl border border-gray-300/50 overflow-hidden">
+                <MotionScrollInView className={"order-1 md:order-2 relative z-40 block lg:col-span-1"}>
+                    <article className="sticky top-12 rounded-2xl bg-gradient-to-br from-white to-neutral-50 shadow-xl border border-gray-300/50 overflow-hidden">
                         <div className="relative bg-gradient-to-r from-neutral-800 to-neutral-900 px-6 py-5">
                             <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
                             <h2 className="relative text-base font-bold text-white tracking-wide flex items-center gap-2">
@@ -137,8 +140,8 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                                 </p>
                             </div>
                         </div>
-                    </div>
-                </aside>
+                    </article>
+                </MotionScrollInView>
             </main>
         </section>
     )

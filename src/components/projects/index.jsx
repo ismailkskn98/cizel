@@ -4,6 +4,7 @@ import { ArrowRight, Building2, Calendar, MapPin, MoveRight } from 'lucide-react
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import MotionScrollInViewVariant from '../common/motionScrollInViewVariant';
 
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function Projects({ projects }) {
@@ -82,7 +83,7 @@ export default function Projects({ projects }) {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                    <MotionScrollInViewVariant className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"}>
                         {projects.map((projectItem, i) => {
                             const project = getProjectData(projectItem);
                             const jobTypes = Array.isArray(project.jobType) ? project.jobType : [];
@@ -170,7 +171,7 @@ export default function Projects({ projects }) {
                                 </Link>
                             )
                         })}
-                    </div>
+                    </MotionScrollInViewVariant>
 
                     {projects.length === 0 && (
                         <div className="text-center py-20">
