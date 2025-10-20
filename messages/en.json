@@ -131,5 +131,24 @@
     "viewDetails": "View Details",
     "noProjects": "No projects found",
     "noProjectsDescription": "No projects have been added for this location yet."
+  },
+  "CizelProjects": {
+    "badge": "Our Completed Projects",
+    "sectionTitle": "Quality Projects Across Turkey",
+    "sectionDescription": "With years of experience and expertise, we deliver outstanding projects throughout Turkey. Quality, reliability, and innovation are our priorities in every project.",
+    "categories": {
+      "publicProjects": {
+        "title": "Public Projects",
+        "description": "Prestigious projects for ministries and public institutions"
+      },
+      "nationalGardens": {
+        "title": "National Gardens",
+        "description": "Social living spaces and recreation projects"
+      },
+      "housingProjects": {
+        "title": "Housing Projects",
+        "description": "Modern and comfortable living spaces"
+      }
+    }
   }
 }

@@ -132,6 +132,25 @@
     "noProjects": "Henüz proje bulunmamaktadır",
     "noProjectsDescription": "Bu lokasyon için henüz bir proje eklenmemiştir."
   },
+  "CizelProjects": {
+    "badge": "Tamamlanan Projelerimiz",
+    "sectionTitle": "Türkiye Genelinde Kaliteli Projeler",
+    "sectionDescription": "Yılların deneyimi ve uzmanlığımızla, Türkiye'nin dört bir yanında öne çıkan projeler gerçekleştiriyoruz. Her projemizde kalite, güvenilirlik ve yenilikçilik önceliğimizdir.",
+    "categories": {
+      "publicProjects": {
+        "title": "Kamu Projeleri",
+        "description": "Bakanlıklar ve kamu kurumları için prestijli projeler"
+      },
+      "nationalGardens": {
+        "title": "Millet Bahçeleri",
+        "description": "Sosyal yaşam alanları ve rekreasyon projeleri"
+      },
+      "housingProjects": {
+        "title": "Konut Projeleri",
+        "description": "Modern ve konforlu yaşam alanları"
+      }
+    }
+  },
   "cizel-logo": "cizel logo",
   "devam-eden-projeler": "Devam Eden Projeler",
   "tamamlanan-projeler": "Tamamlanan Projeler",

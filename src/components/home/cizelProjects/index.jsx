@@ -2,9 +2,11 @@
 
 import React from 'react'
 import ProjectsCarousel from './projectsCarousel';
+import { useTranslations } from 'next-intl';
 
 
 export default function CizelProjects({ projects, homeData }) {
+    const t = useTranslations('CizelProjects');
 
     return (
         <main className='relative w-full fluid gridContainer bg-[#101010] py-16 lg:py-24'>
@@ -12,7 +14,7 @@ export default function CizelProjects({ projects, homeData }) {
                 <article className='w-full text-center space-y-4 mb-12 lg:mb-16'>
                     <div className='flex items-center justify-center gap-2 mb-3'>
                         <div className='w-12 h-px bg-white/30'></div>
-                        <span className='text-sm text-white/60 uppercase tracking-wider'>Tamamlanan Projelerimiz</span>
+                        <span className='text-sm text-white/60 uppercase tracking-wider'>{t('badge')}</span>
                         <div className='w-12 h-px bg-white/30'></div>
                     </div>
                     <h2 className='text-3xl lg:text-4xl xl:text-5xl font-semibold text-white'>
@@ -27,10 +29,10 @@ export default function CizelProjects({ projects, homeData }) {
                     <div className='w-full order-2 lg:order-1 space-y-6'>
                         <div className='space-y-4'>
                             <h3 className='text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight'>
-                                Türkiye Genelinde Kaliteli Projeler
+                                {t('sectionTitle')}
                             </h3>
                             <p className='text-base lg:text-lg text-white/70 leading-relaxed'>
-                                Yılların deneyimi ve uzmanlığımızla, Türkiye'nin dört bir yanında öne çıkan projeler gerçekleştiriyoruz. Her projemizde kalite, güvenilirlik ve yenilikçilik önceliğimizdir.
+                                {t('sectionDescription')}
                             </p>
                         </div>
 
@@ -38,22 +40,34 @@ export default function CizelProjects({ projects, homeData }) {
                             <div className='flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors duration-300'>
                                 <div className='w-2 h-2 mt-2 rounded-full bg-white/60'></div>
                                 <div>
-                                    <h4 className='text-base lg:text-lg font-semibold text-white mb-1'>Kamu Projeleri</h4>
-                                    <p className='text-sm text-white/60'>Bakanlıklar ve kamu kurumları için prestijli projeler</p>
+                                    <h4 className='text-base lg:text-lg font-semibold text-white mb-1'>
+                                        {t('categories.publicProjects.title')}
+                                    </h4>
+                                    <p className='text-sm text-white/60'>
+                                        {t('categories.publicProjects.description')}
+                                    </p>
                                 </div>
                             </div>
                             <div className='flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors duration-300'>
                                 <div className='w-2 h-2 mt-2 rounded-full bg-white/60'></div>
                                 <div>
-                                    <h4 className='text-base lg:text-lg font-semibold text-white mb-1'>Millet Bahçeleri</h4>
-                                    <p className='text-sm text-white/60'>Sosyal yaşam alanları ve rekreasyon projeleri</p>
+                                    <h4 className='text-base lg:text-lg font-semibold text-white mb-1'>
+                                        {t('categories.nationalGardens.title')}
+                                    </h4>
+                                    <p className='text-sm text-white/60'>
+                                        {t('categories.nationalGardens.description')}
+                                    </p>
                                 </div>
                             </div>
                             <div className='flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors duration-300'>
                                 <div className='w-2 h-2 mt-2 rounded-full bg-white/60'></div>
                                 <div>
-                                    <h4 className='text-base lg:text-lg font-semibold text-white mb-1'>Konut Projeleri</h4>
-                                    <p className='text-sm text-white/60'>Modern ve konforlu yaşam alanları</p>
+                                    <h4 className='text-base lg:text-lg font-semibold text-white mb-1'>
+                                        {t('categories.housingProjects.title')}
+                                    </h4>
+                                    <p className='text-sm text-white/60'>
+                                        {t('categories.housingProjects.description')}
+                                    </p>
                                 </div>
                             </div>
                         </div>
