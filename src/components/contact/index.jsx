@@ -17,7 +17,7 @@ export default function Contact({ contactData, faqData }) {
     return (
         <main className="w-full fluid gridContainer pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer pb-20 pt-52 sm:pt-64 lg:pt-72 -mt-52">
+            <section className="fluid gridContainer pb-20 pt-52 sm:pt-64 lg:pt-72 -mt-44 lg:-mt-52">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <ContactContent contactData={contactData} />

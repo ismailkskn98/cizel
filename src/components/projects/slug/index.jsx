@@ -30,19 +30,19 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
 
     return (
         <section className="px-4 sm:px-6 lg:px-8 py-8 max-w-7xl mx-auto mb-16">
-            <div className="mb-6 absolute inset-x-0 top-0 h-fit w-full">
+            <div className="mb-6 absolute inset-x-0 top-12 lg:top-0 h-fit w-full">
                 <Image
                     src={template.coverImage ? (template.coverImage.startsWith('http') ? template.coverImage : `${baseUrl}${template.coverImage}`) : '/images/about-2.jpg'}
                     alt={JSON.parse(template.title)[locale] || 'Proje'}
                     width={1920}
                     height={800}
-                    className="blur-sm w-full h-[500px] object-cover object-center"
+                    className="w-full h-[500px] object-cover object-center"
                 />
-                <div className='absolute inset-0 bg-black/70' />
+                <div className='absolute inset-0 bg-black/70 backdrop-blur-xs' />
             </div>
 
             <article className="relative z-50 mb-6 max-w-4xl pt-8">
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-semibold leading-14 text-white">
+                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-semibold 2xl:leading-14 text-white">
                     {JSON.parse(template.title)[locale] || 'Proje'}
                 </h1>
                 <p className="relative pl-4 py-1 text-sm text-white/80 mt-1">
@@ -55,90 +55,12 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                 </p>
             </article>
             <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <article className="lg:col-span-2 w-full flex flex-col">
-                    <section className="block lg:hidden rounded-2xl bg-gradient-to-br from-white to-neutral-50 shadow-xl border border-neutral-200/50 overflow-hidden mt-6 mb-10">
-                        <div className="relative bg-gradient-to-r from-neutral-800 to-neutral-900 px-5 py-4">
-                            <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
-                            <h2 className="relative text-sm font-bold text-white tracking-wide flex items-center gap-2">
-                                <Briefcase className="w-4 h-4" />
-                                {t('title')}
-                            </h2>
-                        </div>
-
-                        <div className="p-5 space-y-4">
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-                                    <Building2 className="w-3.5 h-3.5" />
-                                    {t('employer')}
-                                </div>
-                                <p className="text-sm font-medium text-neutral-900 leading-relaxed pl-5">
-                                    {template.administration || '-'}
-                                </p>
-                            </div>
-
-                            <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent"></div>
-
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-                                    <Briefcase className="w-3.5 h-3.5" />
-                                    {t('projectType')}
-                                </div>
-                                <div className="flex flex-wrap gap-2 pl-5">
-                                    {JSON.parse(template.jobType)[locale]?.map((type, idx) => (
-                                        <span
-                                            key={idx}
-                                            className="inline-flex items-center px-3 py-1 rounded-lg bg-gradient-to-r from-neutral-100 to-neutral-50 text-xs font-medium text-neutral-700 border border-neutral-200/70 shadow-sm"
-                                        >
-                                            {type}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent"></div>
-
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-                                    {/\btamam|compl|bitti|done/.test((JSON.parse(template.projectStatus)[locale] || '').toLowerCase())
-                                        ? <CheckCircle2 className="w-3.5 h-3.5" />
-                                        : <Clock className="w-3.5 h-3.5" />
-                                    }
-                                    {t('status')}
-                                </div>
-                                <div className="pl-5">
-                                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold shadow-sm ${/\btamam|compl|bitti|done/.test((JSON.parse(template.projectStatus)[locale] || '').toLowerCase())
-                                        ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white'
-                                        : /\bdevam|progress|sürüyor|ongoing/.test((JSON.parse(template.projectStatus)[locale] || '').toLowerCase())
-                                            ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white'
-                                            : 'bg-gradient-to-r from-neutral-500 to-neutral-600 text-white'
-                                        }`}>
-                                        {/\btamam|compl|bitti|done/.test((JSON.parse(template.projectStatus)[locale] || '').toLowerCase())
-                                            ? <CheckCircle2 className="w-3 h-3" />
-                                            : <Clock className="w-3 h-3" />
-                                        }
-                                        {JSON.parse(template.projectStatus)[locale] || '-'}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent"></div>
-
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-                                    <Calendar className="w-3.5 h-3.5" />
-                                    {t('completionYear')}
-                                </div>
-                                <p className="text-base font-bold text-neutral-900 pl-5">
-                                    {formatDate(template.year)}
-                                </p>
-                            </div>
-                        </div>
-                    </section>
+                <article className="order-2 md:order-1 lg:col-span-2 w-full flex flex-col">
                     <Gallery images={template.images} />
                 </article>
 
-                <aside className="relative z-40 hidden lg:block lg:col-span-1">
-                    <div className="sticky top-12 rounded-2xl bg-gradient-to-br from-white to-neutral-50 shadow-xl border border-neutral-200/50 overflow-hidden">
+                <aside className="order-1 md:order-2 relative z-40 block lg:col-span-1">
+                    <div className="sticky top-12 rounded-2xl bg-gradient-to-br from-white to-neutral-50 shadow-xl border border-gray-300/50 overflow-hidden">
                         <div className="relative bg-gradient-to-r from-neutral-800 to-neutral-900 px-6 py-5">
                             <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
                             <h2 className="relative text-base font-bold text-white tracking-wide flex items-center gap-2">

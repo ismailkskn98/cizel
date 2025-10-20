@@ -41,7 +41,7 @@ export default function About({ locale, aboutData, totalProjectCount, foundingYe
     return (
         <main className="w-full fluid gridContainer pb-6 sm:pb-8 lg:pb-12">
             <PageTopSection breadcrumbs={breadcrumbs} />
-            <section className="fluid gridContainer pt-56 sm:pt-64 lg:pt-72 -mt-52">
+            <section className="fluid gridContainer pt-56 sm:pt-64 lg:pt-72 -mt-48 lg:-mt-52">
                 <Opacity className="w-full flex flex-col lg:flex-row items-start lg:items-center justify-start lg:justify-between gap-7 md:gap-10 lg:gap-16 mb-3 sm:mb-10 lg:mb-16 2xl:mb-20">
                     <section className='flex flex-col gap-6'>
                         <article className="flex flex-col gap-0">

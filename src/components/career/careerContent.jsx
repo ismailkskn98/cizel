@@ -12,7 +12,7 @@ const CareerContent = ({ careerData, careerImage }) => {
             <Opacity>
                 <section className="text-center lg:text-left">
                     <article className="space-y-3">
-                        <article className="flex flex-col lg:flex-row items-center gap-1 mb-6">
+                        <article className="flex flex-col lg:flex-row items-center gap-1 mb-6 mt-4 sm:mt-0">
                             <div className="relative">
                                 <div className="absolute left-1/2 lg:left-2 top-2 lg:top-1/2 translate-y-0 lg:-translate-y-1/2 -translate-x-1/2 lg:translate-x-0 flex flex-col lg:flex-row items-center justify-center mix-blend-difference">
                                     <div className="h-4 md:h-6 lg:h-0.5 w-0.5 lg:w-6 xl:w-10 rounded-lg bg-white" />

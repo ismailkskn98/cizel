@@ -33,7 +33,7 @@ export default function Header() {
 
     return (
         <header className='relative z-50 w-full fluid gridContainer items-start h-auto lg:h-24 pb-1 lg:pb-0 pt-4 lg:pt-4'>
-            <main className='bg-white w-full lg:hidden grid grid-cols-5 gap-4'>
+            <main className='bg-white w-full lg:hidden grid grid-cols-5 gap-4 rounded-2xl px-3.5 py-2 shadow-md'>
                 <MobileNavbar items={navbarItems} />
                 <Link href={"/"} className='col-span-3 flex-1 flex justify-center'>
                     <Image
