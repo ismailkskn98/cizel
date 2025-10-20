@@ -15,7 +15,7 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 640) {
-                setMapScale(2100);
+                setMapScale(2200);
             } else {
                 setMapScale(2000);
             }
