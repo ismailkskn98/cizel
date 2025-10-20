@@ -19,7 +19,7 @@ export default function Hero({ carousels }) {
     const [subtitle, setSubtitle] = useState(JSON.parse(carousels[0].subtitle)[locale]);
 
     return (
-        <section className="fluid p-2 bg-white relative z-40 mt-0 lg:mt-[-6rem] h-[60vh] xl:h-screen w-full overflow-hidden">
+        <section className="fluid p-2 bg-white relative z-40 mt-[-3.2rem] lg:mt-[-6rem] h-[65vh] xl:h-screen w-full overflow-hidden">
             <CarouselButtons />
             <Swiper
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}

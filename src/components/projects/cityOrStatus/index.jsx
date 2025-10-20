@@ -54,7 +54,6 @@ export default function Projects({ projects, city, projectStatusName }) {
             }
         }
     }
-
     return (
         <main className="w-full fluid gridContainer pb-24">
             <PageTopSection breadcrumbs={breadcrumbs} />
@@ -75,14 +74,16 @@ export default function Projects({ projects, city, projectStatusName }) {
                                 <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t('ProjectsPage.badge')}</span>
                             </article>
 
-                            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 mb-3 leading-tight">
-                                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                                    {city ? `${projects[0].location}` : `${projectStatusName}`}
-                                </span> {" "}
-                                <span className="text-logo-red">
-                                    {city ? t('ProjectsPage.cityProjects') : ''}
-                                </span>
-                            </h1>
+                            {projects.length > 0 && (
+                                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 mb-3 leading-tight">
+                                    <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+                                        {city ? `${projects[0].location}` : `${projectStatusName}`}
+                                    </span> {" "}
+                                    <span className="text-logo-red">
+                                        {city ? t('ProjectsPage.cityProjects') : ''}
+                                    </span>
+                                </h1>
+                            )}
 
                             <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
                                 {t('ProjectsPage.description')}

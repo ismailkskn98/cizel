@@ -16,7 +16,7 @@ export default function ProjectSlide({ project, index, onClick, location, slug, 
     return (
         <motion.section
             className="relative h-[350px] lg:h-[400px] 2xl:h-[450px] rounded-xl group !cursor-pointer bg-white" onClick={() => onClick(index)}>
-            <Link href={`/projects/${slug}`} className="absolute inset-0 z-10" />
+            <Link href={`/projects/${location}/${slug}`} className="absolute inset-0 z-10" />
             <div className="bg-white text-black/60 absolute left-[-3px] top-[-3px] z-10 px-6 py-3.5 rounded-br-xl rounded-tl-xl font-extralight text-4xl">
                 <span>{index + 1 > 10 ? index + 1 : `0${index + 1}`}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -right-6 top-0 rotate-90 scale-110 fill-white" width="24" height="24">

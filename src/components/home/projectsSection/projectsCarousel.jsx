@@ -22,7 +22,7 @@ export default function ProjectsCarousel({ projects }) {
         <section className="w-full relative">
             <ProjectsNavigation />
             <Swiper
-                ref={swiperRef}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
                 modules={[Navigation, A11y, Autoplay]}
                 navigation={{ prevEl: '#projects-prev', nextEl: '#projects-next' }}
                 onSlideChange={(sw) => setCurrent(sw.activeIndex)}
