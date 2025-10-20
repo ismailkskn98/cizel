@@ -130,7 +130,10 @@
     "description": "With years of experience and our professional team, we maintain our trusted position in the industry through projects of various scales.",
     "viewDetails": "View Details",
     "noProjects": "No projects found",
-    "noProjectsDescription": "No projects have been added for this location yet."
+    "noProjectsDescription": "No projects have been added for this location yet.",
+    "privacyTitle": "Confidentiality Agreement",
+    "privacyDescription": "Due to the confidentiality agreement, photos and visual content cannot be shared for this project. Thank you for your understanding.",
+    "privacyNote": "Privacy and security are our priority"
   },
   "CizelProjects": {
     "badge": "Our Completed Projects",

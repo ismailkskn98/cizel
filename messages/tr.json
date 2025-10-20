@@ -130,7 +130,10 @@
     "description": "Yılların deneyimi ve profesyonel ekibimizle, farklı ölçeklerde gerçekleştirdiğimiz projelerimizle sektördeki güvenilir yerimizi koruyoruz.",
     "viewDetails": "Detayları Görüntüle",
     "noProjects": "Henüz proje bulunmamaktadır",
-    "noProjectsDescription": "Bu lokasyon için henüz bir proje eklenmemiştir."
+    "noProjectsDescription": "Bu lokasyon için henüz bir proje eklenmemiştir.",
+    "privacyTitle": "Gizlilik Sözleşmesi",
+    "privacyDescription": "Bu proje gizlilik sözleşmesi kapsamında olduğundan, fotoğraf ve görsel içerikler paylaşılamamaktadır. Anlayışınız için teşekkür ederiz.",
+    "privacyNote": "Gizlilik ve güvenlik önceliğimizdir"
   },
   "CizelProjects": {
     "badge": "Tamamlanan Projelerimiz",

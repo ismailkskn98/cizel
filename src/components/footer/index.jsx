@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { Link } from '@/i18n/navigation'
 import LanguageChange from '@/components/ui/language-switcher'
 
@@ -28,8 +28,7 @@ export default function Footer({ contactData }) {
 
     return (
         <footer className="w-full fluid p-1 sm:p-2">
-            <main className="relative gridContainer py-10 sm:py-12 lg:py-16 bg-gradient-to-br from-black to-[#232323] rounded-3xl text-white overflow-hidden px-3">
-                <div className='absolute inset-x-0 w-full h-full bg-[url("/images/cizel-footer.webp")] bg-no-repeat bg-top bg-cover opacity-30 -bottom-16 invert-25' />
+            <main className="relative z-20 gridContainer py-10 sm:py-12 lg:py-16 bg-gradient-to-br from-black to-[#232323] rounded-3xl text-white overflow-hidden px-3">
                 <section className="relative z-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
                     <article className="col-span-2 lg:col-span-1 space-y-6 max-w-md">
                         <div className="flex items-center space-x-2 sm:space-x-4">
@@ -110,7 +109,8 @@ export default function Footer({ contactData }) {
                         </div>
                     </article>
                 </section>
-                <div className='hidden lg:flex w-full item-center justify-center mt-6 relative -z-0'>
+                <div className='absolute inset-x-0 w-full h-full bg-[url("/images/cizel-footer.webp")] bg-no-repeat bg-top bg-cover opacity-30 -bottom-16 invert-25 -z-10' />
+                <div className='hidden lg:flex w-full item-center justify-center mt-6 relative z-10'>
                     <h2 className='text-[130px] xl:text-[170px] 2xl:text-[200px] text-center opacity-20 font-black text-nowrap'>ÇİZEL İNŞAAT</h2>
                 </div>
                 <div className="relative z-20 mt-10 lg:mt-2 pt-8 border-t border-gray-700">
