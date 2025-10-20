@@ -16,7 +16,7 @@ const CareerContent = ({ careerData, careerImage }) => {
                         <div className="relative">
                             <div className="absolute left-1/2 lg:left-2 top-2 lg:top-1/2 translate-y-0 lg:-translate-y-1/2 -translate-x-1/2 lg:translate-x-0 flex flex-col lg:flex-row items-center justify-center mix-blend-difference">
                                 <div className="h-4 md:h-6 lg:h-0.5 w-0.5 lg:w-6 xl:w-10 rounded-lg bg-white" />
-                                <MoveRight className='ml-0 -mt-2 lg:mt-0 lg:-ml-2 w-12 md:w-16 xl:w-20 h-12 md:h-16 xl:h-20 stroke-[0.5px] text-white rotate-90 lg:rotate-0' />
+                                <MoveRight className='ml-0 -mt-2 lg:mt-0 lg:-ml-2 w-12 md:w-16 xl:w-20 h-12 md:h-16 xl:h-20 stroke-[0.5px] rotate-90 lg:rotate-0' />
                             </div>
                             <div className="w-7 md:w-7 xl:w-10 h-7 md:h-7 xl:h-10 bg-black rounded-full" />
                         </div>

@@ -16,12 +16,12 @@ export default function About({ data }) {
                 <div className="flex items-center gap-2">
                     <div className="relative">
                         <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center mix-blend-difference">
-                            <div className="h-0.5 w-10 rounded-lg bg-white" />
-                            <MoveRight className='-ml-2 w-20 h-20 stroke-[0.5px] text-white' />
+                            <div className="h-0.5 w-8 lg:w-10 rounded-lg bg-white" />
+                            <MoveRight className='-ml-3 w-16 lg:w-20 h-16 lg:h-20 stroke-[0.5px]' />
                         </div>
-                        <div className="w-10 h-10 bg-black rounded-full" />
+                        <div className="w-9 lg:w-10 h-9 lg:h-10 bg-black rounded-full" />
                     </div>
-                    <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-20">{t('badge')}</span>
+                    <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-14 lg:ml-20">{t('badge')}</span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl xl:text-6xl font-medium text-black/90 leading-tight">
                     {data.title}

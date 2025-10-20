@@ -53,7 +53,7 @@ export default function Gallery({ images = [], className = '' }) {
 
     return (
         <div className={`pt-5 ${className}`}>
-            <MotionScrollInViewVariant className={"grid grid-cols-2 gap-3"}>
+            <MotionScrollInViewVariant className={"grid grid-cols-2 gap-3"} childClassname={"relative group rounded-lg overflow-hidden ring-1 ring-black/5 hover:ring-black/10 focus:outline-none !cursor-pointer"}>
                 {slides.map((s, idx) => (
                     <div
                         key={idx}

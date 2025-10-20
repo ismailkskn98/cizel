@@ -2,7 +2,7 @@
 import React, { Children } from 'react';
 import { motion, stagger } from 'motion/react';
 
-export default function MotionScrollInViewVariant({ children, className }) {
+export default function MotionScrollInViewVariant({ children, className, childClassname }) {
     const container = {
         hidden: {},
         show: {
@@ -26,7 +26,7 @@ export default function MotionScrollInViewVariant({ children, className }) {
             variants={container}
         >
             {React.Children.map(children, (child, i) => (
-                <motion.section key={i} variants={item} style={{ willChange: 'transform, opacity' }} >
+                <motion.section key={i} variants={item} className={childClassname} style={{ willChange: 'transform, opacity' }} >
                     {child}
                 </motion.section>
             ))}

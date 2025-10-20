@@ -83,7 +83,7 @@ export default function Projects({ projects }) {
                         </div>
                     </div>
 
-                    <MotionScrollInViewVariant className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"}>
+                    <MotionScrollInViewVariant className={"grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"} childClassname={"group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 !cursor-pointer"}>
                         {projects.map((projectItem, i) => {
                             const project = getProjectData(projectItem);
                             const jobTypes = Array.isArray(project.jobType) ? project.jobType : [];
