@@ -31,7 +31,7 @@ const CareerContent = ({ careerData, careerImage }) => {
                             {" "} {t("titleEnd")}
                         </h1>
 
-                        <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl">
+                        <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl">
                             {careerData.description}
                         </p>
                     </article>

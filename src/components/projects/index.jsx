@@ -59,9 +59,7 @@ export default function Projects({ projects }) {
             <PageTopSection breadcrumbs={breadcrumbs} />
             <section className="fluid gridContainer pb-20 pt-16 -mt-52">
                 <div className="relative z-20">
-
                     <div className="relative overflow-hidden mb-6 lg:mb-12 pt-44 lg:pt-52">
-
                         <div className="relative z-10 max-w-4xl">
                             <article className="flex items-center gap-2 mb-6 bg-white">
                                 <div className="relative">
@@ -74,7 +72,7 @@ export default function Projects({ projects }) {
                                 <span className="inline-block text-sm 3xl:text-base font-medium text-black/80 ml-12 lg:ml-16 2xl:ml-20">{t('ProjectsPage.badge')}</span>
                             </article>
 
-                            <h1 className="text-5xl md:text-6xl font-medium mb-3 leading-tight">
+                            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 mb-3 leading-tight">
                                 {t('Common.allProjects')}
                             </h1>
 
@@ -140,7 +138,7 @@ export default function Projects({ projects }) {
 
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                                             <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                                <span className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                                                <span className="flex items-center gap-1 text-xs font-medium text-gray-800">
                                                     {t('ProjectsPage.viewDetails')}
                                                     <ArrowRight className="w-4 h-4" />
                                                 </span>
