@@ -20,7 +20,7 @@ const CareerContent = ({ careerData, careerImage }) => {
                                 </div>
                                 <div className="w-7 md:w-7 xl:w-10 h-7 md:h-7 xl:h-10 bg-black rounded-full" />
                             </div>
-                            <span className="inline-block text-xs lg:text-sm 3xl:text-base font-medium text-black/80 ml-0 mt-10 lg:mt-0 lg:ml-16 xl:ml-20">{t("badge")}</span>
+                            <span className="inline-block text-xs lg:text-sm 3xl:text-base font-medium text-black/80 ml-0 mt-12 sm:mt-16 lg:mt-0 lg:ml-16 xl:ml-20">{t("badge")}</span>
                         </article>
 
                         <h1 className="text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900">

@@ -61,7 +61,7 @@ export default function Projects({ projects, city, projectStatusName }) {
             <section className="fluid gridContainer pb-20 pt-16 -mt-52">
                 <div className="relative z-20">
 
-                    <div className="relative overflow-hidden mb-12 pt-52">
+                    <div className="relative overflow-hidden mb-6 lg:mb-12 pt-44 lg:pt-52">
 
                         <div className="relative z-10 max-w-4xl">
                             <article className="flex items-center gap-2 mb-6 bg-white">
@@ -154,7 +154,7 @@ export default function Projects({ projects, city, projectStatusName }) {
                                         </div>
                                     </div>
 
-                                    <div className="p-6 space-y-4">
+                                    <div className="p-6 space-y-2 sm:space-y-4">
                                         <h3 className="text-lg font-bold text-gray-900 line-clamp-2 leading-tight group-hover:text-logo-red transition-colors duration-300">
                                             {project.title}
                                         </h3>

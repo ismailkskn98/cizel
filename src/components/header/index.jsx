@@ -44,7 +44,9 @@ export default function Header() {
                         className='object-contain object-center w-auto h-12 !cursor-pointer'
                     />
                 </Link>
-                <LanguageChange />
+                <div className='w-full flex items-center justify-end'>
+                    <LanguageChange />
+                </div>
             </main>
 
             <main className='w-full hidden lg:grid lg:grid-cols-5 items-center justify-between'>
