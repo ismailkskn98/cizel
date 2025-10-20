@@ -39,7 +39,7 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
                     height={800}
                     className="w-full h-[500px] object-cover object-center"
                 />
-                <div className='absolute inset-0 bg-black/70 backdrop-blur-none lg:backdrop-blur-xs blur-sm lg:blur-none' />
+                <div className='absolute inset-0 bg-black/80 lg:bg-black/70 backdrop-blur-none lg:backdrop-blur-xs' />
             </div>
 
             <article className="relative z-50 mb-6 max-w-4xl pt-8">
