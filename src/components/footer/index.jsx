@@ -76,17 +76,31 @@ export default function Footer({ contactData }) {
                             {tCommon('ourServices')}
                         </h3>
                         <ul className="space-y-3">
-                            {services.map((service, index) => (
-                                <li key={index}>
-                                    <Link
-                                        href={service.href}
-                                        className="text-gray-300 hover:text-white transition-colors duration-200 text-xs sm:text-sm flex items-center group !cursor-pointer"
-                                    >
-                                        <span className="hidden md:block w-1 h-1 bg-logo-red rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                                        {service.label}
-                                    </Link>
-                                </li>
-                            ))}
+                            {services.map((service, index) => {
+                                const isKvkk = service.href === "/kvkk.pdf";
+                                return (
+                                    <li key={index}>
+                                        {isKvkk ? (
+                                            <a
+                                                href={service.href}
+                                                target='_blank'
+                                                className="text-gray-300 hover:text-white transition-colors duration-200 text-xs sm:text-sm flex items-center group !cursor-pointer"
+                                            >
+                                                <span className="hidden md:block w-1 h-1 bg-logo-red rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                                {service.label}
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                href={service.href}
+                                                className="text-gray-300 hover:text-white transition-colors duration-200 text-xs sm:text-sm flex items-center group !cursor-pointer"
+                                            >
+                                                <span className="hidden md:block w-1 h-1 bg-logo-red rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                                {service.label}
+                                            </Link>
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </article>
 

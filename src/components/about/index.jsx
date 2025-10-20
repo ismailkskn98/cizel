@@ -9,10 +9,11 @@ import Opacity from '../common/opacity';
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 export default function About({ locale, aboutData, totalProjectCount, foundingYear, completedProjects, cityCount }) {
     const t = useTranslations('AboutPage');
+    const nav = useTranslations('Navigation');
 
     const breadcrumbs = [
-        { label: 'Home', href: '/' },
-        { label: 'Kurumsal', href: null },
+        { label: nav('home'), href: '/' },
+        { label: nav('corporate'), href: null },
         { label: t('title'), href: null }
     ];
 

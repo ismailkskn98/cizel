@@ -210,9 +210,9 @@ const CareerForm = () => {
                 <footer className="text-center text-xs text-gray-500 mx-auto">
                     <p>
                         {t("form.privacy")}{" "}
-                        <Link href="/kvkk.pdf" className="text-logo-red hover:underline !cursor-pointer">
+                        <a href="/kvkk.pdf" target="_blank" className="text-logo-red hover:underline !cursor-pointer">
                             {t("form.privacyLink")}
-                        </Link>{" "}
+                        </a>{" "}
                         {t("form.privacyEnd")}
                     </p>
                 </footer>

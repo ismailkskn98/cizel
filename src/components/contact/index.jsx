@@ -3,12 +3,15 @@ import ContactContent from './contactContent';
 import ContactForm from './contactForm';
 import PageTopSection from '@/components/common/pageTopSection';
 import MapSection from './mapSection';
+import { useTranslations } from 'next-intl';
 // import FAQ from '../common/faq';
 
 export default function Contact({ contactData, faqData }) {
+    const nav = useTranslations('Navigation');
+
     const breadcrumbs = [
-        { label: 'Home', href: '/' },
-        { label: 'Contact', href: null }
+        { label: nav('home'), href: '/' },
+        { label: nav('contact'), href: null }
     ];
 
     return (

@@ -2,11 +2,14 @@ import React from 'react'
 import PageTopSection from '../common/pageTopSection';
 import CareerContent from './careerContent';
 import CareerForm from './careerForm';
+import { useTranslations } from 'next-intl';
 
 export default function Career({ careerData, careerImage }) {
+    const nav = useTranslations('Navigation');
+
     const breadcrumbs = [
-        { label: 'Home', href: '/' },
-        { label: 'Career', href: null }
+        { label: nav('home'), href: '/' },
+        { label: nav('career'), href: null }
     ];
     return (
         <main className="w-full fluid gridContainer pb-6 lg:pb-10 xl:pb-16 2xl:pb-24">
