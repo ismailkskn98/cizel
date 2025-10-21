@@ -115,6 +115,7 @@ export async function generateMetadata({ params }) {
 const base_url = process.env.NEXT_PUBLIC_API_BASE_URL;
 const getContact = async () => {
   try {
+    console.log(base_url);
     const response = await fetch(`${base_url}/api/site/contact`, { next: { revalidate: 10 } });
     if (!response.ok) {
       throw new Error('Failed to fetch contact');
