@@ -31,15 +31,15 @@ export default function ProjectSlug({ project, locale = 'tr' }) {
 
     return (
         <section className="px-4 sm:px-6 lg:px-8 py-8 max-w-7xl mx-auto mb-16">
-            <div className="mb-6 absolute inset-x-0 top-12 lg:top-0 h-fit w-full">
+            <div className="mb-6 absolute left-1/2 -translate-x-1/2 top-12 lg:top-2 h-fit w-[99%] rounded-3xl overflow-hidden">
                 <Image
                     src={template.coverImage ? (template.coverImage.startsWith('http') ? template.coverImage : `${baseUrl}${template.coverImage}`) : '/images/about-2.jpg'}
                     alt={JSON.parse(template.title)[locale] || 'Proje'}
                     width={1920}
                     height={800}
-                    className="w-full h-[500px] object-cover object-center"
+                    className="w-full h-[500px] object-cover object-center rounded-3xl"
                 />
-                <div className='absolute inset-0 bg-black/80 lg:bg-black/70 backdrop-blur-none lg:backdrop-blur-xs' />
+                <div className='absolute inset-0 bg-black/80 lg:bg-black/70 backdrop-blur-none lg:backdrop-blur-xs rounded-3xl' />
             </div>
 
             <article className="relative z-50 mb-6 max-w-4xl pt-8">

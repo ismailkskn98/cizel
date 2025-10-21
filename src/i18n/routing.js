@@ -21,13 +21,5 @@ export const routing = defineRouting({
       tr: "/projeler",
       en: "/projects",
     },
-    "/projects/[cityOrSlug]": {
-      tr: "/projeler/[cityOrSlug]",
-      en: "/projects/[cityOrSlug]",
-    },
-    "/projects/[cityOrSlug]/[slug]": {
-      tr: "/projeler/[cityOrSlug]/[slug]",
-      en: "/projects/[cityOrSlug]/[slug]",
-    },
   },
 });

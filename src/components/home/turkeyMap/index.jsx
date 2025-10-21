@@ -35,7 +35,7 @@ export default function TurkeyMap({ hasProjects = [], homeData }) {
     };
 
     return (
-        <MotionScrollInViewVariant className="w-full relative mt-4 sm:mt-8">
+        <MotionScrollInViewVariant className="w-full relative mt-4 sm:mt-8 -mb-2 sm:-mb-12 md:-mb-24 xl:-mb-32">
             <TurkeyMapHeader homeData={homeData} />
             <div className="py-0 lg:py-4 2xl:py-6" />
             <ComposableMap

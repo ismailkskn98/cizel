@@ -39,12 +39,12 @@ export default function Hero({ carousels }) {
                     <SwiperSlide key={slide.id} className="relative">
                         <div className="relative h-full w-full">
                             <Image key={`${slide.id}-${activeIndex}`}
-                                initial={{ scale: 1 }}
-                                animate={{ scale: activeIndex === index ? 1.12 : 1 }}
-                                transition={{ duration: 7, ease: "easeOut" }}
                                 src={`${base_url}${slide.image}`}
-                                alt='cizel carousel item' layout='fill' objectFit='cover'
-                                className='absolute inset-0 -z-20 w-full h-full object-cover' />
+                                alt='cizel carousel item'
+                                fill
+                                sizes="100vw"
+                                className='absolute inset-0 -z-20 w-full h-full object-cover'
+                                priority={index === 0} />
 
                             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
                             <div className="absolute inset-0 -z-10 bg-black/20" />
