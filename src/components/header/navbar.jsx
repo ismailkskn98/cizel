@@ -17,10 +17,10 @@ export default function Navbar({ items = [] }) {
 
     return (
         <MotionScrollInViewOpacity className='relative col-span-3 flex items-center gap-6 justify-self-center px-6 py-4 rounded-b-3xl bg-white z-20 -mt-8' onMouseLeave={() => setOpen(null)}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -right-6 top-0 rotate-90 fill-white" width="24" height="24">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -right-6 top-0 rotate-90 scale-105 fill-white" width="24" height="24">
                 <path d="M0 24h24C10.745 24 0 13.255 0 0z" />
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -left-6 top-0 rotate-180 fill-white" width="24" height="24">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -left-6 top-0 rotate-180 scale-105 fill-white" width="24" height="24">
                 <path d="M0 24h24C10.745 24 0 13.255 0 0z" />
             </svg>
             <div className='absolute bg-white -top-2 inset-x-0 w-full h-2 z-30' />

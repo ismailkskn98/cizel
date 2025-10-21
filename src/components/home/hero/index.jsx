@@ -109,6 +109,12 @@ export default function Hero({ carousels }) {
                     transition={{ delay: 0.2, duration: 0.6 }}
                     className=" z-20 absolute left-1/2 -translate-x-1/2 bottom-0 inline-flex items-center justify-center w-full max-w-xs rounded-t-2xl bg-white text-black px-4 py-2 text-xs font-light"
                 >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -right-6 bottom-0 scale-105 fill-white" width="24" height="24">
+                        <path d="M0 24h24C10.745 24 0 13.255 0 0z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="absolute -left-6 bottom-0 scale-105 -rotate-90 fill-white" width="24" height="24">
+                        <path d="M0 24h24C10.745 24 0 13.255 0 0z" />
+                    </svg>
                     {subtitle}
                 </motion.span>
             </Swiper>
