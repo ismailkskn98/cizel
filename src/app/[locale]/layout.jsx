@@ -75,7 +75,7 @@ export async function generateMetadata({ params }) {
       siteName: "Çizel İnşaat",
       images: [
         {
-          url: "/images/cizel-logo-yazisiz.png",
+          url: "/images/cizel-logo/cizel-logo-yazisiz.png",
           width: 1200,
           height: 630,
           alt: "Çizel İnşaat",
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t('title'),
       description: t('description'),
-      images: ["/images/cizel-logo-yazisiz.png"],
+      images: ["/images/cizel-logo/cizel-logo-yazisiz.png"],
     },
     icons: {
       icon: [{ url: "/images/cizel-logo/cizel-logo-yazisiz.png", type: "image/png", sizes: "512x512" }],
